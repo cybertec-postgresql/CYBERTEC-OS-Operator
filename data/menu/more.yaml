@@ -1,0 +1,13 @@
+---
+more:
+  - name: News
+    ref: "/news"
+    icon: "gdoc_notification"
+  - name: "View Source"
+    ref: "https://github.com/cybertec-postgresql/CYBERTEC-pg-container"
+    external: true
+    icon: "gdoc_github"
+  - name: Releases
+    ref: "https://github.com/cybertec-postgresql/CYBERTEC-pg-container/releases"
+    external: true
+    icon: "gdoc_download"

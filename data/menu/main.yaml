@@ -1,0 +1,46 @@
+---
+main:
+  - name: Home
+    ref: "/"
+    icon: "gdoc_home"
+  - name: Documentation
+#    ref: "/documentation"
+    icon: "gdoc_bookmark"
+    sub:
+      - name: Quickstart
+        ref: "/documentation/quickstart"
+      - name: How to Use
+        #ref: "/documentation/how_to_use"
+        sub:
+          - name: Installation
+            ref: "/documentation/how-to-use/installation"
+          - name: Configuration
+            ref: "/documentation/how-to-use/configuration"
+          - name: Tutorials
+            #ref: "/documentation/how-to-use/installation"
+            sub: 
+              - name: abc
+                ref: "/documentation/tutorials/abc"
+      - name: References
+        #ref: "/documentation/level-2-4"
+        sub:
+          - name: PostgreSQL-Cluster
+            ref: "/documentation/crd/crd-postgresql"
+          - name: Operator-Configuration
+            ref: "/documentation/crd/crd-operator-configurator"
+      - name: Release-Notes
+        ref: "/documentation/release_notes"
+        sub: 
+          - name: 0.3.0
+            ref: "#0.3.0"
+            external: true
+          - name: 0.1.0
+            ref: "#0.1.0"
+            external: true
+  - name: Support
+    ref: "/level-3"
+    icon: "gdoc_heart"
+  - name: Roadmap
+    ref: "/level-4"
+    icon: "gdoc_path"
+        
