@@ -1,5 +1,5 @@
 baseURL = "http://localhost"
-title = "CYBERTEC-PG-Containers"
+title = "CYBERTEC-PG-Operator"
 theme = "hugo-geekdoc"
 
 pluralizeListTitles = false
