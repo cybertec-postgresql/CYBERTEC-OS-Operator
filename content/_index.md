@@ -1,7 +1,7 @@
 ---
 title: "CPO (CYBERTEC-PG-Operator)"
 date: 2023-03-07T14:26:51+01:00
-draft: true
+draft: false
 ---
 Current Release: 0.3.0 (xx.xx.xxxx) [Release Notes](/documentation/release_notes)
 

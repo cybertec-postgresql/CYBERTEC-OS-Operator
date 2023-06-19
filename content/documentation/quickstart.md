@@ -1,7 +1,7 @@
 ---
 title: "Quickstart"
 date: 2023-03-07T14:26:51+01:00
-draft: true
+draft: false
 ---
 
 We can tell and document so much about our project but it seems you just want to get started. Let us show you the fastest way to use CPO.
