@@ -19,7 +19,7 @@ draft: false
 
 | Name                           | Type    | required  | Description        |
 | ------------------------------ |:-------:| ---------:| ------------------:|
-| [backup](#backup)                         | object  | false     | Enables the definition of a customised backup solution for the cluster |
+| [backup](#backup)              | object  | false     | Enables the definition of a customised backup solution for the cluster |
 | teamId                         | string  | true      | name of the team the cluster belongs to |
 | numberOfInstances              | Int     | true      | Number of nodes of the cluster |
 | dockerImages                   | string  | false     | Define a custom image to override the default |
