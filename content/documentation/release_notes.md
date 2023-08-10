@@ -4,6 +4,21 @@ date: 2023-03-07T14:26:51+01:00
 draft: false
 ---
 
+### 0.6.0
+
+Release with some improvements and stabilisation measuresm
+
+#### Features
+- Updated to Zalando Operator 1.9
+- Added [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)yy
+
+#### Software-Versions
+
+- PostgreSQL: 15.3 14.8, 13.11, 12.15
+- Patroni: 3.0.4
+- pgBackRest: 2.47
+- OS: Rocky-Linux 9.1 (4.18)
+
 ### 0.3.0
 
 Release with some improvements and stabilisation measuresm
