@@ -3,13 +3,14 @@ title: "Release Notes"
 date: 2023-03-07T14:26:51+01:00
 draft: false
 ---
+
 ### 0.6.0
 
 Release with some improvements and stabilisation measuresm
 
 #### Features
 - Updated to Zalando Operator 1.9
-- Added [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)
+- Added [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)yy
 
 #### Software-Versions
 
