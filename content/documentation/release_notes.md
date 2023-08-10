@@ -22,13 +22,28 @@ Release with some improvements and stabilisation measuresm
 ___
 
 
+### 0.5.0
+
+Release with new Software-Updates and some internal Improvements
+
+#### Fixes
+- internal Problems with Cronjobs
+- updates for some API-Definitions
+
+#### Software-Versions
+
+- PostgreSQL: 15.2 14.7, 13.10, 12.14
+- Patroni: 3.0.2
+- pgBackRest: 2.45
+- OS: Rocky-Linux 9.1 (4.18)
+
+
 ### 0.3.0
 
 Release with some improvements and stabilisation measuresm
 
 #### Fixes
 - missing pgbackrest_restore configmap fixed
-- 
 
 #### Software-Versions
 
