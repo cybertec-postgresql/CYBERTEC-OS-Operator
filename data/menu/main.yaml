@@ -32,16 +32,16 @@ main:
         ref: "/documentation/release_notes"
         sub: 
           - name: 0.6.0
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#0.6.0"
+            ref: "/CYBERTEC-pg-operator/documentation/release_notes#060"
             external: true
           - name: 0.5.0
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#0.5.0"
+            ref: "/CYBERTEC-pg-operator/documentation/release_notes#050"
             external: true
           - name: 0.3.0
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#0.3.0"
+            ref: "/CYBERTEC-pg-operator/documentation/release_notes#030"
             external: true
           - name: 0.1.0
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#0.1.0"
+            ref: "/CYBERTEC-pg-operator/documentation/release_notes#010"
             external: true
   - name: Support
     ref: "/level-3"
