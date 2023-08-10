@@ -33,7 +33,7 @@ main:
         sub: 
           - name: 0.6.0
             ref: "/documentation/release_notes#0.6.0"
-            external: true
+            external: false
           - name: 0.3.0
             ref: "/documentation/release_notes#0.3.0"
             external: true
