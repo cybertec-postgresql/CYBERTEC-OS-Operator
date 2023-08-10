@@ -1,5 +1,5 @@
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: CYBERTEC-PG-Operator
+name: CYBERTEC-pg-operator
 
 on:
   # Runs on pushes targeting the default branch
