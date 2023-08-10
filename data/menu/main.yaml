@@ -33,7 +33,7 @@ main:
         sub: 
           - name: 0.6.0
             ref: "#0.6.0"
-            external: true
+            external: false
           - name: 0.3.0
             ref: "#0.3.0"
             external: true
