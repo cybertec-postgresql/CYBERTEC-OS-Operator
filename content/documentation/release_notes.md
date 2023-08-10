@@ -9,8 +9,8 @@ draft: false
 Release with some improvements and stabilisation measuresm
 
 #### Features
-- Updated to Zalando Operator 1.9
-- Added [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)yy
+- Added [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)
+- Added support for TDE based on the CYBERTEC PostgreSQL Enterprise Images (Licensed Container Suite)
 
 #### Software-Versions
 
@@ -24,6 +24,8 @@ ___
 ### 0.5.0
 
 Release with new Software-Updates and some internal Improvements
+### Features
+- Updated to Zalando Operator 1.9
 
 #### Fixes
 - internal Problems with Cronjobs
