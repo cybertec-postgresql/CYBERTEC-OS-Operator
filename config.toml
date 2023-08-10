@@ -89,7 +89,7 @@ enableRobotsTXT = true
   # (Optional, default false) Set HTMl <base> to .Site.BaseURL if enabled. It might be required
   # if a subdirectory is used within Hugos BaseURL.
   # See https://developer.mozilla.org/de/docs/Web/HTML/Element/base.
-  geekdocOverwriteHTMLBase = false
+  geekdocOverwriteHTMLBase = true
 
   # (Optional, default true) Enable or disable the JavaScript based color theme toggle switch. The CSS based
   # user preference mode still works.
