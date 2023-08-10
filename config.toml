@@ -1,4 +1,4 @@
-baseURL = "https://cybertec-postgresql.github.io/CYBERTEC-pg-operator"
+baseURL = "https://cybertec-postgresql.github.io/CYBERTEC-pg-operator/"
 title = "CYBERTEC-PG-Operator"
 theme = "hugo-geekdoc"
 
