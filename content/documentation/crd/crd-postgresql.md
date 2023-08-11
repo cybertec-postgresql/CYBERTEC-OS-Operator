@@ -70,6 +70,7 @@ key, operator, value, effect and tolerationSeconds |
 | global                         | object  | false     |  |
 | images                         | string  | true      |  |
 | [repos](#repos)                | array   | true      |  |
+| resources:                     | object  | false     | Resource definition (limits.cpu, limits.memory & requests.cpu & requests.memory)|
 
 [back to parent](#backup)
 
