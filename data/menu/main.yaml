@@ -31,6 +31,9 @@ main:
       - name: Release-Notes
         ref: "/documentation/release_notes"
         sub: 
+          - name: 0.6.1
+            ref: "/CYBERTEC-pg-operator/documentation/release_notes#061"
+            external: true
           - name: 0.6.0
             ref: "/CYBERTEC-pg-operator/documentation/release_notes#060"
             external: true

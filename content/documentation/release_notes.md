@@ -4,6 +4,23 @@ date: 2023-03-07T14:26:51+01:00
 draft: false
 ---
 
+### 0.6.1
+
+Release with fixes
+
+#### Fixes
+- Backup-Pod now runs with "best-effort" resource definition
+- Der Init-Container für die Wiederherstellung verwendet nun die gleiche Ressource-Definition wie der Datenbank-Container, wenn es keine spezifische Definition im Cluster-Manifest gibt (spec.backup.pgbackrest.resources)
+
+#### Software-Versions
+
+- PostgreSQL: 15.3 14.8, 13.11, 12.15
+- Patroni: 3.0.4
+- pgBackRest: 2.47
+- OS: Rocky-Linux 9.1 (4.18)
+</br></br>
+___
+</br></br>
 ### 0.6.0
 
 Release with some improvements and stabilisation measuresm
