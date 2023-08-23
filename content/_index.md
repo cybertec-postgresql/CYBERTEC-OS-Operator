@@ -23,7 +23,7 @@ CPO is tested on the following platforms:
 - Rancher
 - AWS EKS
 - Azure AKS
-- Google GKE
+- Google GKE 
 
 Furthermore, CPO is basically executable on any [CSCF-certified](https://www.cncf.io/certification/software-conformance/) Kubernetes platform.
 
