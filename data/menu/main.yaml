@@ -19,6 +19,18 @@ main:
           - name: Tutorials
             #ref: "/documentation/how-to-use/installation"
             sub: 
+              - name: Create a Cluster
+                ref: "/documentation/cluster/single-cluster"
+              - name: Modify the Cluster
+                ref: "/documentation/cluster/modify-cluster"
+              - name: High-Availabilty Cluster
+                ref: "/documentation/cluster/ha-cluster"
+              - name: Modify Patroni
+                ref: "/documentation/cluster/patroni"
+              - name: Backup & Restore a Cluster
+                ref: "/documentation/cluster/backup-restore"
+              - name: Standby-Cluster and Cluster-Clone
+                ref:  "/documentation/cluster/standby-clone"
               - name: abc
                 ref: "/documentation/tutorials/abc"
       - name: References
