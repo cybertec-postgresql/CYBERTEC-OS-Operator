@@ -103,3 +103,7 @@ spec:
       track_io_timing: "true"
 ```
 These Definitions will change the PostgreSQL-Configuration. Based on the needs of Parameter changes the Pods may needs a restart, which creates a Downtime if its not a HA-Cluster.
+You can check Parameters and allowed Values on this Sources to ensure a correct Value.
+- PostgreSQL Documentation
+- [PostgreSQL.org](https://postgresql.org)
+- [PostgreSQLco.nf](https://postgresqlco.nf/)

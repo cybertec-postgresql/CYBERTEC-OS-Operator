@@ -33,6 +33,10 @@ main:
                 ref:  "/documentation/cluster/standby-clone"
               - name: abc
                 ref: "/documentation/tutorials/abc"
+              - name: Monitoring
+                ref: /documentation/cluster/monitoring
+              - name: Migrate to new API
+                ref: /documentation/operator/migrateToNewApi
       - name: References
         #ref: "/documentation/level-2-4"
         sub:
@@ -40,24 +44,27 @@ main:
             ref: "/documentation/crd/crd-postgresql"
           - name: Operator-Configuration
             ref: "/documentation/crd/crd-operator-configurator"
-      - name: Release-Notes
-        ref: "/documentation/release_notes"
-        sub: 
-          - name: 0.6.1
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#061"
-            external: true
-          - name: 0.6.0
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#060"
-            external: true
-          - name: 0.5.0
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#050"
-            external: true
-          - name: 0.3.0
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#030"
-            external: true
-          - name: 0.1.0
-            ref: "/CYBERTEC-pg-operator/documentation/release_notes#010"
-            external: true
+  - name: Release-Notes
+    ref: "/release_notes"
+    sub:
+      - name: 0.7.0
+        ref: "/CYBERTEC-pg-operator/release_notes#070"
+        external: true
+      - name: 0.6.1
+        ref: "/CYBERTEC-pg-operator/release_notes#061"
+        external: true
+      - name: 0.6.0
+        ref: "/CYBERTEC-pg-operator/release_notes#060"
+        external: true
+      - name: 0.5.0
+        ref: "/CYBERTEC-pg-operator/release_notes#050"
+        external: true
+      - name: 0.3.0
+        ref: "/CYBERTEC-pg-operator/release_notes#030"
+        external: true
+      - name: 0.1.0
+        ref: "/CYBERTEC-pg-operator/release_notes#010"
+        external: true
   - name: Support
     ref: "/level-3"
     icon: "gdoc_heart"

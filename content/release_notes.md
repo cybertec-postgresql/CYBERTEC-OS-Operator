@@ -4,6 +4,29 @@ date: 2023-03-07T14:26:51+01:00
 draft: false
 ---
 
+### 0.7.0
+
+#### Features
+- Monitoring-Sidecar integrated via CRD [Start with Monitoring](documentation/cluster/monitoring)
+- Password-Hash per default set to scram-sha-256
+
+#### Changes
+- API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you're updating your Operator from previous Versions, please check this  [HowTo Migrate to new API](documentation/operator/migrateToNewApi/)
+- Patroni-Compatibility has increased to Version 3.2.2
+- pgBackRest-Compatbility has increased to Version 2.50
+
+
+#### Fixes
+- PDB Bug fixed - Single-Node Clusters are not creating PDBs anymore which can break Kubernetes-Update
+
+#### Supported Versions
+
+- PG: 12 - 16 
+- Patroni: 3.2.2
+- pgBackRest: 2.50
+- Kubernetes: 1.21 - 1.28
+- Openshift: 4.8 - 4.13
+
 ### 0.6.1
 
 Release with fixes

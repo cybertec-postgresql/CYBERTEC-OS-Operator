@@ -1,9 +1,9 @@
 ---
 title: "CPO (CYBERTEC-PG-Operator)"
-date: 2023-03-07T14:26:51+01:00
+date: 2024-03-11T14:26:51+01:00
 draft: false
 ---
-Current Release: 0.3.0 (xx.xx.xxxx) [Release Notes](/documentation/release_notes)
+Current Release: 0.7.0 (xx.xx.xxxx) [Release Notes](/documentation/release_notes)
 
 CPO (CYBERTEC PG Operator) allows you to create and run PostgreSQL clusters on Kubernetes. 
 
@@ -18,8 +18,8 @@ The following features characterise our operator:
 - Reduction of downtime thanks to redundancy, pod anti-affinity, auto-failover and self-healing
 
 CPO is tested on the following platforms: 
-- Kubernetes 1.21 - 1.24
-- Openshift 4.8 - 4.11
+- Kubernetes: 1.21 - 1.28
+- Openshift: 4.8 - 4.13 
 - Rancher
 - AWS EKS
 - Azure AKS
