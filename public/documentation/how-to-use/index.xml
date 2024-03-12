@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documentation on CYBERTEC-PG-Operator</title>
-    <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/</link>
+    <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/how-to-use/</link>
     <description>Recent content in Documentation on CYBERTEC-PG-Operator</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 07 Mar 2023 14:26:51 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/how-to-use/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configuration</title>
-      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/configuration/</link>
+      <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/how-to-use/configuration/</link>
       <pubDate>Tue, 07 Mar 2023 14:26:51 +0100</pubDate>
-      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/configuration/</guid>
+      <guid>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/how-to-use/configuration/</guid>
       <description></description>
     </item>
     <item>
       <title>Installation</title>
-      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/installation/</link>
+      <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/how-to-use/installation/</link>
       <pubDate>Tue, 07 Mar 2023 14:26:51 +0100</pubDate>
-      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/installation/</guid>
+      <guid>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/how-to-use/installation/</guid>
       <description>Prerequisites For the installation you either need our CPO tutorial repository or you install CPO directly from our registry.&#xA;Exception: Installation via Operatorhub (Openshift only)&#xA;CPO-Tutorial-Repository To get started, you can fork our tutorial repository on Github and then download it. CYBERTEC-operator-tutorials&#xA;GITHUB_USER=&amp;#39;[YOUR_USERNAME]&amp;#39; git clone https://github.com/$GITHUB_USER/CYBERTEC-operator-tutorials.git cd CYBERTEC-operator-tutorials CPO-Registry Create Namespace # kubectl kubectl create namespace cpo # oc oc create namespace cpo Install CPO There are several ways to install CPO:</description>
     </item>
     <item>
       <title>Overview</title>
-      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/level-2-2-2/</link>
+      <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/how-to-use/level-2-2-2/</link>
       <pubDate>Tue, 07 Mar 2023 14:26:51 +0100</pubDate>
-      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/level-2-2-2/</guid>
+      <guid>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/how-to-use/level-2-2-2/</guid>
       <description></description>
     </item>
   </channel>

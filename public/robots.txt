@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /tags/*
 
-Sitemap: http://localhost:1313/CYBERTEC-pg-operator/sitemap.xml
+Sitemap: https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/sitemap.xml
