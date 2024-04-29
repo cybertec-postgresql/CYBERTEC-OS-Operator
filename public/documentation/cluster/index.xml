@@ -2,39 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documentation on CYBERTEC-PG-Operator</title>
-    <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/</link>
+    <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/cluster/</link>
     <description>Recent content in Documentation on CYBERTEC-PG-Operator</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Dec 2023 14:26:51 +0100</lastBuildDate>
-    <atom:link href="https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>High Availability Cluster (HA)</title>
-      <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/ha-cluster/</link>
-      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
-      <guid>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/ha-cluster/</guid>
-      <description>To ensure continiues productive usage you can create a HA-Cluster or modify a Single-Node-Cluster to a HA-Cluster. The needed changes are less complicated&#xA;spec: numberOfInstances: 2 # or more The example above will create a HA-Cluster based on two Nodes.&#xA;kubectl get pods ----------------------------------------------------------------------------- NAME | READY | STATUS | RESTARTS | AGE cluster-1-0 | 1/1 | Running | 0 | 54s cluster-1-1 | 1/1 | Running | 0 | 31s </description>
-    </item>
-    <item>
-      <title>Modify Cluster</title>
-      <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/modify-cluster/</link>
-      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
-      <guid>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/modify-cluster/</guid>
-      <description>Starting with the Single-Node-Cluster from the previous section, we want to modify the Instance a bit to see.&#xA;CPU and Memory spec: resources: limits: cpu: 1000m memory: 500Mi requests: cpu: 500m memory: 500mi Based on the ressources-Definiton we&amp;rsquo;re able to modify the reserved Hardware (requests) and the limits, which allows use to consume more than the reserved definitons if the k8s-worker has this hardware available. There are some Restrictions when modifiying the limits-section.</description>
-    </item>
-    <item>
-      <title>Single Cluster</title>
-      <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/single-cluster/</link>
-      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
-      <guid>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/single-cluster/</guid>
-      <description>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.&#xA;minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &amp;#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&amp;#34; numberOfInstances: 1 postgresql: version: &amp;#34;16&amp;#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.</description>
-    </item>
-    <item>
-      <title>Start with Monitoring</title>
-      <link>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/monitoring/</link>
-      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
-      <guid>https://cybertec-postgresql.github.io:1313/CYBERTEC-pg-operator/documentation/cluster/monitoring/</guid>
-      <description>The CPO-Project has prepared severall Tools which allows to setup a Monitoring-Stack including Alerting and Metric-Viewer. These Stack is based on:&#xA;Prometheus Alertmanager Grafana exporter-container CPO has prepared an own Exporter for the PostgreSQl-Pod which can used as a sidecar.&#xA;Setting up the Monitoring Stack To setup the Monitoring-Stack we suggest that you create an own namespace and use the prepared kustomization file inside the Operator-Tutorials.&#xA;$ kubectl create namespace cpo-monitoring namespace/cpo-monitoring created $ kubectl get pods -n cpo-monitoring No resources found in cpo-monitoring namespace.</description>
-    </item>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/CYBERTEC-pg-operator/documentation/cluster/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
