@@ -16,31 +16,39 @@ main:
             ref: "/documentation/how-to-use/installation"
           - name: Configuration
             ref: "/documentation/how-to-use/configuration"
-          - name: Tutorials
-            #ref: "/documentation/how-to-use/installation"
-            sub: 
-              - name: Create a Cluster
-                ref: "/documentation/single-cluster"
-              - name: Apply Ressources
-                ref: "/documentation/ressources"                
-              - name: Modify the Cluster
-                ref: "/documentation/modify-cluster"
-              - name: High-Availabilty Cluster
-                ref: "/documentation/ha-cluster"
-              - name: Modify Patroni
-                ref: "/documentation/patroni"
-              - name: Backup
-                ref: "/documentation/backup"
-              - name: Restore a Cluster
-                ref: "/documentation/restore"
-              - name: Standby-Cluster and Cluster-Clone
-                ref:  "/documentation/cluster/standby-clone"
-              - name: abc
-                ref: "/documentation/tutorials/abc"
-              - name: Monitoring
-                ref: /documentation/cluster/monitoring
-              - name: Migrate to new API
-                ref: /documentation/operator/migrateToNewApi
+          - name: Create a Cluster
+            ref: "/documentation/how-to-use/single-cluster"
+          - name: Apply Ressources
+            ref: "/documentation/how-to-use/ressources"
+          - name: Databases and User
+            ref: "/documentation/how-to-use/databases_roles"                
+          - name: Modify the Cluster
+            ref: "/documentation/how-to-use/modify-cluster"
+          - name: High-Availabilty Cluster
+            ref: "/documentation/how-to-use/ha-cluster"
+          - name: PostgreSQL-Configuration
+            ref: "/documentation/how-to-use/configuration"
+          - name: Backup
+            ref: "/documentation/how-to-use/backup"
+          - name: Restore
+            ref: "/documentation/how-to-use/restore"
+          - name: Standby-Cluster
+            ref:  "/documentation/how-to-use/standby"
+          - name: Clone a Cluster
+            ref: "/documentation/how-to-use/clone"
+          - name: Slots
+            ref: "/documentation/how-to-use/slots"
+          - name: Monitoring
+            ref: /documentation/how-to-use/monitoring
+          - name: Sidecars
+            ref: "/documentation/how-to-use/sidecars"
+          - name: ConnectionPooler
+            ref: "/documentation/how-to-use/connectionpooler"
+
+          - name: Migrate to new API
+            ref: /documentation/operator/migrateToNewApi
+      - name: Examples
+        ref: "/documentation/examples"
       - name: References
         #ref: "/documentation/level-2-4"
         sub:
