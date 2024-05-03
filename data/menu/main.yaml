@@ -20,6 +20,8 @@ main:
             ref: "/documentation/how-to-use/single-cluster"
           - name: Apply Ressources
             ref: "/documentation/how-to-use/ressources"
+          - name: Storage
+            ref: "/documentation/how-to-use/storage"
           - name: Databases and User
             ref: "/documentation/how-to-use/databases_roles"                
           - name: Modify the Cluster
@@ -44,7 +46,8 @@ main:
             ref: "/documentation/how-to-use/sidecars"
           - name: ConnectionPooler
             ref: "/documentation/how-to-use/connectionpooler"
-
+      - name: irgendwas 
+        sub:  
           - name: Migrate to new API
             ref: /documentation/operator/migrateToNewApi
       - name: Examples
