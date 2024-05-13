@@ -114,6 +114,13 @@
       <description>The CPO-Project has prepared severall Tools which allows to setup a Monitoring-Stack including Alerting and Metric-Viewer. These Stack is based on:&#xA;Prometheus Alertmanager Grafana exporter-container CPO has prepared an own Exporter for the PostgreSQl-Pod which can used as a sidecar.&#xA;Setting up the Monitoring Stack To setup the Monitoring-Stack we suggest that you create an own namespace and use the prepared kustomization file inside the Operator-Tutorials.&#xA;$ kubectl create namespace cpo-monitoring namespace/cpo-monitoring created $ kubectl get pods -n cpo-monitoring No resources found in cpo-monitoring namespace.</description>
     </item>
     <item>
+      <title>Storage</title>
+      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage/</link>
+      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
+      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage/</guid>
+      <description>Storage is crucial for the performance of a database and is therefore a central element. As with systems based on bare metal or virtual machines, the same requirements apply to Kubernetes workloads, such as constant availability, good performance, consistency and durability.&#xA;A basic distinction is made between local storage, which is directly connected to the worker node, and network storage, which is mounted on the worker node and thus made available to the pod.</description>
+    </item>
+    <item>
       <title>Configuration</title>
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/configuration/</link>
       <pubDate>Tue, 07 Mar 2023 14:26:51 +0100</pubDate>

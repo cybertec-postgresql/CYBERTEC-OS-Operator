@@ -12,8 +12,9 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta name="description" content="To set up a cluster, the implementation is based on a description, as with the other Kubernetes deplyoments. To do this, the operator uses a document of type postgresql.
+You can also find the basic minimum specifications for a single-node cluster in our tutorial project on Github
+minimal Single-Node Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
 
     <title>Single Cluster | CYBERTEC-PG-Operator</title>
 
@@ -39,8 +40,9 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     content="Single Cluster"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta property="og:description" content="To set up a cluster, the implementation is based on a description, as with the other Kubernetes deplyoments. To do this, the operator uses a document of type postgresql.
+You can also find the basic minimum specifications for a single-node cluster in our tutorial project on Github
+minimal Single-Node Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/" />
 
@@ -57,8 +59,9 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Single Cluster" />
-  <meta name="twitter:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta name="twitter:description" content="To set up a cluster, the implementation is based on a description, as with the other Kubernetes deplyoments. To do this, the operator uses a document of type postgresql.
+You can also find the basic minimum specifications for a single-node cluster in our tutorial project on Github
+minimal Single-Node Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
 
 
   <script type="application/ld+json">
@@ -69,8 +72,8 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
       "name": "Single Cluster",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/",
       "headline": "Single Cluster",
-      "description": "Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.\nminimal Single Cluster apiVersion: cpo.opensource.cybertec.at\/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: \u0022docker.io\/cybertecpostgresql\/cybertec-pg-container:postgres-16.1-6-dev\u0022 numberOfInstances: 1 postgresql: version: \u002216\u0022 resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.",
-      "wordCount" : "452",
+      "description": "To set up a cluster, the implementation is based on a description, as with the other Kubernetes deplyoments. To do this, the operator uses a document of type postgresql.\nYou can also find the basic minimum specifications for a single-node cluster in our tutorial project on Github\nminimal Single-Node Cluster apiVersion: cpo.opensource.cybertec.at\/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: \u0022docker.io\/cybertecpostgresql\/cybertec-pg-container:postgres-16.1-6-dev\u0022 numberOfInstances: 1 postgresql: version: \u002216\u0022 resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.",
+      "wordCount" : "334",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2126,12 +2129,15 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <h1>Single Cluster</h1>
-    <p>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.</p>
+    <p>To set up a cluster, the implementation is based on a description, as with the other Kubernetes deplyoments. To do this, the operator uses a document of type <code>postgresql</code>.</p>
+<p>You can also find the basic minimum specifications for a single-node cluster in our <a
+  class="gdoc-markdown__link"
+  href="https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/blob/main/cluster-tutorials/single-cluster/postgres.yaml"
+>tutorial project on Github</a></p>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="minimal-single-cluster">
-        minimal Single Cluster
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/#minimal-single-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: minimal Single Cluster" aria-label="Anchor to: minimal Single Cluster" href="#minimal-single-cluster">
+    <h2 id="minimal-single-node-cluster">
+        minimal Single-Node Cluster
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/#minimal-single-node-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: minimal Single-Node Cluster" aria-label="Anchor to: minimal Single-Node Cluster" href="#minimal-single-node-cluster">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
@@ -2161,39 +2167,77 @@ Also created is a volume based on your default-storage Class. The Ressource-Defi
 -----------------------------------------------------------------------------
 NAME                             | READY  | STATUS           | RESTARTS | AGE
 cluster-1-0                      | 1/1    | Running          | 0        | 50s
-</code></pre><p>We can now starting to modify our cluster with some more Definitons.</p>
+</code></pre><blockquote>
+<p><strong><em>HINT:</em></strong>  <a
+  class="gdoc-markdown__link"
+  href="documentation/crd/crd-postgresql/"
+>Here</a> you will find a complete overview of the available options within the cluster manifest.</p>
+</blockquote>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="use-a-specific-storageclass">
-        Use a specific Storageclass
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/#use-a-specific-storageclass" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Use a specific Storageclass" aria-label="Anchor to: Use a specific Storageclass" href="#use-a-specific-storageclass">
+    <h2 id="minimal-high-availability-cluster">
+        minimal High-Availability Cluster
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/#minimal-high-availability-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: minimal High-Availability Cluster" aria-label="Anchor to: minimal High-Availability Cluster" href="#minimal-high-availability-cluster">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
-    </h3>
+    </h2>
 </div>
-<pre tabindex="0"><code>spec:
+<p>No more effort is required to create a High-Availablity cluster than for a Single-Node Cluster. Only the <code>Cluster-Manifest</code> needs to be modified slightly.
+The difference lies in the object numberOfInstances, which must be set &gt; 1.</p>
+<p>You can also find the basic minimum specifications for a High-Availability-Cluster cluster in our <a
+  class="gdoc-markdown__link"
+  href="https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/blob/main/cluster-tutorials/high-availability-cluster/ha-postgres.yaml"
+>tutorial project on Github</a></p>
+<pre tabindex="0"><code>apiVersion: cpo.opensource.cybertec.at/v1
+kind: postgresql
+metadata:
+  name: cluster-1
+spec:
+  dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34;
+  numberOfInstances: 2
+  postgresql:
+    version: &#34;16&#34;
+  resources:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 500m
+      memory: 500Mi
+  volume:
+    size: 5Gi 
+</code></pre><p>You can either create a new cluster with the document or update an existing cluster with it.
+This makes it possible to scale the cluster up and down during operation.</p>
+<pre tabindex="0"><code>kubectl get pods
+-----------------------------------------------------------------------------
+NAME                             | READY  | STATUS           | RESTARTS | AGE
+cluster-1-0                      | 1/1    | Running          | 0        | 2m12s
+cluster-1-1                      | 1/1    | Running          | 0        | 50s
+</code></pre><!-- 
+We can now starting to modify our cluster with some more Definitons. 
+### Use a specific Storageclass
+```
+spec:
   ...
   volume:
     size: 5Gi
     storageClass: default-provisioner
   ...
-</code></pre><p>Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="expanding-volume">
-        Expanding Volume
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/#expanding-volume" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Expanding Volume" aria-label="Anchor to: Expanding Volume" href="#expanding-volume">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows to you expand your volume if the storage-System is able to do this.</p>
-<pre tabindex="0"><code>spec:
+```
+Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.
+
+### Expanding Volume
+The Operator allows to you expand your volume if the storage-System is able to do this. 
+```
+spec:
   ...
   volume:
     size: 10Gi
     storageClass: default-provisioner
   ...
-</code></pre><p>This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.</p>
-<pre tabindex="0"><code>kubectl get pvc pgdata-cluster-1-0 -o yaml
+```
+This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.
+```
+kubectl get pvc pgdata-cluster-1-0 -o yaml
 -------------------------------------------------------
 spec:
   accessModes:
@@ -2210,16 +2254,13 @@ status:
   capacity:
     storage: 5Gi
   phase: Bound
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h3 id="creating-additonal-volumes">
-        Creating additonal Volumes
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/#creating-additonal-volumes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating additonal Volumes" aria-label="Anchor to: Creating additonal Volumes" href="#creating-additonal-volumes">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows you to modify your cluster with additonal Volumes.</p>
-<pre tabindex="0"><code>spec:
+
+```
+
+### Creating additonal Volumes
+The Operator allows you to modify your cluster with additonal Volumes.
+```
+spec:
   ...
   additionalVolumes:
     - name: empty
@@ -2228,28 +2269,25 @@ status:
         - all
       volumeSource:
         emptyDir: {}
-</code></pre><p>This example will create an emptyDir and mount it to all Containers inside the Database-Pod.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="specific-settings-for-aws-gp3-storage">
-        Specific Settings for aws gp3 Storage
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/#specific-settings-for-aws-gp3-storage" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Specific Settings for aws gp3 Storage" aria-label="Anchor to: Specific Settings for aws gp3 Storage" href="#specific-settings-for-aws-gp3-storage">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>For the gp3 Storage aws you can define more informations</p>
-<pre tabindex="0"><code>  volume:
+```
+This example will create an emptyDir and mount it to all Containers inside the Database-Pod.
+
+
+### Specific Settings for aws gp3 Storage
+For the gp3 Storage aws you can define more informations 
+```
+  volume:
     size: 1Gi
     storageClass: gp3
     iops: 1000  # for EBS gp3
     throughput: 250  # in MB/s for EBS gp3
-</code></pre><p>The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
-Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours.
-Please also ensure to check the default and allowed values for IOPS and Throughput <a
-  class="gdoc-markdown__link"
-  href="https://aws.amazon.com/ebs/general-purpose/"
->AWS docs</a>.</p>
-<p>To ensure that the settings are updates properly please define the Operator-Configuration &lsquo;storage_resize_mode&rsquo; from default to &lsquo;mixed&rsquo;</p>
+
+```
+The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
+Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours. 
+Please also ensure to check the default and allowed values for IOPS and Throughput [AWS docs](https://aws.amazon.com/ebs/general-purpose/).
+
+To ensure that the settings are updates properly please define the Operator-Configuration 'storage_resize_mode' from default to 'mixed' -->
 
   </article>
 

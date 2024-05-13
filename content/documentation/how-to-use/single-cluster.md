@@ -4,9 +4,11 @@ date: 2023-12-28T14:26:51+01:00
 draft: false
 ---
 
-Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.
-## minimal Single Cluster
+To set up a cluster, the implementation is based on a description, as with the other Kubernetes deplyoments. To do this, the operator uses a document of type `postgresql`.
+
+You can also find the basic minimum specifications for a single-node cluster in our [tutorial project on Github](https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/blob/main/cluster-tutorials/single-cluster/postgres.yaml)
+
+## minimal Single-Node Cluster
 ```
 apiVersion: cpo.opensource.cybertec.at/v1
 kind: postgresql
@@ -39,6 +41,51 @@ cluster-1-0                      | 1/1    | Running          | 0        | 50s
 
 ```
 
+> **_HINT:_**  [Here](documentation/crd/crd-postgresql/) you will find a complete overview of the available options within the cluster manifest.
+
+## minimal High-Availability Cluster
+
+No more effort is required to create a High-Availablity cluster than for a Single-Node Cluster. Only the `Cluster-Manifest` needs to be modified slightly. 
+The difference lies in the object numberOfInstances, which must be set > 1.
+
+You can also find the basic minimum specifications for a High-Availability-Cluster cluster in our [tutorial project on Github](https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/blob/main/cluster-tutorials/high-availability-cluster/ha-postgres.yaml)
+
+
+```
+apiVersion: cpo.opensource.cybertec.at/v1
+kind: postgresql
+metadata:
+  name: cluster-1
+spec:
+  dockerImage: "docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev"
+  numberOfInstances: 2
+  postgresql:
+    version: "16"
+  resources:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 500m
+      memory: 500Mi
+  volume:
+    size: 5Gi 
+```
+
+You can either create a new cluster with the document or update an existing cluster with it. 
+This makes it possible to scale the cluster up and down during operation.
+
+```
+kubectl get pods
+-----------------------------------------------------------------------------
+NAME                             | READY  | STATUS           | RESTARTS | AGE
+cluster-1-0                      | 1/1    | Running          | 0        | 2m12s
+cluster-1-1                      | 1/1    | Running          | 0        | 50s
+
+```
+
+
+<!-- 
 We can now starting to modify our cluster with some more Definitons. 
 ### Use a specific Storageclass
 ```
@@ -113,4 +160,4 @@ The defined IOPS and Throughput will include in the PersistentVolumeClaim and se
 Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours. 
 Please also ensure to check the default and allowed values for IOPS and Throughput [AWS docs](https://aws.amazon.com/ebs/general-purpose/).
 
-To ensure that the settings are updates properly please define the Operator-Configuration 'storage_resize_mode' from default to 'mixed'
+To ensure that the settings are updates properly please define the Operator-Configuration 'storage_resize_mode' from default to 'mixed' -->
