@@ -16,6 +16,13 @@
       <description>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.&#xA;minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &amp;#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&amp;#34; numberOfInstances: 1 postgresql: version: &amp;#34;16&amp;#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.</description>
     </item>
     <item>
+      <title>Backup</title>
+      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/</link>
+      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
+      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/</guid>
+      <description>Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 / 2005) and pg_basebackup (PostgreSQL 9.0 / 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.&#xA;A short journey into the topic of backups CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options.</description>
+    </item>
+    <item>
       <title>High Availability Cluster (HA)</title>
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ha-cluster/</link>
       <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
@@ -34,13 +41,6 @@
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/examples/</link>
       <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
       <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/examples/</guid>
-      <description>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.&#xA;minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &amp;#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&amp;#34; numberOfInstances: 1 postgresql: version: &amp;#34;16&amp;#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.</description>
-    </item>
-    <item>
-      <title>Single Cluster</title>
-      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/</link>
-      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
-      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/</guid>
       <description>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.&#xA;minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &amp;#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&amp;#34; numberOfInstances: 1 postgresql: version: &amp;#34;16&amp;#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.</description>
     </item>
     <item>
