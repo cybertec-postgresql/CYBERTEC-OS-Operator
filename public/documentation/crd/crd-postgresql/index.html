@@ -67,7 +67,7 @@
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/crd/crd-postgresql/",
       "headline": "CRD: postgresql",
       "description": "postgresql Name Type required Description apiVersion string true acid.zalando.do\/v1 kind string true metadata object true spec object true status object false spec Name Type required Description backup object false Enables the definition of a customised backup solution for the cluster teamId string true name of the team the cluster belongs to numberOfInstances Int true Number of nodes of the cluster dockerImages string false Define a custom image to override the default schedulerName string false Define a custom Name to override the default spiloRunAsUser string false Define an User id which should be used for the pods spiloRunAsGroup string false Define an Group id which should be used for the pods spiloFSGroup string false Persistent Volumes for the pods in the StatefulSet will be owned and writable by the group ID specified.",
-      "wordCount" : "804",
+      "wordCount" : "801",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2452,7 +2452,7 @@
 <td style="text-align:right"></td>
 </tr>
 <tr>
-<td>images</td>
+<td>image</td>
 <td style="text-align:center">string</td>
 <td style="text-align:right">true</td>
 <td style="text-align:right"></td>
@@ -2578,7 +2578,7 @@
 <td>storage</td>
 <td style="text-align:center">string</td>
 <td style="text-align:right">true</td>
-<td style="text-align:right">Defines the used backup-storage (Choose from List: local,s3,blob,gcs) Currently s3 only!</td>
+<td style="text-align:right">Defines the used backup-storage (Choose from List: pvc,s3,blob,gcs)</td>
 </tr>
 <tr>
 <td>resource</td>

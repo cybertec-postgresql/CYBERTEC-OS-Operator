@@ -68,7 +68,7 @@ key, operator, value, effect and tolerationSeconds |
 | ------------------------------ |:-------:| ---------:| ------------------:|
 | [configuration](#configuration)| object  | false     | Enables the definition of a pgbackrest-setup for the cluster |
 | global                         | object  | false     |  |
-| images                         | string  | true      |  |
+| image                          | string  | true      |  |
 | [repos](#repos)                | array   | true      |  |
 | resources:                     | object  | false     | Resource definition (limits.cpu, limits.memory & requests.cpu & requests.memory)|
 
@@ -102,7 +102,7 @@ key, operator, value, effect and tolerationSeconds |
 | Name                           | Type    | required  | Description        |
 | ------------------------------ |:-------:| ---------:| ------------------:|
 | name                           | string  | true      | Name of the repository Required:Repo[1-4] |
-| storage                        | string  | true      | Defines the used backup-storage (Choose from List: local,s3,blob,gcs) Currently s3 only! |
+| storage                        | string  | true      | Defines the used backup-storage (Choose from List: pvc,s3,blob,gcs) |
 | resource                       | string  | true      | Bucket-/Instance-/Storage- or PVC-Name |
 | endpoint                       | string  | false     | The Endpoint for the choosen Storage (Not required for local storage) |
 | region                         | string  | false     | Region for the choosen Storage (S3 only) |

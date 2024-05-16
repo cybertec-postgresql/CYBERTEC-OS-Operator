@@ -45,7 +45,9 @@ With pgBackRest, backups can be stored on different types of storage:
 - Azure blob storage
 - GCS
 
-### Backups on PVC
+
+
+### Backups on PVC (PersistentVolumeClaim)
 
 When using block storage, the operator creates an additional pod that acts as a repo host. Based on a TLS connection, the repo host obtains the data for the Backup from the current primary of the cluster, which is compressed before being sent.
 WAL archives are pushed from the primary pod to the repo host.
@@ -59,9 +61,6 @@ metadata:
 spec:
   backup:
     pgbackrest:
-      global:
-        repo1-retention-full: '7'
-        repo1-retention-full-type: count
       image: 'docker.io/cybertecpostgresql/cybertec-pg-container-dev:pgbackrest-16.3-1'
       repos:
         - name: repo1
@@ -71,11 +70,14 @@ spec:
           volume:
             size: 15Gi
             storageClass: default
+      global:
+        repo1-retention-full: '7'
+        repo1-retention-full-type: count
 ```
 
 This example creates backups based on a repo host with a daily full Backup at 2:30 am. In addition, pgBackRest is instructed to keep a maximum of 7 full Backups. The oldest one is always removed when a new Backup is created. 
 
-> **_HINT:_**  In addition, further configurations for pgBackRest can be defined in the global object. Information on possible configurations can be found in the p[gBackRest documentation](https://pgbackrest.org/configuration.html)
+> **_HINT:_**  In addition, further configurations for pgBackRest can be defined in the global object. Information on possible configurations can be found in the [pgBackRest documentation](https://pgbackrest.org/configuration.html)
 
 
 ### Backups on S3
@@ -90,12 +92,6 @@ metadata:
 spec:
   backup:
     pgbackrest:
-      configuration:
-        secret: cluster-s3-credential
-      global:
-        repo1-path: /cluster/repo1/
-        repo1-retention-full: '7'
-        repo1-retention-full-type: count
       image: 'docker.io/cybertecpostgresql/cybertec-pg-container-dev:pgbackrest-16.3-1'
       repos:
         - endpoint: 'https://s3-zurich.cyberlink.cloud:443'
@@ -106,6 +102,12 @@ spec:
             full: 30 2 * * *
             incr: '*/30 * * * *'
           storage: s3
+      configuration:
+        secret: cluster-s3-credential
+      global:
+        repo1-path: /cluster/repo1/
+        repo1-retention-full: '7'
+        repo1-retention-full-type: count
 ```
 This example creates a backup in an S3 bucket. In addition to the above configurations, a secret is also required which contains the access data for the S3 storage. The name of the secret must be stored in the `spec.backup.pgbackrest.configuration.secret` object and the secret must be located in the same namespace as the cluster.
 Information required to address the S3 bucket:
@@ -211,3 +213,5 @@ pgbackrest-cluster-repo1-incr-28597380-j76rr | 0/1   | Completed | 0        | 19
 pgbackrest-cluster-repo1-incr-28597395-rh86t | 0/1   | Completed | 0        | 4m27s
 postgres-operator-66bbff5c54-5sjmk           | 1/1   | Running   | 0        | 47m
 ```
+
+## How to check existing backups

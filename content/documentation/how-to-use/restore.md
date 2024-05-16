@@ -15,9 +15,9 @@ As we have already provided the operator with all the information relating to th
 - `id`: Control variable, must be increased for each restore process 
 - `type`: What type of restore is required
 - `repo`: Which repo the data should come from
-- `set`: Specific Backup to restore
+- `set`: Specific Backup to restore - Check [backup](tbd) to see how to get the identifier
 
-> **_HINT:_** To ensure that the operator does not perform or repeat a restore by mistake, the defined object `id` inside the restore section is saved during a restore, so the value of this `id` must be changed for a new restore.
+> **_HINT:_** To ensure that the operator does not repeat an already done restore, the defined object `id` in the restore section is saved by the operator, so the value of this `id` must be changed for a new restore.
 
 
 #### Details for a Backup restore
@@ -30,10 +30,6 @@ restore:
     - '--set=20240515-164100F'
   repo: '1'
 ```
-- `id`: 1 - for the current restore
-- `type`: immediate - restore only the in `set` defined backup
-- `repo`: 1 - use the data from repo1
-- `set`: 20240515-164100F - the snapshot identifier
 
 > **_HINT:_** Without the specification `--type=immediate`, pgBackRest would then consume the entire WAL that is available and thus restore the last available consistent data point. 
 

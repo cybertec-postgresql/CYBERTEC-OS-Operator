@@ -12,7 +12,7 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
+  <meta name="description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a Backup or a combination of a Backup and additional WAL files. The difference is that a Backup represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
 You can find more information about backups here
 Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest." />
 
@@ -40,7 +40,7 @@ Rescue my cluster CPO enables the restore based on an existing backup using pgBa
     content="Restore"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
+  <meta property="og:description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a Backup or a combination of a Backup and additional WAL files. The difference is that a Backup represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
 You can find more information about backups here
 Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest." />
 <meta property="og:type" content="article" />
@@ -59,7 +59,7 @@ Rescue my cluster CPO enables the restore based on an existing backup using pgBa
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Restore" />
-  <meta name="twitter:description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
+  <meta name="twitter:description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a Backup or a combination of a Backup and additional WAL files. The difference is that a Backup represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
 You can find more information about backups here
 Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest." />
 
@@ -72,8 +72,8 @@ Rescue my cluster CPO enables the restore based on an existing backup using pgBa
       "name": "Restore",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/",
       "headline": "Restore",
-      "description": "Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).\nYou can find more information about backups here\nRescue my cluster CPO enables the restore based on an existing backup using pgBackRest.",
-      "wordCount" : "440",
+      "description": "Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a Backup or a combination of a Backup and additional WAL files. The difference is that a Backup represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).\nYou can find more information about backups here\nRescue my cluster CPO enables the restore based on an existing backup using pgBackRest.",
+      "wordCount" : "459",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2129,7 +2129,7 @@ Rescue my cluster CPO enables the restore based on an existing backup using pgBa
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <h1>Restore</h1>
-    <p>Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).</p>
+    <p>Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a Backup or a combination of a Backup and additional WAL files. The difference is that a Backup represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).</p>
 <p>You can find more information about backups <a
   class="gdoc-markdown__link"
   href="documentation/how-to-use/backup/"
@@ -2142,25 +2142,29 @@ Rescue my cluster CPO enables the restore based on an existing backup using pgBa
         </a>
     </h3>
 </div>
-<p>CPO enables the restore based on an existing backup using pgBackRest. To do this, it needs the relevant information about the point in time or snapshot to which it should restore and where the data for this comes from.
+<p>CPO enables the restore based on an existing backup using pgBackRest. To do this, it needs the relevant information about the point in time or snapBackupshot to which it should restore and where the data for this comes from.
 As we have already provided the operator with all the information relating to the storage of backups in the previous chapter, it only needs the following information:</p>
 <ul>
-<li>Which repo the data should come from</li>
-<li>What type of restore is required</li>
-<li>Snapshot and, if applicable, time specification</li>
+<li><code>id</code>: Control variable, must be increased for each restore process</li>
+<li><code>type</code>: What type of restore is required</li>
+<li><code>repo</code>: Which repo the data should come from</li>
+<li><code>set</code>: Specific Backup to restore - Check <a
+  class="gdoc-markdown__link"
+  href="tbd"
+>backup</a> to see how to get the identifier</li>
 </ul>
 <blockquote>
-<p><strong><em>HINT:</em></strong> To ensure that the operator does not perform or repeat a restore by mistake, the defined object <code>id</code> inside the restore section is saved during a restore, so the value of this <code>id</code> must be changed for a new restore.</p>
+<p><strong><em>HINT:</em></strong> To ensure that the operator does not repeat an already done restore, the defined object <code>id</code> in the restore section is saved by the operator, so the value of this <code>id</code> must be changed for a new restore.</p>
 </blockquote>
 <div class="gdoc-page__anchorwrap">
-    <h4 id="details-for-a-snapshot-restore">
-        Details for a snapshot restore
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#details-for-a-snapshot-restore" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Details for a snapshot restore" aria-label="Anchor to: Details for a snapshot restore" href="#details-for-a-snapshot-restore">
+    <h4 id="details-for-a-backup-restore">
+        Details for a Backup restore
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#details-for-a-backup-restore" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Details for a Backup restore" aria-label="Anchor to: Details for a Backup restore" href="#details-for-a-backup-restore">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h4>
 </div>
-<p>With this information, we define a fixed snapshot from <code>repo1</code> and that pgBackRest should stop at the end of the snapshot</p>
+<p>With this information, we define a fixed Backup from <code>repo1</code> and that pgBackRest should stop at the end of the Backup</p>
 <pre tabindex="0"><code>restore:
   id: &#39;1&#39;
   options:
@@ -2178,7 +2182,7 @@ As we have already provided the operator with all the information relating to th
         </a>
     </h4>
 </div>
-<p>We use this information to define a point-in-time recovery (PITR) and define the end point using a timestamp and the start point using a snapshot specification. The latter is optional. Without this information, pgBackRest would automatically start at the last previous full snapshot.</p>
+<p>We use this information to define a point-in-time recovery (PITR) and define the end point using a timestamp and the start point using a Backup specification. The latter is optional. Without this information, pgBackRest would automatically start at the last previous full Backup.</p>
 <pre tabindex="0"><code>restore:
   id: &#39;1&#39;
   options:
@@ -2230,7 +2234,7 @@ spec:
   href="https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/tree/main/cluster-tutorials/restore_pitr"
 >here</a>.</p>
 <blockquote>
-<p><strong><em>ATTENTION:</em></strong> Incorrect information for the snapshot or the timestamp can result in pgBackRest not being able to complete the restore successfully. In the event of an error, the information must be corrected and another restore must be started.</p>
+<p><strong><em>ATTENTION:</em></strong> Incorrect information for the Backup or the timestamp can result in pgBackRest not being able to complete the restore successfully. In the event of an error, the information must be corrected and another restore must be started.</p>
 </blockquote>
 
   </article>

@@ -13,7 +13,7 @@
 
 
   <meta name="description" content="Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 / 2005) and pg_basebackup (PostgreSQL 9.0 / 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.
-A short journey into the topic of backups CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options." />
+Backups with pgBackRest CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options." />
 
     <title>Backup | CYBERTEC-PG-Operator</title>
 
@@ -40,7 +40,7 @@ A short journey into the topic of backups CPO relies on pgBackRest as its backup
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
   <meta property="og:description" content="Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 / 2005) and pg_basebackup (PostgreSQL 9.0 / 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.
-A short journey into the topic of backups CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options." />
+Backups with pgBackRest CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/" />
 
@@ -58,7 +58,7 @@ A short journey into the topic of backups CPO relies on pgBackRest as its backup
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Backup" />
   <meta name="twitter:description" content="Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 / 2005) and pg_basebackup (PostgreSQL 9.0 / 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.
-A short journey into the topic of backups CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options." />
+Backups with pgBackRest CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options." />
 
 
   <script type="application/ld+json">
@@ -69,8 +69,8 @@ A short journey into the topic of backups CPO relies on pgBackRest as its backup
       "name": "Backup",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/",
       "headline": "Backup",
-      "description": "Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 \/ 2005) and pg_basebackup (PostgreSQL 9.0 \/ 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.\nA short journey into the topic of backups CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options.",
-      "wordCount" : "1306",
+      "description": "Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 \/ 2005) and pg_basebackup (PostgreSQL 9.0 \/ 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.\nBackups with pgBackRest CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options.",
+      "wordCount" : "1307",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2128,9 +2128,9 @@ A short journey into the topic of backups CPO relies on pgBackRest as its backup
     <h1>Backup</h1>
     <p>Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 / 2005) and pg_basebackup (PostgreSQL 9.0 / 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.</p>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="a-short-journey-into-the-topic-of-backups">
-        A short journey into the topic of backups
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#a-short-journey-into-the-topic-of-backups" class="gdoc-page__anchor clip flex align-center" title="Anchor to: A short journey into the topic of backups" aria-label="Anchor to: A short journey into the topic of backups" href="#a-short-journey-into-the-topic-of-backups">
+    <h2 id="backups-with-pgbackrest">
+        Backups with pgBackRest
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#backups-with-pgbackrest" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Backups with pgBackRest" aria-label="Anchor to: Backups with pgBackRest" href="#backups-with-pgbackrest">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
@@ -2145,23 +2145,23 @@ The backup is based on two elements:</p>
 <li>WAL archive: Continuous archiving of the WAL files</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="snapshots">
-        Snapshots
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#snapshots" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Snapshots" aria-label="Anchor to: Snapshots" href="#snapshots">
+    <h3 id="backups">
+        Backups
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#backups" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Backups" aria-label="Anchor to: Backups" href="#backups">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
 </div>
-<p>Snapshots represent a snapshot of the database in the form of pyhsical files. This contains all relevant information that PostgreSQL holds in its data folder.
-With pgBackRest it is possible to create different types of snapshots:</p>
+<p>Backups represent a snapshot of the database in the form of pyhsical files. This contains all relevant information that PostgreSQL holds in its data folder.
+With pgBackRest it is possible to create different types of Backups:</p>
 <ul>
 <li>full Snapshot: This captures and saves all files at the time of the backup</li>
-<li>Differential backup: Only captures all files that have been changed since the last full snapshot</li>
+<li>Differential backup: Only captures all files that have been changed since the last full Backup</li>
 <li>Incremental backup: Only records the files that have been changed since the last backup (of any kind).</li>
 </ul>
-<p>When restoring using differential or incremental snapshots, it is necessary to also use the previous snapshots that provide the basis for the selected snapshot.</p>
+<p>When restoring using differential or incremental Backup, it is necessary to also use the previous Backup that provide the basis for the selected Backup.</p>
 <blockquote>
-<p><strong><em>HINT:</em></strong>  The choice of snapshot type depends on factors such as the size of the database, the time available for backups and the restore.</p>
+<p><strong><em>HINT:</em></strong>  The choice of Backup types depends on factors such as the size of the database, the time available for backups and the restore.</p>
 </blockquote>
 <div class="gdoc-page__anchorwrap">
     <h3 id="wal-archive">
@@ -2177,7 +2177,7 @@ These activities include</p>
 <ul>
 <li>Providing the WAL files for replicas to keep them up to date</li>
 <li>Restoring instances that have lost parts of the WAL files in the event of a failure and cannot return to a consistent state without them without losing data</li>
-<li>Point-In-Time-Recovery (PITR): In contrast to snapshots, which map a fixed point in time, WAL files make it possible to jump dynamically to a desired point in time and restore the database to the closest available consistent data point</li>
+<li>Point-In-Time-Recovery (PITR): In contrast to Backups, which map a fixed point in time, WAL files make it possible to jump dynamically to a desired point in time and restore the database to the closest available consistent data point</li>
 </ul>
 <blockquote>
 <p><strong><em>HINT:</em></strong>  WAL archiving is an indispensable tool for data availability, recoverability and the continuous availability of PostgreSQL.</p>
@@ -2198,14 +2198,14 @@ These activities include</p>
 <li>GCS</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="backups-on-pvc">
-        Backups on PVC
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#backups-on-pvc" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Backups on PVC" aria-label="Anchor to: Backups on PVC" href="#backups-on-pvc">
+    <h3 id="backups-on-pvc-persistentvolumeclaim">
+        Backups on PVC (PersistentVolumeClaim)
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#backups-on-pvc-persistentvolumeclaim" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Backups on PVC (PersistentVolumeClaim)" aria-label="Anchor to: Backups on PVC (PersistentVolumeClaim)" href="#backups-on-pvc-persistentvolumeclaim">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
 </div>
-<p>When using block storage, the operator creates an additional pod that acts as a repo host. Based on a TLS connection, the repo host obtains the data for the snapshot from the current primary of the cluster, which is compressed before being sent.
+<p>When using block storage, the operator creates an additional pod that acts as a repo host. Based on a TLS connection, the repo host obtains the data for the Backup from the current primary of the cluster, which is compressed before being sent.
 WAL archives are pushed from the primary pod to the repo host.</p>
 <pre tabindex="0"><code>apiVersion: cpo.opensource.cybertec.at/v1
 kind: postgresql
@@ -2215,9 +2215,6 @@ metadata:
 spec:
   backup:
     pgbackrest:
-      global:
-        repo1-retention-full: &#39;7&#39;
-        repo1-retention-full-type: count
       image: &#39;docker.io/cybertecpostgresql/cybertec-pg-container-dev:pgbackrest-16.3-1&#39;
       repos:
         - name: repo1
@@ -2227,12 +2224,15 @@ spec:
           volume:
             size: 15Gi
             storageClass: default
-</code></pre><p>This example creates backups based on a repo host with a daily full snapshot at 2:30 am. In addition, pgBackRest is instructed to keep a maximum of 7 full snapshots. The oldest one is always removed when a new snapshot is created.</p>
+      global:
+        repo1-retention-full: &#39;7&#39;
+        repo1-retention-full-type: count
+</code></pre><p>This example creates backups based on a repo host with a daily full Backup at 2:30 am. In addition, pgBackRest is instructed to keep a maximum of 7 full Backups. The oldest one is always removed when a new Backup is created.</p>
 <blockquote>
-<p><strong><em>HINT:</em></strong>  In addition, further configurations for pgBackRest can be defined in the global object. Information on possible configurations can be found in the p<a
+<p><strong><em>HINT:</em></strong>  In addition, further configurations for pgBackRest can be defined in the global object. Information on possible configurations can be found in the <a
   class="gdoc-markdown__link"
   href="https://pgbackrest.org/configuration.html"
->gBackRest documentation</a></p>
+>pgBackRest documentation</a></p>
 </blockquote>
 <div class="gdoc-page__anchorwrap">
     <h3 id="backups-on-s3">
@@ -2251,12 +2251,6 @@ metadata:
 spec:
   backup:
     pgbackrest:
-      configuration:
-        secret: cluster-s3-credential
-      global:
-        repo1-path: /cluster/repo1/
-        repo1-retention-full: &#39;7&#39;
-        repo1-retention-full-type: count
       image: &#39;docker.io/cybertecpostgresql/cybertec-pg-container-dev:pgbackrest-16.3-1&#39;
       repos:
         - endpoint: &#39;https://s3-zurich.cyberlink.cloud:443&#39;
@@ -2267,6 +2261,12 @@ spec:
             full: 30 2 * * *
             incr: &#39;*/30 * * * *&#39;
           storage: s3
+      configuration:
+        secret: cluster-s3-credential
+      global:
+        repo1-path: /cluster/repo1/
+        repo1-retention-full: &#39;7&#39;
+        repo1-retention-full-type: count
 </code></pre><p>This example creates a backup in an S3 bucket. In addition to the above configurations, a secret is also required which contains the access data for the S3 storage. The name of the secret must be stored in the <code>spec.backup.pgbackrest.configuration.secret</code> object and the secret must be located in the same namespace as the cluster.
 Information required to address the S3 bucket:</p>
 <ul>
@@ -2376,7 +2376,15 @@ pgbackrest-cluster-repo1-incr-28597365-7bb5l | 0/1   | Completed | 0        | 34
 pgbackrest-cluster-repo1-incr-28597380-j76rr | 0/1   | Completed | 0        | 19m
 pgbackrest-cluster-repo1-incr-28597395-rh86t | 0/1   | Completed | 0        | 4m27s
 postgres-operator-66bbff5c54-5sjmk           | 1/1   | Running   | 0        | 47m
-</code></pre>
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h2 id="how-to-check-existing-backups">
+        How to check existing backups
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#how-to-check-existing-backups" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How to check existing backups" aria-label="Anchor to: How to check existing backups" href="#how-to-check-existing-backups">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+
   </article>
 
 

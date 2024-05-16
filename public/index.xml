@@ -20,7 +20,7 @@
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/</link>
       <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
       <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/</guid>
-      <description>Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 / 2005) and pg_basebackup (PostgreSQL 9.0 / 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.&#xA;A short journey into the topic of backups CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options.</description>
+      <description>Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 / 2005) and pg_basebackup (PostgreSQL 9.0 / 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.&#xA;Backups with pgBackRest CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options.</description>
     </item>
     <item>
       <title>High Availability Cluster (HA)</title>
@@ -41,7 +41,7 @@
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/</link>
       <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
       <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/</guid>
-      <description>Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).&#xA;You can find more information about backups here&#xA;Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest.</description>
+      <description>Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a Backup or a combination of a Backup and additional WAL files. The difference is that a Backup represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).&#xA;You can find more information about backups here&#xA;Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest.</description>
     </item>
     <item>
       <title>Single Cluster</title>
