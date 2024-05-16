@@ -70,7 +70,7 @@ A short journey into the topic of backups CPO relies on pgBackRest as its backup
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/",
       "headline": "Backup",
       "description": "Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 \/ 2005) and pg_basebackup (PostgreSQL 9.0 \/ 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.\nA short journey into the topic of backups CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options.",
-      "wordCount" : "978",
+      "wordCount" : "1306",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2339,6 +2339,43 @@ spec:
             full: 30 2 * * *
             incr: &#39;*/30 * * * *&#39;
           storage: s3
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h2 id="how-a-backup-works">
+        How a Backup works
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#how-a-backup-works" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How a Backup works" aria-label="Anchor to: How a Backup works" href="#how-a-backup-works">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>The operator creates a cronjob object on Kubernetes based on the defined times for automatic backups. This means that the Kubernetes core (<a
+  class="gdoc-markdown__link"
+  href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/"
+>CronJob Controller</a>) will take care of processing the automatic backups and create a job and thus a pod at the appropriate time.
+The pod will send the backup command to the primary or, if block storage is used, to the repo host and monitor it. As soon as the backup is successfully completed, the pod stops with Completed and thus completes the job.</p>
+<pre tabindex="0"><code>kubectl get cronjobs
+---------------------------------------------------------------------------------------
+NAME                          | SCHEDULE     | SUSPEND | ACTIVE | LAST SCHEDULE | AGE
+pgbackrest-cluster-repo1-full | 30 2 * * *   | False   | 0      | 4h46m         | 14h
+pgbackrest-cluster-repo1-incr | */30 * * * * | False   | 1      | 81s           | 106m
+
+kubectl get jobs
+-----------------------------------------------------------------------
+NAME                                   | COMPLETIONS | DURATION | AGE
+pgbackrest-cluster-repo1-full-28597110 | 1/1         | 52s      | 140m
+pgbackrest-cluster-repo1-incr-28597365 | 1/1         | 2m37s    | 32m
+pgbackrest-cluster-repo1-incr-28597380 | 1/1         | 2m38s    | 17m
+pgbackrest-cluster-repo1-incr-28597395 | 0/1         | 2m3s     | 2m3s
+</code></pre><p>If there are problems such as a timeout, the pod will stop with exit code 1 and thus indicate an error. In this case, a new pod will be created which will attempt to complete the backup. The maximum number of attempts is 6, so if the backup fails six times, the job is deemed to have failed and will not be attempted again until the next cronjob execution. The job pod log provides information about the problems.</p>
+<pre tabindex="0"><code>kubectl get pods
+-----------------------------------------------------------------------------------
+NAME                                         | READY | STATUS    | RESTARTS | AGE
+cluster-0                                    | 2/2   | Running   | 2        | 14h
+cluster-pgbackrest-repo-host-0               | 1/1   | Running   | 0        | 107m
+pgbackrest-cluster-repo1-full-28597110-x8zpw | 0/1   | Completed | 0        | 143m
+pgbackrest-cluster-repo1-incr-28597365-7bb5l | 0/1   | Completed | 0        | 34m
+pgbackrest-cluster-repo1-incr-28597380-j76rr | 0/1   | Completed | 0        | 19m
+pgbackrest-cluster-repo1-incr-28597395-rh86t | 0/1   | Completed | 0        | 4m27s
+postgres-operator-66bbff5c54-5sjmk           | 1/1   | Running   | 0        | 47m
 </code></pre>
   </article>
 

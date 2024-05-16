@@ -37,6 +37,13 @@
       <description>Starting with the Single-Node-Cluster from the previous section, we want to modify the Instance a bit to see.&#xA;CPU and Memory spec: resources: limits: cpu: 1000m memory: 500Mi requests: cpu: 500m memory: 500mi Based on the ressources-Definiton we&amp;rsquo;re able to modify the reserved Hardware (requests) and the limits, which allows use to consume more than the reserved definitons if the k8s-worker has this hardware available. There are some Restrictions when modifiying the limits-section.</description>
     </item>
     <item>
+      <title>Restore</title>
+      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/</link>
+      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
+      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/</guid>
+      <description>Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).&#xA;You can find more information about backups here&#xA;Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest.</description>
+    </item>
+    <item>
       <title>Single Cluster</title>
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/examples/</link>
       <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
@@ -69,13 +76,6 @@
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/examples/</link>
       <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
       <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/examples/</guid>
-      <description>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.&#xA;minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &amp;#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&amp;#34; numberOfInstances: 1 postgresql: version: &amp;#34;16&amp;#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.</description>
-    </item>
-    <item>
-      <title>Single Cluster</title>
-      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/</link>
-      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
-      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/</guid>
       <description>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.&#xA;minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &amp;#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&amp;#34; numberOfInstances: 1 postgresql: version: &amp;#34;16&amp;#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.</description>
     </item>
     <item>

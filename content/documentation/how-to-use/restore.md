@@ -1,116 +1,87 @@
 ---
-title: "Single Cluster"
+title: "Restore"
 date: 2023-12-28T14:26:51+01:00
 draft: false
 ---
 
-Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.
-## minimal Single Cluster
+Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a Backup or a combination of a Backup and additional WAL files. The difference is that a Backup represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR). 
+
+You can find more information about backups [here](documentation/how-to-use/backup/)
+
+### Rescue my cluster
+
+CPO enables the restore based on an existing backup using pgBackRest. To do this, it needs the relevant information about the point in time or snapBackupshot to which it should restore and where the data for this comes from. 
+As we have already provided the operator with all the information relating to the storage of backups in the previous chapter, it only needs the following information: 
+- `id`: Control variable, must be increased for each restore process 
+- `type`: What type of restore is required
+- `repo`: Which repo the data should come from
+- `set`: Specific Backup to restore
+
+> **_HINT:_** To ensure that the operator does not perform or repeat a restore by mistake, the defined object `id` inside the restore section is saved during a restore, so the value of this `id` must be changed for a new restore.
+
+
+#### Details for a Backup restore
+With this information, we define a fixed Backup from `repo1` and that pgBackRest should stop at the end of the Backup
+```
+restore:
+  id: '1'
+  options:
+    - '--type=immediate'
+    - '--set=20240515-164100F'
+  repo: '1'
+```
+- `id`: 1 - for the current restore
+- `type`: immediate - restore only the in `set` defined backup
+- `repo`: 1 - use the data from repo1
+- `set`: 20240515-164100F - the snapshot identifier
+
+> **_HINT:_** Without the specification `--type=immediate`, pgBackRest would then consume the entire WAL that is available and thus restore the last available consistent data point. 
+
+#### Details for a point-in-time recoery (PITR)
+We use this information to define a point-in-time recovery (PITR) and define the end point using a timestamp and the start point using a Backup specification. The latter is optional. Without this information, pgBackRest would automatically start at the last previous full Backup. 
+```
+restore:
+  id: '1'
+  options:
+    - '--type=time'
+    - '--set=20240515-164100F'
+    - '--target=2024-05-16 07:46:05.506817+00'
+
+  repo: '1'
+```
+> **_HINT:_** `--type=time` indicates that it is a point-in-time recovery (PITR). 
+
+## Example in a cluster manifest
+
 ```
 apiVersion: cpo.opensource.cybertec.at/v1
 kind: postgresql
 metadata:
-  name: cluster-1
+  name: cluster-5
+  namespace: cpo
 spec:
-  dockerImage: "docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev"
-  numberOfInstances: 1
-  postgresql:
-    version: "16"
-  resources:
-    limits:
-      cpu: 500m
-      memory: 500Mi
-    requests:
-      cpu: 500m
-      memory: 500Mi
-  volume:
-    size: 5Gi 
+  backup:
+    pgbackrest:
+      configuration:
+        secret: cluster-pvc-credentials
+      global:
+        repo1-retention-full: '7'
+        repo1-retention-full-type: count
+      image: 'docker.io/cybertecpostgresql/cybertec-pg-container-dev:pgbackrest-16.2-8-dev'
+      repos:
+        - name: repo1
+          schedule:
+            full: 30 2 * * *
+          storage: pvc
+          volume:
+            size: 1Gi
+      restore:
+        id: '1'
+        options:
+          - '--type=time'
+          - '--set=20240515-164100F'
+          - '--target=2024-05-16 07:46:05.506817+00'
 ```
-Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server. 
-Also created is a volume based on your default-storage Class. The Ressource-Definiton means, that we reserve a half cpu and a half GB Memory for this Cluster with the same Definition as limit.
+An example of this can also be found in our tutorials. For a point-in-time recovery (PITR) you can find it [here](https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/tree/main/cluster-tutorials/restore_pitr).
 
-After some seconds we should see, that the operator creates our cluster based on the declared definitions.
-```
-kubectl get pods
------------------------------------------------------------------------------
-NAME                             | READY  | STATUS           | RESTARTS | AGE
-cluster-1-0                      | 1/1    | Running          | 0        | 50s
-
-```
-
-We can now starting to modify our cluster with some more Definitons. 
-### Use a specific Storageclass
-```
-spec:
-  ...
-  volume:
-    size: 5Gi
-    storageClass: default-provisioner
-  ...
-```
-Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.
-
-### Expanding Volume
-The Operator allows to you expand your volume if the storage-System is able to do this. 
-```
-spec:
-  ...
-  volume:
-    size: 10Gi
-    storageClass: default-provisioner
-  ...
-```
-This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.
-```
-kubectl get pvc pgdata-cluster-1-0 -o yaml
--------------------------------------------------------
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: crc-csi-hostpath-provisioner
-  volumeMode: Filesystem
-  volumeName: pvc-800d7ecc-2d5f-4ef4-af83-1cd94c766d37
-status:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 5Gi
-  phase: Bound
-
-```
-
-### Creating additonal Volumes
-The Operator allows you to modify your cluster with additonal Volumes.
-```
-spec:
-  ...
-  additionalVolumes:
-    - name: empty
-      mountPath: /opt/empty
-      targetContainers:
-        - all
-      volumeSource:
-        emptyDir: {}
-```
-This example will create an emptyDir and mount it to all Containers inside the Database-Pod.
-
-
-### Specific Settings for aws gp3 Storage
-For the gp3 Storage aws you can define more informations 
-```
-  volume:
-    size: 1Gi
-    storageClass: gp3
-    iops: 1000  # for EBS gp3
-    throughput: 250  # in MB/s for EBS gp3
-
-```
-The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
-Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours. 
-Please also ensure to check the default and allowed values for IOPS and Throughput [AWS docs](https://aws.amazon.com/ebs/general-purpose/).
-
-To ensure that the settings are updates properly please define the Operator-Configuration 'storage_resize_mode' from default to 'mixed'
+> **_ATTENTION:_** Incorrect information for the Backup or the timestamp can result in pgBackRest not being able to complete the restore successfully. In the event of an error, the information must be corrected and another restore must be started. 

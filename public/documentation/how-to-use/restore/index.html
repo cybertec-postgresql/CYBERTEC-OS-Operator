@@ -12,10 +12,11 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta name="description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
+You can find more information about backups here
+Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest." />
 
-    <title>Single Cluster | CYBERTEC-PG-Operator</title>
+    <title>Restore | CYBERTEC-PG-Operator</title>
 
     <link rel="icon" type="image/svg+xml" href="/CYBERTEC-pg-operator/favicon/favicon.svg" />
 <link
@@ -36,11 +37,12 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     
   <meta
     property="og:title"
-    content="Single Cluster"
+    content="Restore"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta property="og:description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
+You can find more information about backups here
+Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/" />
 
@@ -56,9 +58,10 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Single Cluster" />
-  <meta name="twitter:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+<meta name="twitter:title" content="Restore" />
+  <meta name="twitter:description" content="Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).
+You can find more information about backups here
+Rescue my cluster CPO enables the restore based on an existing backup using pgBackRest." />
 
 
   <script type="application/ld+json">
@@ -66,11 +69,11 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
       "@context": "http://schema.org",
       "@type": "TechArticle",
       "articleSection": "Documentation",
-      "name": "Single Cluster",
+      "name": "Restore",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/",
-      "headline": "Single Cluster",
-      "description": "Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.\nminimal Single Cluster apiVersion: cpo.opensource.cybertec.at\/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: \u0022docker.io\/cybertecpostgresql\/cybertec-pg-container:postgres-16.1-6-dev\u0022 numberOfInstances: 1 postgresql: version: \u002216\u0022 resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.",
-      "wordCount" : "452",
+      "headline": "Restore",
+      "description": "Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).\nYou can find more information about backups here\nRescue my cluster CPO enables the restore based on an existing backup using pgBackRest.",
+      "wordCount" : "440",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2096,7 +2099,7 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Single Cluster</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Restore</span><meta itemprop='position' content='5' /></li>
   
 
   
@@ -2125,13 +2128,72 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
   <article
     class="gdoc-markdown gdoc-markdown__align--left"
   >
-    <h1>Single Cluster</h1>
-    <p>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.</p>
+    <h1>Restore</h1>
+    <p>Restore or recovery is the process of starting a PostgreSQL instance or a cluster based on a defined and existing backup. This can be just a snapshot or a combination of a snapshot and additional WAL files. The difference is that a snapshot represents a fixed point in time, whereas the combination with WAL enables a point-in-time recovery(PITR).</p>
+<p>You can find more information about backups <a
+  class="gdoc-markdown__link"
+  href="documentation/how-to-use/backup/"
+>here</a></p>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="minimal-single-cluster">
-        minimal Single Cluster
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#minimal-single-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: minimal Single Cluster" aria-label="Anchor to: minimal Single Cluster" href="#minimal-single-cluster">
+    <h3 id="rescue-my-cluster">
+        Rescue my cluster
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#rescue-my-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Rescue my cluster" aria-label="Anchor to: Rescue my cluster" href="#rescue-my-cluster">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>CPO enables the restore based on an existing backup using pgBackRest. To do this, it needs the relevant information about the point in time or snapshot to which it should restore and where the data for this comes from.
+As we have already provided the operator with all the information relating to the storage of backups in the previous chapter, it only needs the following information:</p>
+<ul>
+<li>Which repo the data should come from</li>
+<li>What type of restore is required</li>
+<li>Snapshot and, if applicable, time specification</li>
+</ul>
+<blockquote>
+<p><strong><em>HINT:</em></strong> To ensure that the operator does not perform or repeat a restore by mistake, the defined object <code>id</code> inside the restore section is saved during a restore, so the value of this <code>id</code> must be changed for a new restore.</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="details-for-a-snapshot-restore">
+        Details for a snapshot restore
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#details-for-a-snapshot-restore" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Details for a snapshot restore" aria-label="Anchor to: Details for a snapshot restore" href="#details-for-a-snapshot-restore">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>With this information, we define a fixed snapshot from <code>repo1</code> and that pgBackRest should stop at the end of the snapshot</p>
+<pre tabindex="0"><code>restore:
+  id: &#39;1&#39;
+  options:
+    - &#39;--type=immediate&#39;
+    - &#39;--set=20240515-164100F&#39;
+  repo: &#39;1&#39;
+</code></pre><blockquote>
+<p><strong><em>HINT:</em></strong> Without the specification <code>--type=immediate</code>, pgBackRest would then consume the entire WAL that is available and thus restore the last available consistent data point.</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="details-for-a-point-in-time-recoery-pitr">
+        Details for a point-in-time recoery (PITR)
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#details-for-a-point-in-time-recoery-pitr" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Details for a point-in-time recoery (PITR)" aria-label="Anchor to: Details for a point-in-time recoery (PITR)" href="#details-for-a-point-in-time-recoery-pitr">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>We use this information to define a point-in-time recovery (PITR) and define the end point using a timestamp and the start point using a snapshot specification. The latter is optional. Without this information, pgBackRest would automatically start at the last previous full snapshot.</p>
+<pre tabindex="0"><code>restore:
+  id: &#39;1&#39;
+  options:
+    - &#39;--type=time&#39;
+    - &#39;--set=20240515-164100F&#39;
+    - &#39;--target=2024-05-16 07:46:05.506817+00&#39;
+
+  repo: &#39;1&#39;
+</code></pre><blockquote>
+<p><strong><em>HINT:</em></strong> <code>--type=time</code> indicates that it is a point-in-time recovery (PITR).</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="example-in-a-cluster-manifest">
+        Example in a cluster manifest
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#example-in-a-cluster-manifest" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Example in a cluster manifest" aria-label="Anchor to: Example in a cluster manifest" href="#example-in-a-cluster-manifest">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
@@ -2139,117 +2201,37 @@ We need the following Definitions for the basic cluster.</p>
 <pre tabindex="0"><code>apiVersion: cpo.opensource.cybertec.at/v1
 kind: postgresql
 metadata:
-  name: cluster-1
+  name: cluster-5
+  namespace: cpo
 spec:
-  dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34;
-  numberOfInstances: 1
-  postgresql:
-    version: &#34;16&#34;
-  resources:
-    limits:
-      cpu: 500m
-      memory: 500Mi
-    requests:
-      cpu: 500m
-      memory: 500Mi
-  volume:
-    size: 5Gi 
-</code></pre><p>Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.
-Also created is a volume based on your default-storage Class. The Ressource-Definiton means, that we reserve a half cpu and a half GB Memory for this Cluster with the same Definition as limit.</p>
-<p>After some seconds we should see, that the operator creates our cluster based on the declared definitions.</p>
-<pre tabindex="0"><code>kubectl get pods
------------------------------------------------------------------------------
-NAME                             | READY  | STATUS           | RESTARTS | AGE
-cluster-1-0                      | 1/1    | Running          | 0        | 50s
-</code></pre><p>We can now starting to modify our cluster with some more Definitons.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="use-a-specific-storageclass">
-        Use a specific Storageclass
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#use-a-specific-storageclass" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Use a specific Storageclass" aria-label="Anchor to: Use a specific Storageclass" href="#use-a-specific-storageclass">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<pre tabindex="0"><code>spec:
-  ...
-  volume:
-    size: 5Gi
-    storageClass: default-provisioner
-  ...
-</code></pre><p>Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="expanding-volume">
-        Expanding Volume
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#expanding-volume" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Expanding Volume" aria-label="Anchor to: Expanding Volume" href="#expanding-volume">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows to you expand your volume if the storage-System is able to do this.</p>
-<pre tabindex="0"><code>spec:
-  ...
-  volume:
-    size: 10Gi
-    storageClass: default-provisioner
-  ...
-</code></pre><p>This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.</p>
-<pre tabindex="0"><code>kubectl get pvc pgdata-cluster-1-0 -o yaml
--------------------------------------------------------
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: crc-csi-hostpath-provisioner
-  volumeMode: Filesystem
-  volumeName: pvc-800d7ecc-2d5f-4ef4-af83-1cd94c766d37
-status:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 5Gi
-  phase: Bound
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h3 id="creating-additonal-volumes">
-        Creating additonal Volumes
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#creating-additonal-volumes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating additonal Volumes" aria-label="Anchor to: Creating additonal Volumes" href="#creating-additonal-volumes">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows you to modify your cluster with additonal Volumes.</p>
-<pre tabindex="0"><code>spec:
-  ...
-  additionalVolumes:
-    - name: empty
-      mountPath: /opt/empty
-      targetContainers:
-        - all
-      volumeSource:
-        emptyDir: {}
-</code></pre><p>This example will create an emptyDir and mount it to all Containers inside the Database-Pod.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="specific-settings-for-aws-gp3-storage">
-        Specific Settings for aws gp3 Storage
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/restore/#specific-settings-for-aws-gp3-storage" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Specific Settings for aws gp3 Storage" aria-label="Anchor to: Specific Settings for aws gp3 Storage" href="#specific-settings-for-aws-gp3-storage">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>For the gp3 Storage aws you can define more informations</p>
-<pre tabindex="0"><code>  volume:
-    size: 1Gi
-    storageClass: gp3
-    iops: 1000  # for EBS gp3
-    throughput: 250  # in MB/s for EBS gp3
-</code></pre><p>The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
-Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours.
-Please also ensure to check the default and allowed values for IOPS and Throughput <a
+  backup:
+    pgbackrest:
+      configuration:
+        secret: cluster-pvc-credentials
+      global:
+        repo1-retention-full: &#39;7&#39;
+        repo1-retention-full-type: count
+      image: &#39;docker.io/cybertecpostgresql/cybertec-pg-container-dev:pgbackrest-16.2-8-dev&#39;
+      repos:
+        - name: repo1
+          schedule:
+            full: 30 2 * * *
+          storage: pvc
+          volume:
+            size: 1Gi
+      restore:
+        id: &#39;1&#39;
+        options:
+          - &#39;--type=time&#39;
+          - &#39;--set=20240515-164100F&#39;
+          - &#39;--target=2024-05-16 07:46:05.506817+00&#39;
+</code></pre><p>An example of this can also be found in our tutorials. For a point-in-time recovery (PITR) you can find it <a
   class="gdoc-markdown__link"
-  href="https://aws.amazon.com/ebs/general-purpose/"
->AWS docs</a>.</p>
-<p>To ensure that the settings are updates properly please define the Operator-Configuration &lsquo;storage_resize_mode&rsquo; from default to &lsquo;mixed&rsquo;</p>
+  href="https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/tree/main/cluster-tutorials/restore_pitr"
+>here</a>.</p>
+<blockquote>
+<p><strong><em>ATTENTION:</em></strong> Incorrect information for the snapshot or the timestamp can result in pgBackRest not being able to complete the restore successfully. In the event of an error, the information must be corrected and another restore must be started.</p>
+</blockquote>
 
   </article>
 
