@@ -11,6 +11,9 @@
     <loc>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/</loc>
     <lastmod>2023-12-28T14:26:51+01:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/</loc>
+    <lastmod>2023-12-28T14:26:51+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ha-cluster/</loc>
     <lastmod>2023-12-28T14:26:51+01:00</lastmod>
   </url><url>
@@ -27,9 +30,6 @@
     <lastmod>2023-12-28T14:26:51+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/</loc>
-    <lastmod>2023-12-28T14:26:51+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/</loc>
     <lastmod>2023-12-28T14:26:51+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/examples/</loc>
