@@ -14,7 +14,7 @@
 
   <meta name="description" content="CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:
 Create roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are
-superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission." />
+superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via NOLOGIN, a created user automatically receives the LOGIN permission." />
 
     <title>Databases &amp; Users | CYBERTEC-PG-Operator</title>
 
@@ -42,7 +42,7 @@ superuser inherit login nologin createrole createdb replication bypassrls Unless
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
   <meta property="og:description" content="CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:
 Create roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are
-superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission." />
+superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via NOLOGIN, a created user automatically receives the LOGIN permission." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/" />
 
@@ -61,7 +61,7 @@ superuser inherit login nologin createrole createdb replication bypassrls Unless
 <meta name="twitter:title" content="Databases & Users" />
   <meta name="twitter:description" content="CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:
 Create roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are
-superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission." />
+superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via NOLOGIN, a created user automatically receives the LOGIN permission." />
 
 
   <script type="application/ld+json">
@@ -72,8 +72,8 @@ superuser inherit login nologin createrole createdb replication bypassrls Unless
       "name": "Databases \u0026 Users",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/",
       "headline": "Databases \u0026 Users",
-      "description": "CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:\nCreate roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are\nsuperuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission.",
-      "wordCount" : "306",
+      "description": "CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:\nCreate roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are\nsuperuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via NOLOGIN, a created user automatically receives the LOGIN permission.",
+      "wordCount" : "656",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2155,7 +2155,7 @@ CPO offers you three different options for this:</p>
 <li><code>replication</code></li>
 <li><code>bypassrls</code></li>
 </ul>
-<p>Unless explicitly defined via <code>nologin</code>, a created user automatically receives the <code>login</code> permission.</p>
+<p>Unless explicitly defined via <code>NOLOGIN</code>, a created user automatically receives the <code>LOGIN</code> permission.</p>
 <pre tabindex="0"><code>spec:
   users:
     db_owner:
@@ -2209,18 +2209,156 @@ The definition is based on the database name and the database owner.</p>
 </div>
 <p>The <code>preparedDatabases</code> object is available for a much more extensive setup of databases and users.
 In addition to the creation of <code>databases</code> and <code>users</code>, this also enables the creation of <code>schemas</code> and <code>extensions</code>. A more detailed rights management is also available.</p>
-<pre tabindex="0"><code>sepc:
+<div class="gdoc-page__anchorwrap">
+    <h3 id="databases-and-schema">
+        Databases and Schema
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#databases-and-schema" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Databases and Schema" aria-label="Anchor to: Databases and Schema" href="#databases-and-schema">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Creating the preparedDatabases object already creates a database whose name is based on the cluster name. <code>preparedDatabases: {}</code></p>
+<blockquote>
+<p><strong><em>HINT:</em></strong>  For the database name, <code>-</code> is replaced with <code>_</code> in the cluster name</p>
+</blockquote>
+<p>To create your own database names and elements such as schemas and extensions within the database, an object must be created within preparedDatabases for each database.</p>
+<pre tabindex="0"><code>spec:
+  preparedDatabases:
+    appl_db:
+      extensions:
+        dblink: public
+      schemas:
+        data: {}
+</code></pre><p>This example creates a database with the name <code>appl_db</code> and creates a schema with the name <code>data</code> in it, as well as creating the <code>dblink</code> extension in the schema <code>public</code>.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="management-of-users-and-permissions">
+        Management of users and Permissions
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#management-of-users-and-permissions" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Management of users and Permissions" aria-label="Anchor to: Management of users and Permissions" href="#management-of-users-and-permissions">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>For rights management, we distinguish between <code>NOLOGIN</code> roles and <code>LOGIN</code> roles. <code>Users</code> have login rights and inherit the other rights from the <code>NOLOGIN</code> role.</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="nologin-roles-defaultroles">
+        NoLogin roles (defaultRoles)
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#nologin-roles-defaultroles" class="gdoc-page__anchor clip flex align-center" title="Anchor to: NoLogin roles (defaultRoles)" aria-label="Anchor to: NoLogin roles (defaultRoles)" href="#nologin-roles-defaultroles">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>The roles are created if <code>defaultroles</code> is not explicitly set to false.</p>
+<pre tabindex="0"><code>spec:
+  preparedDatabases:
+    appl_db:
+      extensions:
+        dblink: public
+      schemas:
+        data: {}
+</code></pre><p>This creates roles for the schema owner, writer and reader</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="login-roles-defaultusers">
+        Login roles (defaultUsers)
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#login-roles-defaultusers" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Login roles (defaultUsers)" aria-label="Anchor to: Login roles (defaultUsers)" href="#login-roles-defaultusers">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>The roles described in the previous paragraph can be assigned to LOGIN roles via the users section in the manifest. Optionally, the Postgres operator can also create standard <code>LOGIN</code> roles for the database and each individual schema. These roles are given the suffix _user and inherit all rights from their NOLOGIN counterparts. Therefore, you cannot set defaultRoles to false and activate defaultUsers at the same time.</p>
+<pre tabindex="0"><code>spec:
   preparedDatabases:
     appl_db:
       defaultUsers: true
       extensions:
-        pgaudit: public
+        dblink: public
       schemas:
         data: {}
         history:
           defaultRoles: true
           defaultUsers: false
-</code></pre>
+</code></pre><p>This example creates the following users and inheritances</p>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Role name</th>
+<th>Attributes</th>
+<th>inherits from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appl_db_owner</td>
+<td>Cannot login</td>
+<td>appl_db_reader,appl_db_owner,appl_data_owner,&hellip;</td>
+</tr>
+<tr>
+<td>appl_db_owner_user</td>
+<td></td>
+<td>appl_db_owner</td>
+</tr>
+<tr>
+<td>appl_db_reader</td>
+<td>Cannot login</td>
+<td></td>
+</tr>
+<tr>
+<td>appl_db_reader_user</td>
+<td></td>
+<td>appl_db_reader</td>
+</tr>
+<tr>
+<td>appl_db_writer</td>
+<td>Cannot login</td>
+<td>appl_db_reader</td>
+</tr>
+<tr>
+<td>appl_db_writer_user</td>
+<td></td>
+<td>appl_db_writer</td>
+</tr>
+<tr>
+<td>appl_db_data_owner</td>
+<td>Cannot login</td>
+<td>appl_db_data_reader,appl_db_data_writer</td>
+</tr>
+<tr>
+<td>appl_db_data_reader</td>
+<td>Cannot login</td>
+<td></td>
+</tr>
+<tr>
+<td>appl_db_data_writer</td>
+<td>Cannot login</td>
+<td>appl_db_data_reader</td>
+</tr>
+<tr>
+<td>appl_db_history_owner</td>
+<td>Cannot login</td>
+<td>appl_db_history_reader,appl_db_history_writer</td>
+</tr>
+<tr>
+<td>appl_db_history_reader</td>
+<td>Cannot login</td>
+<td></td>
+</tr>
+<tr>
+<td>appl_db_history_writer</td>
+<td>Cannot login</td>
+<td>appl_db_history_reader</td>
+</tr>
+</tbody>
+</table> </div>
+<p>Default access permissions are also defined for LOGIN roles when databases and schemas are created. This means that they are not currently set if defaultUsers (or defaultRoles for schemas) are activated at a later time.</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="user-secrets">
+        User Secrets
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#user-secrets" class="gdoc-page__anchor clip flex align-center" title="Anchor to: User Secrets" aria-label="Anchor to: User Secrets" href="#user-secrets">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>For each user created by cpo with <code>LOGIN</code> permissions, the operator also creates a secret with username and password, as with the creation of roles via the <code>users</code> object.</p>
+
   </article>
 
 
