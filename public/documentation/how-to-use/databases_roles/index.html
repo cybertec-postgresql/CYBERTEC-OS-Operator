@@ -12,10 +12,11 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta name="description" content="CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:
+Create roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are
+superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission." />
 
-    <title>Single Cluster | CYBERTEC-PG-Operator</title>
+    <title>Databases &amp; Users | CYBERTEC-PG-Operator</title>
 
     <link rel="icon" type="image/svg+xml" href="/CYBERTEC-pg-operator/favicon/favicon.svg" />
 <link
@@ -36,11 +37,12 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     
   <meta
     property="og:title"
-    content="Single Cluster"
+    content="Databases & Users"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta property="og:description" content="CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:
+Create roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are
+superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/" />
 
@@ -56,9 +58,10 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Single Cluster" />
-  <meta name="twitter:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+<meta name="twitter:title" content="Databases & Users" />
+  <meta name="twitter:description" content="CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:
+Create roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are
+superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission." />
 
 
   <script type="application/ld+json">
@@ -66,11 +69,11 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
       "@context": "http://schema.org",
       "@type": "TechArticle",
       "articleSection": "Documentation",
-      "name": "Single Cluster",
+      "name": "Databases \u0026 Users",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/",
-      "headline": "Single Cluster",
-      "description": "Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.\nminimal Single Cluster apiVersion: cpo.opensource.cybertec.at\/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: \u0022docker.io\/cybertecpostgresql\/cybertec-pg-container:postgres-16.1-6-dev\u0022 numberOfInstances: 1 postgresql: version: \u002216\u0022 resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.",
-      "wordCount" : "452",
+      "headline": "Databases \u0026 Users",
+      "description": "CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:\nCreate roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are\nsuperuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission.",
+      "wordCount" : "290",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2096,7 +2099,7 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Single Cluster</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Databases & Users</span><meta itemprop='position' content='5' /></li>
   
 
   
@@ -2125,131 +2128,87 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
   <article
     class="gdoc-markdown gdoc-markdown__align--left"
   >
-    <h1>Single Cluster</h1>
-    <p>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.</p>
+    <h1>Databases &amp; Users</h1>
+    <p>CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users.
+CPO offers you three different options for this:</p>
+<ul>
+<li>Create roles</li>
+<li>Create databases</li>
+<li>preapared databases</li>
+</ul>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="minimal-single-cluster">
-        minimal Single Cluster
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#minimal-single-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: minimal Single Cluster" aria-label="Anchor to: minimal Single Cluster" href="#minimal-single-cluster">
+    <h2 id="create-roles">
+        Create Roles
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#create-roles" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Create Roles" aria-label="Anchor to: Create Roles" href="#create-roles">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
 </div>
-<pre tabindex="0"><code>apiVersion: cpo.opensource.cybertec.at/v1
-kind: postgresql
-metadata:
-  name: cluster-1
-spec:
-  dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34;
-  numberOfInstances: 1
-  postgresql:
-    version: &#34;16&#34;
-  resources:
-    limits:
-      cpu: 500m
-      memory: 500Mi
-    requests:
-      cpu: 500m
-      memory: 500Mi
-  volume:
-    size: 5Gi 
-</code></pre><p>Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.
-Also created is a volume based on your default-storage Class. The Ressource-Definiton means, that we reserve a half cpu and a half GB Memory for this Cluster with the same Definition as limit.</p>
-<p>After some seconds we should see, that the operator creates our cluster based on the declared definitions.</p>
-<pre tabindex="0"><code>kubectl get pods
------------------------------------------------------------------------------
-NAME                             | READY  | STATUS           | RESTARTS | AGE
-cluster-1-0                      | 1/1    | Running          | 0        | 50s
-</code></pre><p>We can now starting to modify our cluster with some more Definitons.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="use-a-specific-storageclass">
-        Use a specific Storageclass
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#use-a-specific-storageclass" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Use a specific Storageclass" aria-label="Anchor to: Use a specific Storageclass" href="#use-a-specific-storageclass">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
+<p>The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are</p>
+<ul>
+<li><code>superuser</code></li>
+<li><code>inherit</code></li>
+<li><code>login</code></li>
+<li><code>nologin</code></li>
+<li><code>createrole</code></li>
+<li><code>createdb</code></li>
+<li><code>replication</code></li>
+<li><code>bypassrls</code></li>
+</ul>
+<p>Unless explicitly defined via <code>nologin</code>, a created user automatically receives the <code>login</code> permission.</p>
 <pre tabindex="0"><code>spec:
-  ...
-  volume:
-    size: 5Gi
-    storageClass: default-provisioner
-  ...
-</code></pre><p>Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="expanding-volume">
-        Expanding Volume
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#expanding-volume" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Expanding Volume" aria-label="Anchor to: Expanding Volume" href="#expanding-volume">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows to you expand your volume if the storage-System is able to do this.</p>
-<pre tabindex="0"><code>spec:
-  ...
-  volume:
-    size: 10Gi
-    storageClass: default-provisioner
-  ...
-</code></pre><p>This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.</p>
-<pre tabindex="0"><code>kubectl get pvc pgdata-cluster-1-0 -o yaml
--------------------------------------------------------
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: crc-csi-hostpath-provisioner
-  volumeMode: Filesystem
-  volumeName: pvc-800d7ecc-2d5f-4ef4-af83-1cd94c766d37
-status:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 5Gi
-  phase: Bound
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h3 id="creating-additonal-volumes">
-        Creating additonal Volumes
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#creating-additonal-volumes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating additonal Volumes" aria-label="Anchor to: Creating additonal Volumes" href="#creating-additonal-volumes">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows you to modify your cluster with additonal Volumes.</p>
-<pre tabindex="0"><code>spec:
-  ...
-  additionalVolumes:
-    - name: empty
-      mountPath: /opt/empty
-      targetContainers:
-        - all
-      volumeSource:
-        emptyDir: {}
-</code></pre><p>This example will create an emptyDir and mount it to all Containers inside the Database-Pod.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="specific-settings-for-aws-gp3-storage">
-        Specific Settings for aws gp3 Storage
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#specific-settings-for-aws-gp3-storage" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Specific Settings for aws gp3 Storage" aria-label="Anchor to: Specific Settings for aws gp3 Storage" href="#specific-settings-for-aws-gp3-storage">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>For the gp3 Storage aws you can define more informations</p>
-<pre tabindex="0"><code>  volume:
-    size: 1Gi
-    storageClass: gp3
-    iops: 1000  # for EBS gp3
-    throughput: 250  # in MB/s for EBS gp3
-</code></pre><p>The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
-Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours.
-Please also ensure to check the default and allowed values for IOPS and Throughput <a
+  users:
+    db_owner:
+    - login
+    - createdb
+    appl_user:
+    - login
+</code></pre><p>For each user created, CPO automatically creates a secret with <code>username</code> and <code>password</code> in the namespace of the cluster, which follows the following naming convention:
+[USERNAME].[CLUSTERNAME].credentials.postgresql.cpo.opensource.cybertec.at</p>
+<p>If the secrets for an application are to be stored in a different namespace, for example, it is necessary to define the setting enable_cross_namespace_secret as true in the operator configuration. You can find more information about the operator configuration <a
   class="gdoc-markdown__link"
-  href="https://aws.amazon.com/ebs/general-purpose/"
->AWS docs</a>.</p>
-<p>To ensure that the settings are updates properly please define the Operator-Configuration &lsquo;storage_resize_mode&rsquo; from default to &lsquo;mixed&rsquo;</p>
+  href="documentation/how-to-use/operator_configuration/"
+>here</a>.</p>
+<p>The namespace must then be written before the user name.</p>
+<pre tabindex="0"><code>spec:
+  users:
+    db_owner:
+    - login
+    - createdb
+    app_namespace.appl_user:
+    - login
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h2 id="create-databases">
+        Create Databases
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#create-databases" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Create Databases" aria-label="Anchor to: Create Databases" href="#create-databases">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Databases are basically created in a very similar way to users.
+The definition is based on the database name and the database owner.</p>
+<pre tabindex="0"><code>spec:
+  users:
+    db_owner:
+    - login
+    - createdb
+    app_namespace.appl_user:
+    - login
+  databases;
+    app_db: app_namespace.appl_user
+</code></pre><blockquote>
+<p><strong><em>HINT:</em></strong>  Be aware that the user name must be defined for the database owner in the same way as it is done in the users object.</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="prepared-databases">
+        Prepared Databases
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/#prepared-databases" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Prepared Databases" aria-label="Anchor to: Prepared Databases" href="#prepared-databases">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>The <code>preparedDatabases</code> object is available for a much more extensive setup of databases and users.
+In addition to the creation of <code>databases</code> and <code>users</code>, this also enables the creation of <code>schemas</code> and <code>extensions</code>. A more detailed rights management is also available.</p>
 
   </article>
 

@@ -12,8 +12,10 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta name="description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
+The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
+There are basically two different definitions:
+requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
 
     <title>Cluster Ressources | CYBERTEC-PG-Operator</title>
 
@@ -39,8 +41,10 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     content="Cluster Ressources"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta property="og:description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
+The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
+There are basically two different definitions:
+requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/" />
 
@@ -57,8 +61,10 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Cluster Ressources" />
-  <meta name="twitter:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta name="twitter:description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
+The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
+There are basically two different definitions:
+requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
 
 
   <script type="application/ld+json">
@@ -69,8 +75,8 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
       "name": "Cluster Ressources",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/",
       "headline": "Cluster Ressources",
-      "description": "Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.\nminimal Single Cluster apiVersion: cpo.opensource.cybertec.at\/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: \u0022docker.io\/cybertecpostgresql\/cybertec-pg-container:postgres-16.1-6-dev\u0022 numberOfInstances: 1 postgresql: version: \u002216\u0022 resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.",
-      "wordCount" : "452",
+      "description": "Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.\nThe cluster manifest is used to define the Postgres pod resources via the typical resources objects.\nThere are basically two different definitions:\nrequests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources.",
+      "wordCount" : "413",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2126,130 +2132,52 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <h1>Cluster Ressources</h1>
-    <p>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.</p>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="minimal-single-cluster">
-        minimal Single Cluster
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/#minimal-single-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: minimal Single Cluster" aria-label="Anchor to: minimal Single Cluster" href="#minimal-single-cluster">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<pre tabindex="0"><code>apiVersion: cpo.opensource.cybertec.at/v1
-kind: postgresql
-metadata:
-  name: cluster-1
-spec:
-  dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34;
-  numberOfInstances: 1
-  postgresql:
-    version: &#34;16&#34;
-  resources:
+    <p>Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.</p>
+<p>The cluster manifest is used to define the Postgres pod resources via the typical resources objects.</p>
+<p>There are basically two different definitions:</p>
+<ul>
+<li><code>requests</code>: Basic requirement and guaranteed by the worker node</li>
+<li><code>limits</code>: maximum availability, allocation is increased dynamically if the worker node can provide the resources.</li>
+</ul>
+<p>For the planning of the cluster, a proper definition should be carried out in terms of the required hardware, which is then defined as <code>requests</code>. These resources are thus guaranteed to the cluster and are taken into account when deploying the pod. Accordingly, a pod can only be deployed on a worker if it can provide these resources. Any limits beyond this are not taken into account when deploying.</p>
+<p>The unit of measurement should be taken into account when planning the necessary CPUs:
+cpu specifications are based on millicores</p>
+<ul>
+<li><code>1 cpu</code> corresponds to <code>1 core</code></li>
+<li><code>1 core </code>corresponds to <code>1000 millicores (m)</code></li>
+<li><code>1/2 core</code> corresponds to <code>500 m</code></li>
+</ul>
+<pre tabindex="0"><code>  resources:
     limits:
       cpu: 500m
-      memory: 500Mi
+      memory: 1Gi
     requests:
-      cpu: 500m
-      memory: 500Mi
-  volume:
-    size: 5Gi 
-</code></pre><p>Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.
-Also created is a volume based on your default-storage Class. The Ressource-Definiton means, that we reserve a half cpu and a half GB Memory for this Cluster with the same Definition as limit.</p>
-<p>After some seconds we should see, that the operator creates our cluster based on the declared definitions.</p>
-<pre tabindex="0"><code>kubectl get pods
------------------------------------------------------------------------------
-NAME                             | READY  | STATUS           | RESTARTS | AGE
-cluster-1-0                      | 1/1    | Running          | 0        | 50s
-</code></pre><p>We can now starting to modify our cluster with some more Definitons.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="use-a-specific-storageclass">
-        Use a specific Storageclass
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/#use-a-specific-storageclass" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Use a specific Storageclass" aria-label="Anchor to: Use a specific Storageclass" href="#use-a-specific-storageclass">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<pre tabindex="0"><code>spec:
-  ...
-  volume:
-    size: 5Gi
-    storageClass: default-provisioner
-  ...
-</code></pre><p>Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="expanding-volume">
-        Expanding Volume
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/#expanding-volume" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Expanding Volume" aria-label="Anchor to: Expanding Volume" href="#expanding-volume">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows to you expand your volume if the storage-System is able to do this.</p>
-<pre tabindex="0"><code>spec:
-  ...
-  volume:
-    size: 10Gi
-    storageClass: default-provisioner
-  ...
-</code></pre><p>This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.</p>
-<pre tabindex="0"><code>kubectl get pvc pgdata-cluster-1-0 -o yaml
--------------------------------------------------------
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: crc-csi-hostpath-provisioner
-  volumeMode: Filesystem
-  volumeName: pvc-800d7ecc-2d5f-4ef4-af83-1cd94c766d37
-status:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 5Gi
-  phase: Bound
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h3 id="creating-additonal-volumes">
-        Creating additonal Volumes
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/#creating-additonal-volumes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating additonal Volumes" aria-label="Anchor to: Creating additonal Volumes" href="#creating-additonal-volumes">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows you to modify your cluster with additonal Volumes.</p>
-<pre tabindex="0"><code>spec:
-  ...
-  additionalVolumes:
-    - name: empty
-      mountPath: /opt/empty
-      targetContainers:
-        - all
-      volumeSource:
-        emptyDir: {}
-</code></pre><p>This example will create an emptyDir and mount it to all Containers inside the Database-Pod.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="specific-settings-for-aws-gp3-storage">
-        Specific Settings for aws gp3 Storage
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/#specific-settings-for-aws-gp3-storage" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Specific Settings for aws gp3 Storage" aria-label="Anchor to: Specific Settings for aws gp3 Storage" href="#specific-settings-for-aws-gp3-storage">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>For the gp3 Storage aws you can define more informations</p>
-<pre tabindex="0"><code>  volume:
-    size: 1Gi
-    storageClass: gp3
-    iops: 1000  # for EBS gp3
-    throughput: 250  # in MB/s for EBS gp3
-</code></pre><p>The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
-Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours.
-Please also ensure to check the default and allowed values for IOPS and Throughput <a
+      cpu: 1000m
+      memory: 1Gi
+</code></pre><p>This example corresponds to a guaranteed availability of half a core and 1 Gibibyte. However, if necessary and available, the container can use up to one core. The allocation takes place dynamically and for the required time.</p>
+<p>Pods can be categorised into three Quality of Services (QoS) based on the defined information on the resources.</p>
+<ul>
+<li><code>Best-Effort</code>: The containers of a pod have no resource information</li>
+<li><code>Burstable</code>: A container of the pod has a memory or CPU <code>requests</code> or <code>limits</code>.</li>
+<li><code>Guaranteed</code>: Each container of a pod has both cpu and memory <code>requests</code> and <code>limits</code>. In addition, the details of the respective <code>limits</code> correspond to the <code>requests</code> details</li>
+</ul>
+<p>If you would like more information and explanations, you can take a look at the <a
   class="gdoc-markdown__link"
-  href="https://aws.amazon.com/ebs/general-purpose/"
->AWS docs</a>.</p>
-<p>To ensure that the settings are updates properly please define the Operator-Configuration &lsquo;storage_resize_mode&rsquo; from default to &lsquo;mixed&rsquo;</p>
+  href="https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/#qos-classes"
+>Kubernetes documentation on QoS</a>.</p>
+<p>We generally recommend using the Guaranteed Status for PostgreSQL workloads. However, many users very successfully use the deviation of the CPU limit by factors such as 2.
+For example:</p>
+<pre tabindex="0"><code>  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 2000m
+      memory: 1Gi
+</code></pre><p>This is intended to create the possibility of additional CPU resources for sudden load peaks.</p>
+<blockquote>
+<p><strong><em>HINT:</em></strong>  The use of burstable definitions does not release you from a correct resource calculation, as <code>limits</code> resources are not guaranteed and therefore an undersupply can occur if the requests are not properly defined.</p>
+</blockquote>
 
   </article>
 

@@ -70,7 +70,7 @@ Backups with pgBackRest CPO relies on pgBackRest as its backup solution, a tried
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/",
       "headline": "Backup",
       "description": "Backups are essential for databases. From broken storage to deployments gone wrong, backups often save the day. Starting with pg_dump, which was released in the late 1990s, to the archiving of WAL files (PostgreSQL 8.0 \/ 2005) and pg_basebackup (PostgreSQL 9.0 \/ 2010), PostgreSQL already offers built-in options for backups and restores based on logical and physical backups.\nBackups with pgBackRest CPO relies on pgBackRest as its backup solution, a tried-and-tested tool with extensive backup and restore options.",
-      "wordCount" : "1307",
+      "wordCount" : "1668",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2384,6 +2384,93 @@ postgres-operator-66bbff5c54-5sjmk           | 1/1   | Running   | 0        | 47
         </a>
     </h2>
 </div>
+<p>There are several ways to gain an insight into the current status of pgBackRest.
+One of these is to use pgBackRest within the container. This can be done both via the repo host and the Postgres pod.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="pgbackrest-via-terminal-repo-host-pod">
+        pgbackrest via terminal (Repo-Host-Pod)
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#pgbackrest-via-terminal-repo-host-pod" class="gdoc-page__anchor clip flex align-center" title="Anchor to: pgbackrest via terminal (Repo-Host-Pod)" aria-label="Anchor to: pgbackrest via terminal (Repo-Host-Pod)" href="#pgbackrest-via-terminal-repo-host-pod">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<pre tabindex="0"><code>kubectl exec cluster-5-pgbackrest-repo-host-0 --stdin --tty -- pgbackrest info 
+stanza: db
+    status: ok
+    cipher: none
+
+    db (current)
+        wal archive min/max (16): 00000006000000000000005C/000000070000000000000092
+
+        full backup: 20240517-125730F
+            timestamp start/stop: 2024-05-17 12:57:30+00 / 2024-05-17 12:57:41+00
+            wal start/stop: 00000007000000000000005E / 00000007000000000000005E
+            database size: 22.9MB, database backup size: 22.9MB
+            repo1: backup set size: 3MB, backup size: 3MB
+
+        incr backup: 20240517-125730F_20240517-130003I
+            timestamp start/stop: 2024-05-17 13:00:03+00 / 2024-05-17 13:00:05+00
+            wal start/stop: 000000070000000000000060 / 000000070000000000000060
+            database size: 22.9MB, database backup size: 904.3KB
+            repo1: backup set size: 3MB, backup size: 149.4KB
+            backup reference list: 20240517-125730F
+
+        incr backup: 20240517-125730F_20240517-131503I
+            timestamp start/stop: 2024-05-17 13:15:03+00 / 2024-05-17 13:15:04+00
+            wal start/stop: 000000070000000000000062 / 000000070000000000000062
+            database size: 22.9MB, database backup size: 24.3KB
+            repo1: backup set size: 3MB, backup size: 2.9KB
+            backup reference list: 20240517-125730F, 20240517-125730F_20240517-130003I
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h3 id="pgbackrest-via-terminal-postgres-pod">
+        pgbackrest via terminal (Postgres-Pod)
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#pgbackrest-via-terminal-postgres-pod" class="gdoc-page__anchor clip flex align-center" title="Anchor to: pgbackrest via terminal (Postgres-Pod)" aria-label="Anchor to: pgbackrest via terminal (Postgres-Pod)" href="#pgbackrest-via-terminal-postgres-pod">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<pre tabindex="0"><code>kubectl exec cluster-5-0 --stdin --tty -- pgbackrest info 
+Defaulted container &#34;postgres&#34; out of: postgres, postgres-exporter, pgbackrest-restore (init)
+stanza: db
+    status: ok
+    cipher: none
+
+    db (current)
+        wal archive min/max (16): 00000006000000000000005C/000000070000000000000092
+
+        full backup: 20240517-125730F
+            timestamp start/stop: 2024-05-17 12:57:30+00 / 2024-05-17 12:57:41+00
+            wal start/stop: 00000007000000000000005E / 00000007000000000000005E
+            database size: 22.9MB, database backup size: 22.9MB
+            repo1: backup set size: 3MB, backup size: 3MB
+
+        incr backup: 20240517-125730F_20240517-130003I
+            timestamp start/stop: 2024-05-17 13:00:03+00 / 2024-05-17 13:00:05+00
+            wal start/stop: 000000070000000000000060 / 000000070000000000000060
+            database size: 22.9MB, database backup size: 904.3KB
+            repo1: backup set size: 3MB, backup size: 149.4KB
+            backup reference list: 20240517-125730F
+
+        incr backup: 20240517-125730F_20240517-131503I
+            timestamp start/stop: 2024-05-17 13:15:03+00 / 2024-05-17 13:15:04+00
+            wal start/stop: 000000070000000000000062 / 000000070000000000000062
+            database size: 22.9MB, database backup size: 24.3KB
+            repo1: backup set size: 3MB, backup size: 2.9KB
+            backup reference list: 20240517-125730F, 20240517-125730F_20240517-130003I
+</code></pre><p>There is the &ldquo;normal&rdquo; output, as well as the output format Json, which can be processed directly in the terminal.</p>
+<pre tabindex="0"><code>kubectl exec cluster-5-0 --stdin --tty -- pgbackrest info  --output=json
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h2 id="check-pgbackrest-via-monitoring">
+        Check pgBackrest via Monitoring
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/backup/#check-pgbackrest-via-monitoring" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Check pgBackrest via Monitoring" aria-label="Anchor to: Check pgBackrest via Monitoring" href="#check-pgbackrest-via-monitoring">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>In addition to reading the status via the containers, pgBackRest can also be analysed and monitored via the monitoring stack. You can find information on setting up the monitoring stack and further information <a
+  class="gdoc-markdown__link"
+  href="documentation/how-to-use/monitoring"
+>here</a>.</p>
 
   </article>
 

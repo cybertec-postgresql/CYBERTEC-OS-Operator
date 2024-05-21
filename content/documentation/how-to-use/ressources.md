@@ -4,113 +4,53 @@ date: 2024-04-28T14:26:51+01:00
 draft: false
 ---
 
-Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.
-## minimal Single Cluster
+Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically. 
+
+The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
+
+There are basically two different definitions:
+- `requests`: Basic requirement and guaranteed by the worker node
+- `limits`: maximum availability, allocation is increased dynamically if the worker node can provide the resources.
+
+For the planning of the cluster, a proper definition should be carried out in terms of the required hardware, which is then defined as `requests`. These resources are thus guaranteed to the cluster and are taken into account when deploying the pod. Accordingly, a pod can only be deployed on a worker if it can provide these resources. Any limits beyond this are not taken into account when deploying.
+
+The unit of measurement should be taken into account when planning the necessary CPUs: 
+cpu specifications are based on millicores
+- `1 cpu` corresponds to `1 core`
+- `1 core `corresponds to `1000 millicores (m)`
+- `1/2 core` corresponds to `500 m`
+
 ```
-apiVersion: cpo.opensource.cybertec.at/v1
-kind: postgresql
-metadata:
-  name: cluster-1
-spec:
-  dockerImage: "docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev"
-  numberOfInstances: 1
-  postgresql:
-    version: "16"
   resources:
     limits:
       cpu: 500m
-      memory: 500Mi
+      memory: 1Gi
     requests:
-      cpu: 500m
-      memory: 500Mi
-  volume:
-    size: 5Gi 
-```
-Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server. 
-Also created is a volume based on your default-storage Class. The Ressource-Definiton means, that we reserve a half cpu and a half GB Memory for this Cluster with the same Definition as limit.
-
-After some seconds we should see, that the operator creates our cluster based on the declared definitions.
-```
-kubectl get pods
------------------------------------------------------------------------------
-NAME                             | READY  | STATUS           | RESTARTS | AGE
-cluster-1-0                      | 1/1    | Running          | 0        | 50s
-
+      cpu: 1000m
+      memory: 1Gi
 ```
 
-We can now starting to modify our cluster with some more Definitons. 
-### Use a specific Storageclass
-```
-spec:
-  ...
-  volume:
-    size: 5Gi
-    storageClass: default-provisioner
-  ...
-```
-Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.
+This example corresponds to a guaranteed availability of half a core and 1 Gibibyte. However, if necessary and available, the container can use up to one core. The allocation takes place dynamically and for the required time.
 
-### Expanding Volume
-The Operator allows to you expand your volume if the storage-System is able to do this. 
+Pods can be categorised into three Quality of Services (QoS) based on the defined information on the resources. 
+    
+- `Best-Effort`: The containers of a pod have no resource information
+- `Burstable`: A container of the pod has a memory or CPU `requests` or `limits`.  
+- `Guaranteed`: Each container of a pod has both cpu and memory `requests` and `limits`. In addition, the details of the respective `limits` correspond to the `requests` details 
+
+If you would like more information and explanations, you can take a look at the [Kubernetes documentation on QoS](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/#qos-classes).
+
+We generally recommend using the Guaranteed Status for PostgreSQL workloads. However, many users very successfully use the deviation of the CPU limit by factors such as 2. 
+For example: 
 ```
-spec:
-  ...
-  volume:
-    size: 10Gi
-    storageClass: default-provisioner
-  ...
-```
-This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.
-```
-kubectl get pvc pgdata-cluster-1-0 -o yaml
--------------------------------------------------------
-spec:
-  accessModes:
-  - ReadWriteOnce
   resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
     requests:
-      storage: 10Gi
-  storageClassName: crc-csi-hostpath-provisioner
-  volumeMode: Filesystem
-  volumeName: pvc-800d7ecc-2d5f-4ef4-af83-1cd94c766d37
-status:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 5Gi
-  phase: Bound
-
+      cpu: 2000m
+      memory: 1Gi
 ```
+This is intended to create the possibility of additional CPU resources for sudden load peaks. 
 
-### Creating additonal Volumes
-The Operator allows you to modify your cluster with additonal Volumes.
-```
-spec:
-  ...
-  additionalVolumes:
-    - name: empty
-      mountPath: /opt/empty
-      targetContainers:
-        - all
-      volumeSource:
-        emptyDir: {}
-```
-This example will create an emptyDir and mount it to all Containers inside the Database-Pod.
-
-
-### Specific Settings for aws gp3 Storage
-For the gp3 Storage aws you can define more informations 
-```
-  volume:
-    size: 1Gi
-    storageClass: gp3
-    iops: 1000  # for EBS gp3
-    throughput: 250  # in MB/s for EBS gp3
-
-```
-The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
-Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours. 
-Please also ensure to check the default and allowed values for IOPS and Throughput [AWS docs](https://aws.amazon.com/ebs/general-purpose/).
-
-To ensure that the settings are updates properly please define the Operator-Configuration 'storage_resize_mode' from default to 'mixed'
+> **_HINT:_**  The use of burstable definitions does not release you from a correct resource calculation, as `limits` resources are not guaranteed and therefore an undersupply can occur if the requests are not properly defined.
