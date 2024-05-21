@@ -72,3 +72,17 @@ spec:
 
 The `preparedDatabases` object is available for a much more extensive setup of databases and users. 
 In addition to the creation of `databases` and `users`, this also enables the creation of `schemas` and `extensions`. A more detailed rights management is also available.
+
+```
+sepc:
+  preparedDatabases:
+    appl_db:
+      defaultUsers: true
+      extensions:
+        pgaudit: public
+      schemas:
+        data: {}
+        history:
+          defaultRoles: true
+          defaultUsers: false
+```

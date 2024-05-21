@@ -73,7 +73,7 @@ superuser inherit login nologin createrole createdb replication bypassrls Unless
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/",
       "headline": "Databases \u0026 Users",
       "description": "CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:\nCreate roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are\nsuperuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission.",
-      "wordCount" : "290",
+      "wordCount" : "306",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2209,7 +2209,18 @@ The definition is based on the database name and the database owner.</p>
 </div>
 <p>The <code>preparedDatabases</code> object is available for a much more extensive setup of databases and users.
 In addition to the creation of <code>databases</code> and <code>users</code>, this also enables the creation of <code>schemas</code> and <code>extensions</code>. A more detailed rights management is also available.</p>
-
+<pre tabindex="0"><code>sepc:
+  preparedDatabases:
+    appl_db:
+      defaultUsers: true
+      extensions:
+        pgaudit: public
+      schemas:
+        data: {}
+        history:
+          defaultRoles: true
+          defaultUsers: false
+</code></pre>
   </article>
 
 
