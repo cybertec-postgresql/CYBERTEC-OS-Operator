@@ -70,7 +70,7 @@ postgresql.conf pg_hba.conf … Although these files are available in the contai
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/configuration/",
       "headline": "Configuration",
       "description": "Users who are already used to working with PostgreSQL from Baremetal or VMs are already familiar with the need for various files to configure PostgreSQL. These include\npostgresql.conf pg_hba.conf … Although these files are available in the container, direct modification is not planned. As part of the declarative mode of operation of the operator, these files are defined via the operator. The modifying intervention within the container also represents a contradiction to the immutability of the container.",
-      "wordCount" : "355",
+      "wordCount" : "499",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2213,6 +2213,20 @@ The current configuration can be read out in the database using table pg_hba_fil
         </a>
     </h3>
 </div>
+<p>When using user-defined slots, for example for the use of CDC using Debezium, there are problems when interacting with Patroni, as the slot and its current status are not automatically synchronised to the replicas.</p>
+<p>In the event of a failover, the client cannot start replication as both the entire slot and the information about the data that has already been synchronised are missing.</p>
+<p>To resolve this problem, slots must be defined in the cluster manifest rather than in PostgreSQL.</p>
+<pre tabindex="0"><code>spec:
+  patroni:
+    slots:
+      cdc-example:
+        database: app_db
+        plugin: pgoutput
+        type: logical
+</code></pre><p>This example creates a logical replication slot with the name <code>cdc-example</code> within the <code>app_db</code> database and uses the <code>pgoutput</code> plugin for the slot.</p>
+<blockquote>
+<p><strong><em>ATTENTION:</em></strong>  Slots are only synchronised from the leader/standby leader to the replicas. This means that using the slots read-only on the replicas will cause a problem in the event of a failover.</p>
+</blockquote>
 
   </article>
 

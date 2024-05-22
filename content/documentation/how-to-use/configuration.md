@@ -60,7 +60,24 @@ Further information can be found in the [PostgreSQL documentation](https://www.p
 
 ### slots
 
+When using user-defined slots, for example for the use of CDC using Debezium, there are problems when interacting with Patroni, as the slot and its current status are not automatically synchronised to the replicas. 
+
+In the event of a failover, the client cannot start replication as both the entire slot and the information about the data that has already been synchronised are missing. 
+
+To resolve this problem, slots must be defined in the cluster manifest rather than in PostgreSQL. 
+
+```
+spec:
+  patroni:
+    slots:
+      cdc-example:
+        database: app_db
+        plugin: pgoutput
+        type: logical
+```
+This example creates a logical replication slot with the name `cdc-example` within the `app_db` database and uses the `pgoutput` plugin for the slot.
 
 
+> **_ATTENTION:_**  Slots are only synchronised from the leader/standby leader to the replicas. This means that using the slots read-only on the replicas will cause a problem in the event of a failover.
 
 

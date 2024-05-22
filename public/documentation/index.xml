@@ -27,7 +27,7 @@
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/</link>
       <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
       <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/databases_roles/</guid>
-      <description>CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:&#xA;Create roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are&#xA;superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via nologin, a created user automatically receives the login permission.</description>
+      <description>CPO not only supports you in deploying your cluster, it also supports you in setting it up in terms of the database and users. CPO offers you three different options for this:&#xA;Create roles Create databases preapared databases Create Roles The creation of users is based on the definition of the user name and the definition of the required rights for this user. Available rights are&#xA;superuser inherit login nologin createrole createdb replication bypassrls Unless explicitly defined via NOLOGIN, a created user automatically receives the LOGIN permission.</description>
     </item>
     <item>
       <title>High Availability Cluster (HA)</title>
@@ -125,7 +125,7 @@
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/configuration/</link>
       <pubDate>Tue, 07 Mar 2023 14:26:51 +0100</pubDate>
       <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/configuration/</guid>
-      <description></description>
+      <description>Users who are already used to working with PostgreSQL from Baremetal or VMs are already familiar with the need for various files to configure PostgreSQL. These include&#xA;postgresql.conf pg_hba.conf &amp;hellip; Although these files are available in the container, direct modification is not planned. As part of the declarative mode of operation of the operator, these files are defined via the operator. The modifying intervention within the container also represents a contradiction to the immutability of the container.</description>
     </item>
     <item>
       <title>Installation</title>
