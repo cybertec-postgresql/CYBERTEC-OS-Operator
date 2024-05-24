@@ -2168,8 +2168,8 @@ As we have already provided the operator with all the information relating to th
 <pre tabindex="0"><code>restore:
   id: &#39;1&#39;
   options:
-    - &#39;--type=immediate&#39;
-    - &#39;--set=20240515-164100F&#39;
+    type: &#39;immediate&#39;
+    set: &#39;20240515-164100F&#39;
   repo: &#39;1&#39;
 </code></pre><blockquote>
 <p><strong><em>HINT:</em></strong> Without the specification <code>--type=immediate</code>, pgBackRest would then consume the entire WAL that is available and thus restore the last available consistent data point.</p>
@@ -2186,9 +2186,9 @@ As we have already provided the operator with all the information relating to th
 <pre tabindex="0"><code>restore:
   id: &#39;1&#39;
   options:
-    - &#39;--type=time&#39;
-    - &#39;--set=20240515-164100F&#39;
-    - &#39;--target=2024-05-16 07:46:05.506817+00&#39;
+    type: &#39;time&#39;
+    set: &#39;20240515-164100F&#39;
+    target: &#39;2024-05-16 07:46:05.506817+00&#39;
 
   repo: &#39;1&#39;
 </code></pre><blockquote>
@@ -2226,9 +2226,9 @@ spec:
       restore:
         id: &#39;1&#39;
         options:
-          - &#39;--type=time&#39;
-          - &#39;--set=20240515-164100F&#39;
-          - &#39;--target=2024-05-16 07:46:05.506817+00&#39;
+          type: &#39;time&#39;
+          set: &#39;20240515-164100F&#39;
+          target: &#39;2024-05-16 07:46:05.506817+00&#39;
 </code></pre><p>An example of this can also be found in our tutorials. For a point-in-time recovery (PITR) you can find it <a
   class="gdoc-markdown__link"
   href="https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/tree/main/cluster-tutorials/restore_pitr"

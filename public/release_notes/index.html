@@ -12,7 +12,7 @@
 <meta name="generator" content="Hugo 0.125.6">
 
 
-  <meta name="description" content="0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you&rsquo;re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.2.2 pgBackRest-Compatbility has increased to Version 2.50 Fixes PDB Bug fixed - Single-Node Clusters are not creating PDBs anymore which can break Kubernetes-Update Supported Versions PG: 12 - 16 Patroni: 3." />
+  <meta name="description" content="0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 pgBackRest with blockstorage using RepoHost Internal Certification-Management for RepoHost-Certificates Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you&rsquo;re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.3.0 pgBackRest-Compatbility has increased to Version 2.51 Revision of the restore process Revision of the backup jobs Operator now using Rocky9 as Baseimage Updates Go-Package to 1." />
 
     <title>Release Notes | CYBERTEC-PG-Operator</title>
 
@@ -38,7 +38,7 @@
     content="Release Notes"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you’re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.2.2 pgBackRest-Compatbility has increased to Version 2.50 Fixes PDB Bug fixed - Single-Node Clusters are not creating PDBs anymore which can break Kubernetes-Update Supported Versions PG: 12 - 16 Patroni: 3." />
+  <meta property="og:description" content="0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 pgBackRest with blockstorage using RepoHost Internal Certification-Management for RepoHost-Certificates Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you’re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.3.0 pgBackRest-Compatbility has increased to Version 2.51 Revision of the restore process Revision of the backup jobs Operator now using Rocky9 as Baseimage Updates Go-Package to 1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/release_notes/" />
 
@@ -55,7 +55,7 @@
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Release Notes" />
-  <meta name="twitter:description" content="0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you’re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.2.2 pgBackRest-Compatbility has increased to Version 2.50 Fixes PDB Bug fixed - Single-Node Clusters are not creating PDBs anymore which can break Kubernetes-Update Supported Versions PG: 12 - 16 Patroni: 3." />
+  <meta name="twitter:description" content="0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 pgBackRest with blockstorage using RepoHost Internal Certification-Management for RepoHost-Certificates Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you’re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.3.0 pgBackRest-Compatbility has increased to Version 2.51 Revision of the restore process Revision of the backup jobs Operator now using Rocky9 as Baseimage Updates Go-Package to 1." />
 
 
   <script type="application/ld+json">
@@ -66,8 +66,8 @@
       "name": "Release Notes",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/release_notes/",
       "headline": "Release Notes",
-      "description": "0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you’re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.2.2 pgBackRest-Compatbility has increased to Version 2.50 Fixes PDB Bug fixed - Single-Node Clusters are not creating PDBs anymore which can break Kubernetes-Update Supported Versions PG: 12 - 16 Patroni: 3.",
-      "wordCount" : "294",
+      "description": "0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 pgBackRest with blockstorage using RepoHost Internal Certification-Management for RepoHost-Certificates Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you’re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.3.0 pgBackRest-Compatbility has increased to Version 2.51 Revision of the restore process Revision of the backup jobs Operator now using Rocky9 as Baseimage Updates Go-Package to 1.",
+      "wordCount" : "328",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2137,6 +2137,8 @@
   href="documentation/cluster/monitoring"
 >Start with Monitoring</a></li>
 <li>Password-Hash per default set to scram-sha-256</li>
+<li>pgBackRest with blockstorage using RepoHost</li>
+<li>Internal Certification-Management for RepoHost-Certificates</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
     <h4 id="changes">
@@ -2151,8 +2153,12 @@
   class="gdoc-markdown__link"
   href="documentation/operator/migrateToNewApi/"
 >HowTo Migrate to new API</a></li>
-<li>Patroni-Compatibility has increased to Version 3.2.2</li>
-<li>pgBackRest-Compatbility has increased to Version 2.50</li>
+<li>Patroni-Compatibility has increased to Version 3.3.0</li>
+<li>pgBackRest-Compatbility has increased to Version 2.51</li>
+<li>Revision of the restore process</li>
+<li>Revision of the backup jobs</li>
+<li>Operator now using Rocky9 as Baseimage</li>
+<li>Updates Go-Package to 1.22.1</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
     <h4 id="fixes">
@@ -2164,6 +2170,7 @@
 </div>
 <ul>
 <li>PDB Bug fixed - Single-Node Clusters are not creating PDBs anymore which can break Kubernetes-Update</li>
+<li>Wrong Templates inside Cronjobs fixed</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
     <h4 id="supported-versions">
@@ -2174,9 +2181,9 @@
     </h4>
 </div>
 <ul>
-<li>PG: 12 - 16</li>
-<li>Patroni: 3.2.2</li>
-<li>pgBackRest: 2.50</li>
+<li>PG: 13 - 16</li>
+<li>Patroni: 3.3.0</li>
+<li>pgBackRest: 2.51</li>
 <li>Kubernetes: 1.21 - 1.28</li>
 <li>Openshift: 4.8 - 4.13</li>
 </ul>

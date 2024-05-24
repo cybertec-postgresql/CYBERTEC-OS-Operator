@@ -26,8 +26,8 @@ With this information, we define a fixed Backup from `repo1` and that pgBackRest
 restore:
   id: '1'
   options:
-    - '--type=immediate'
-    - '--set=20240515-164100F'
+    type: 'immediate'
+    set: '20240515-164100F'
   repo: '1'
 ```
 
@@ -39,9 +39,9 @@ We use this information to define a point-in-time recovery (PITR) and define the
 restore:
   id: '1'
   options:
-    - '--type=time'
-    - '--set=20240515-164100F'
-    - '--target=2024-05-16 07:46:05.506817+00'
+    type: 'time'
+    set: '20240515-164100F'
+    target: '2024-05-16 07:46:05.506817+00'
 
   repo: '1'
 ```
@@ -74,9 +74,9 @@ spec:
       restore:
         id: '1'
         options:
-          - '--type=time'
-          - '--set=20240515-164100F'
-          - '--target=2024-05-16 07:46:05.506817+00'
+          type: 'time'
+          set: '20240515-164100F'
+          target: '2024-05-16 07:46:05.506817+00'
 ```
 An example of this can also be found in our tutorials. For a point-in-time recovery (PITR) you can find it [here](https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/tree/main/cluster-tutorials/restore_pitr).
 

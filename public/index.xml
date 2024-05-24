@@ -195,7 +195,7 @@
       <link>http://localhost:1313/CYBERTEC-pg-operator/release_notes/</link>
       <pubDate>Tue, 07 Mar 2023 14:26:51 +0100</pubDate>
       <guid>http://localhost:1313/CYBERTEC-pg-operator/release_notes/</guid>
-      <description>0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you&amp;rsquo;re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.2.2 pgBackRest-Compatbility has increased to Version 2.50 Fixes PDB Bug fixed - Single-Node Clusters are not creating PDBs anymore which can break Kubernetes-Update Supported Versions PG: 12 - 16 Patroni: 3.</description>
+      <description>0.7.0 Features Monitoring-Sidecar integrated via CRD Start with Monitoring Password-Hash per default set to scram-sha-256 pgBackRest with blockstorage using RepoHost Internal Certification-Management for RepoHost-Certificates Changes API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you&amp;rsquo;re updating your Operator from previous Versions, please check this HowTo Migrate to new API Patroni-Compatibility has increased to Version 3.3.0 pgBackRest-Compatbility has increased to Version 2.51 Revision of the restore process Revision of the backup jobs Operator now using Rocky9 as Baseimage Updates Go-Package to 1.</description>
     </item>
     <item>
       <title>Roadmap</title>
