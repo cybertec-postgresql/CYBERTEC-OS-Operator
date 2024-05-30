@@ -12,12 +12,11 @@
 <meta name="generator" content="Hugo 0.125.6">
 
 
-  <meta name="description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
-The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
-There are basically two different definitions:
-requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
+  <meta name="description" content="CPO enables the use of the in-place upgrade, which makes it possible to upgrade a cluster to a new PG major. For this purpose, pg_upgrade is used in the background.
+PAY ATTENTION: Note that an in-place upgrade generates both a pod restore in the form of a rolling update and an operational interruption of the cluster during the actual execution of the restore.
+How does the upgrade work? Preconditions: Pod restart - Use the rolling update strategy to replace all pods based on the new ENV PGVERSION with the version you want to update to." />
 
-    <title>Cluster Ressources | CYBERTEC-PG-Operator</title>
+    <title>Major-Upgrades | CYBERTEC-PG-Operator</title>
 
     <link rel="icon" type="image/svg+xml" href="/CYBERTEC-pg-operator/favicon/favicon.svg" />
 <link
@@ -38,33 +37,31 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
     
   <meta
     property="og:title"
-    content="Cluster Ressources"
+    content="Major-Upgrades"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
-The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
-There are basically two different definitions:
-requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
+  <meta property="og:description" content="CPO enables the use of the in-place upgrade, which makes it possible to upgrade a cluster to a new PG major. For this purpose, pg_upgrade is used in the background.
+PAY ATTENTION: Note that an in-place upgrade generates both a pod restore in the form of a rolling update and an operational interruption of the cluster during the actual execution of the restore.
+How does the upgrade work? Preconditions: Pod restart - Use the rolling update strategy to replace all pods based on the new ENV PGVERSION with the version you want to update to." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/" />
+<meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/" />
 
 <meta property="article:section" content="Documentation" />
     <meta
       property="article:published_time"
-      content="2024-04-28T14:26:51+01:00"
+      content="2023-12-28T14:26:51+01:00"
     />
     <meta
       property="article:modified_time"
-      content="2024-04-28T14:26:51+01:00"
+      content="2023-12-28T14:26:51+01:00"
     />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Cluster Ressources" />
-  <meta name="twitter:description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
-The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
-There are basically two different definitions:
-requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
+<meta name="twitter:title" content="Major-Upgrades" />
+  <meta name="twitter:description" content="CPO enables the use of the in-place upgrade, which makes it possible to upgrade a cluster to a new PG major. For this purpose, pg_upgrade is used in the background.
+PAY ATTENTION: Note that an in-place upgrade generates both a pod restore in the form of a rolling update and an operational interruption of the cluster during the actual execution of the restore.
+How does the upgrade work? Preconditions: Pod restart - Use the rolling update strategy to replace all pods based on the new ENV PGVERSION with the version you want to update to." />
 
 
   <script type="application/ld+json">
@@ -72,23 +69,23 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
       "@context": "http://schema.org",
       "@type": "TechArticle",
       "articleSection": "Documentation",
-      "name": "Cluster Ressources",
-      "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/",
-      "headline": "Cluster Ressources",
-      "description": "Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.\nThe cluster manifest is used to define the Postgres pod resources via the typical resources objects.\nThere are basically two different definitions:\nrequests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources.",
-      "wordCount" : "413",
+      "name": "Major-Upgrades",
+      "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/",
+      "headline": "Major-Upgrades",
+      "description": "CPO enables the use of the in-place upgrade, which makes it possible to upgrade a cluster to a new PG major. For this purpose, pg_upgrade is used in the background.\nPAY ATTENTION: Note that an in-place upgrade generates both a pod restore in the form of a rolling update and an operational interruption of the cluster during the actual execution of the restore.\nHow does the upgrade work? Preconditions: Pod restart - Use the rolling update strategy to replace all pods based on the new ENV PGVERSION with the version you want to update to.",
+      "wordCount" : "457",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/"
+          "@id": "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/"
       },
       "copyrightHolder" : "CYBERTEC-PG-Operator",
-      "copyrightYear" : "2024",
-      "dateCreated": "2024-04-28T14:26:51.00Z",
-      "datePublished": "2024-04-28T14:26:51.00Z",
-      "dateModified": "2024-04-28T14:26:51.00Z",
+      "copyrightYear" : "2023",
+      "dateCreated": "2023-12-28T14:26:51.00Z",
+      "datePublished": "2023-12-28T14:26:51.00Z",
+      "dateModified": "2023-12-28T14:26:51.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "CYBERTEC-PG-Operator",
@@ -166,7 +163,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
   href="/CYBERTEC-pg-operator/custom.css"
   media="all"
 />
-  <link href="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/" rel="canonical" type="text/html" />
+  <link href="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/" rel="canonical" type="text/html" />
   <base href="http://localhost:1313/CYBERTEC-pg-operator/" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
@@ -639,7 +636,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
                 
                 <a
                   href="/CYBERTEC-pg-operator/documentation/how-to-use/ressources"
-                  class="gdoc-nav__entry is-active"
+                  class="gdoc-nav__entry"
                 >
                   Apply Ressources
                 </a>
@@ -1269,7 +1266,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
                 
                 <a
                   href="/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades"
-                  class="gdoc-nav__entry"
+                  class="gdoc-nav__entry is-active"
                 >
                   Major-Upgrade
                 </a>
@@ -2147,7 +2144,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Cluster Ressources</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Major-Upgrades</span><meta itemprop='position' content='5' /></li>
   
 
   
@@ -2162,7 +2159,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
       <span class="editpage">
         <svg class="gdoc-icon gdoc_code"><use xlink:href="#gdoc_code"></use></svg>
         <a
-          href="https://github.com/thegeeklab/hugo/edit/main/exampleSite/content/documentation/how-to-use/ressources.md"
+          href="https://github.com/thegeeklab/hugo/edit/main/exampleSite/content/documentation/how-to-use/major-upgrades.md"
         >
           Edit page
         </a>
@@ -2176,54 +2173,128 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
   <article
     class="gdoc-markdown gdoc-markdown__align--left"
   >
-    <h1>Cluster Ressources</h1>
-    <p>Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.</p>
-<p>The cluster manifest is used to define the Postgres pod resources via the typical resources objects.</p>
-<p>There are basically two different definitions:</p>
-<ul>
-<li><code>requests</code>: Basic requirement and guaranteed by the worker node</li>
-<li><code>limits</code>: maximum availability, allocation is increased dynamically if the worker node can provide the resources.</li>
-</ul>
-<p>For the planning of the cluster, a proper definition should be carried out in terms of the required hardware, which is then defined as <code>requests</code>. These resources are thus guaranteed to the cluster and are taken into account when deploying the pod. Accordingly, a pod can only be deployed on a worker if it can provide these resources. Any limits beyond this are not taken into account when deploying.</p>
-<p>The unit of measurement should be taken into account when planning the necessary CPUs:
-cpu specifications are based on millicores</p>
-<ul>
-<li><code>1 cpu</code> corresponds to <code>1 core</code></li>
-<li><code>1 core </code>corresponds to <code>1000 millicores (m)</code></li>
-<li><code>1/2 core</code> corresponds to <code>500 m</code></li>
-</ul>
-<pre tabindex="0"><code>  resources:
-    limits:
-      cpu: 500m
-      memory: 1Gi
-    requests:
-      cpu: 1000m
-      memory: 1Gi
-</code></pre><p>This example corresponds to a guaranteed availability of half a core and 1 Gibibyte. However, if necessary and available, the container can use up to one core. The allocation takes place dynamically and for the required time.</p>
-<p>Pods can be categorised into three Quality of Services (QoS) based on the defined information on the resources.</p>
-<ul>
-<li><code>Best-Effort</code>: The containers of a pod have no resource information</li>
-<li><code>Burstable</code>: A container of the pod has a memory or CPU <code>requests</code> or <code>limits</code>.</li>
-<li><code>Guaranteed</code>: Each container of a pod has both cpu and memory <code>requests</code> and <code>limits</code>. In addition, the details of the respective <code>limits</code> correspond to the <code>requests</code> details</li>
-</ul>
-<p>If you would like more information and explanations, you can take a look at the <a
-  class="gdoc-markdown__link"
-  href="https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/#qos-classes"
->Kubernetes documentation on QoS</a>.</p>
-<p>We generally recommend using the Guaranteed Status for PostgreSQL workloads. However, many users very successfully use the deviation of the CPU limit by factors such as 2.
-For example:</p>
-<pre tabindex="0"><code>  resources:
-    limits:
-      cpu: 1000m
-      memory: 1Gi
-    requests:
-      cpu: 2000m
-      memory: 1Gi
-</code></pre><p>This is intended to create the possibility of additional CPU resources for sudden load peaks.</p>
+    <h1>Major-Upgrades</h1>
+    <p>CPO enables the use of the in-place upgrade, which makes it possible to upgrade a cluster to a new PG major. For this purpose, pg_upgrade is used in the background.</p>
 <blockquote>
-<p><strong><em>HINT:</em></strong>  The use of burstable definitions does not release you from a correct resource calculation, as <code>limits</code> resources are not guaranteed and therefore an undersupply can occur if the requests are not properly defined.</p>
+<p><strong><em>PAY ATTENTION:</em></strong>  Note that an in-place upgrade generates both a pod restore in the form of a rolling update and an operational interruption of the cluster during the actual execution of the restore.</p>
 </blockquote>
-
+<div class="gdoc-page__anchorwrap">
+    <h2 id="how-does-the-upgrade-work">
+        How does the upgrade work?
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/#how-does-the-upgrade-work" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How does the upgrade work?" aria-label="Anchor to: How does the upgrade work?" href="#how-does-the-upgrade-work">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="preconditions">
+        Preconditions:
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/#preconditions" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Preconditions:" aria-label="Anchor to: Preconditions:" href="#preconditions">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>Pod restart - Use the rolling update strategy to replace all pods based on the new ENV <code>PGVERSION</code> with the version you want to update to.</li>
+<li>Check - Check that the new <code>PGVERSION</code> is larger than the previously used one.</li>
+<li>Check whether the new <code>PGVERSION</code> is larger than the previously used one and the maintenance mode of the cluster must be deactivated. In addition, the replicas should not have a high lag.</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="preliminary-checks">
+        Preliminary checks
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/#preliminary-checks" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Preliminary checks" aria-label="Anchor to: Preliminary checks" href="#preliminary-checks">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>use initdb to prepare a new data_dir (<code>data_new</code>) based on the new <code>PGVERSION</code>.</li>
+<li>check the upgrade possibility with <code>pg_upgrade --check</code></li>
+</ol>
+<blockquote>
+<p><strong><em>HINT:</em></strong>  If one of the steps is aborted, a cleanup is performed</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="prepare-the-upgrade">
+        Prepare the Upgrade
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/#prepare-the-upgrade" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Prepare the Upgrade" aria-label="Anchor to: Prepare the Upgrade" href="#prepare-the-upgrade">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>remove dependencies that can cause problems. For example, the extensions <code>pg_stat_statements</code> and <code>pgaudit</code>.</li>
+<li>activate the maintenance mode of the cluster</li>
+<li>terminate PostgreSQL in an orderly manner</li>
+<li>check pg_controldata for the checkpoint position and wait until all replicas apply the latest checkpoint location</li>
+<li>use port <code>5432</code> for rsyncd and start it</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="start-the-upgrade">
+        Start the Upgrade
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/#start-the-upgrade" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Start the Upgrade" aria-label="Anchor to: Start the Upgrade" href="#start-the-upgrade">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>Call pg_upgrade -k to start the Upgrade</li>
+</ol>
+<blockquote>
+<p><strong><em>ATTENTION</em></strong> if the process failed, we need to rollback, if it was sucessful we&rsquo;re reaching the point of no return</p>
+</blockquote>
+<ol start="2">
+<li>Rename the directories. <code>data -&gt; data_old</code> and <code>data_new -&gt; data</code></li>
+<li>Update the Patroni.config (<code>postgres.yml</code>)</li>
+<li>Call Checkpoint on every replica and trigger rsync on the Replicas</li>
+<li>Wait for Replicas to complete rsxnc. <code>Timeout: 300</code></li>
+<li>Stop rsyncd on Primary and remove ininitialize key from DCS, because its based on the old sysid</li>
+<li>Start Patroni on the Primary and start the postgres locally</li>
+<li>Reset custom staticstics, warmup the Memory and start Analyze in stages in separate threads</li>
+<li>Wait for every Replica to become ready</li>
+<li>Disable the maintenance mode for the Cluster</li>
+<li>Restore custom statistics, analyze these tables and restore dropped objetcs from <code>Prepare the upgrade</code></li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="completion-of-the-upgrade">
+        Completion of the upgrade
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/#completion-of-the-upgrade" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Completion of the upgrade" aria-label="Anchor to: Completion of the upgrade" href="#completion-of-the-upgrade">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>Drop directory <code>data_old</code></li>
+<li>Trigger new Backup</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="how-a-rollback-is-working">
+        How a rollback is working?
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/#how-a-rollback-is-working" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How a rollback is working?" aria-label="Anchor to: How a rollback is working?" href="#how-a-rollback-is-working">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>Stop rsynd if its running</li>
+<li>Disable the maintenance mode for the Cluster</li>
+<li>Drop directory <code>data_new</code></li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="how-to-trigger-a-in-place-upgrade-with-cpo">
+        How to trigger a In-Place-Upgrade with cpo?
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/#how-to-trigger-a-in-place-upgrade-with-cpo" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How to trigger a In-Place-Upgrade with cpo?" aria-label="Anchor to: How to trigger a In-Place-Upgrade with cpo?" href="#how-to-trigger-a-in-place-upgrade-with-cpo">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<pre tabindex="0"><code>spec:
+  postgresql:
+    version: &#34;16&#34;
+</code></pre><p>To trigger an In-Place-Upgrade you have just to increase the parameter <code>spec.postgresql.version</code>. If you choose a valid number the Operator will start with the prozedure, described above.
+If you choosse a not allowed value, you will give an error and if you decrease the value, the operator will just ignore it with the following log-Entry.</p>
+<pre tabindex="0"><code>Operator-Log
+</code></pre>
   </article>
 
 
@@ -2405,36 +2476,6 @@ For example:</p>
       
 
       
-        
-        
-      
-
-      
-    
-
-    
-    
-  
-    
-    
-
-    
-    
-      
-      
-      
-
-      
-        
-      
-      
-
-      
-        
-        
-      
-
-      
 
       
     
@@ -2754,6 +2795,33 @@ For example:</p>
     
     
   
+    
+    
+
+    
+    
+      
+      
+      
+
+      
+        
+      
+      
+
+      
+
+      
+        
+        
+      
+
+      
+    
+
+    
+    
+  
 
     
   
@@ -2784,6 +2852,9 @@ For example:</p>
       
       
 
+      
+        
+        
       
 
       
@@ -3121,11 +3192,11 @@ For example:</p>
     
       <a
         class="gdoc-page__nav--prev flex align-center"
-        href="/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/"
-        title="Create a Cluster"
+        href="/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/"
+        title="ConnectionPooler"
       >
         <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-        Create a Cluster
+        ConnectionPooler
       </a>
     
   </span>
@@ -3133,10 +3204,10 @@ For example:</p>
     
       <a
         class="gdoc-page__nav--next flex align-center"
-        href="/CYBERTEC-pg-operator/documentation/how-to-use/storage/"
-        title="Storage"
+        href=""
+        title="Migrate to new API"
       >
-        Storage
+        Migrate to new API
         <i class="gdoc-icon">gdoc_arrow_right_alt</i>
       </a>
     

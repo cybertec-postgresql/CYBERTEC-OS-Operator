@@ -12,12 +12,10 @@
 <meta name="generator" content="Hugo 0.125.6">
 
 
-  <meta name="description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
-The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
-There are basically two different definitions:
-requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
+  <meta name="description" content="Storage is crucial for the performance of a database and is therefore a central element. As with systems based on bare metal or virtual machines, the same requirements apply to Kubernetes workloads, such as constant availability, good performance, consistency and durability.
+A basic distinction is made between local storage, which is directly connected to the worker node, and network storage, which is mounted on the worker node and thus made available to the pod." />
 
-    <title>Cluster Ressources | CYBERTEC-PG-Operator</title>
+    <title>Storage | CYBERTEC-PG-Operator</title>
 
     <link rel="icon" type="image/svg+xml" href="/CYBERTEC-pg-operator/favicon/favicon.svg" />
 <link
@@ -38,33 +36,29 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
     
   <meta
     property="og:title"
-    content="Cluster Ressources"
+    content="Storage"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
-The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
-There are basically two different definitions:
-requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
+  <meta property="og:description" content="Storage is crucial for the performance of a database and is therefore a central element. As with systems based on bare metal or virtual machines, the same requirements apply to Kubernetes workloads, such as constant availability, good performance, consistency and durability.
+A basic distinction is made between local storage, which is directly connected to the worker node, and network storage, which is mounted on the worker node and thus made available to the pod." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/" />
+<meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage-copy/" />
 
 <meta property="article:section" content="Documentation" />
     <meta
       property="article:published_time"
-      content="2024-04-28T14:26:51+01:00"
+      content="2023-12-28T14:26:51+01:00"
     />
     <meta
       property="article:modified_time"
-      content="2024-04-28T14:26:51+01:00"
+      content="2023-12-28T14:26:51+01:00"
     />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Cluster Ressources" />
-  <meta name="twitter:description" content="Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.
-The cluster manifest is used to define the Postgres pod resources via the typical resources objects.
-There are basically two different definitions:
-requests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources." />
+<meta name="twitter:title" content="Storage" />
+  <meta name="twitter:description" content="Storage is crucial for the performance of a database and is therefore a central element. As with systems based on bare metal or virtual machines, the same requirements apply to Kubernetes workloads, such as constant availability, good performance, consistency and durability.
+A basic distinction is made between local storage, which is directly connected to the worker node, and network storage, which is mounted on the worker node and thus made available to the pod." />
 
 
   <script type="application/ld+json">
@@ -72,23 +66,23 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
       "@context": "http://schema.org",
       "@type": "TechArticle",
       "articleSection": "Documentation",
-      "name": "Cluster Ressources",
-      "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/",
-      "headline": "Cluster Ressources",
-      "description": "Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.\nThe cluster manifest is used to define the Postgres pod resources via the typical resources objects.\nThere are basically two different definitions:\nrequests: Basic requirement and guaranteed by the worker node limits: maximum availability, allocation is increased dynamically if the worker node can provide the resources.",
-      "wordCount" : "413",
+      "name": "Storage",
+      "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage-copy/",
+      "headline": "Storage",
+      "description": "Storage is crucial for the performance of a database and is therefore a central element. As with systems based on bare metal or virtual machines, the same requirements apply to Kubernetes workloads, such as constant availability, good performance, consistency and durability.\nA basic distinction is made between local storage, which is directly connected to the worker node, and network storage, which is mounted on the worker node and thus made available to the pod.",
+      "wordCount" : "607",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/"
+          "@id": "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage-copy/"
       },
       "copyrightHolder" : "CYBERTEC-PG-Operator",
-      "copyrightYear" : "2024",
-      "dateCreated": "2024-04-28T14:26:51.00Z",
-      "datePublished": "2024-04-28T14:26:51.00Z",
-      "dateModified": "2024-04-28T14:26:51.00Z",
+      "copyrightYear" : "2023",
+      "dateCreated": "2023-12-28T14:26:51.00Z",
+      "datePublished": "2023-12-28T14:26:51.00Z",
+      "dateModified": "2023-12-28T14:26:51.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "CYBERTEC-PG-Operator",
@@ -166,7 +160,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
   href="/CYBERTEC-pg-operator/custom.css"
   media="all"
 />
-  <link href="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/" rel="canonical" type="text/html" />
+  <link href="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage-copy/" rel="canonical" type="text/html" />
   <base href="http://localhost:1313/CYBERTEC-pg-operator/" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
@@ -639,7 +633,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
                 
                 <a
                   href="/CYBERTEC-pg-operator/documentation/how-to-use/ressources"
-                  class="gdoc-nav__entry is-active"
+                  class="gdoc-nav__entry"
                 >
                   Apply Ressources
                 </a>
@@ -1255,27 +1249,6 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
           
           
 
-          
-            <input
-              type="checkbox"
-              
-                class="hidden"
-              
-            />
-            <label
-              
-            >
-              <span class="flex">
-                
-                <a
-                  href="/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades"
-                  class="gdoc-nav__entry"
-                >
-                  Major-Upgrade
-                </a>
-              </span>
-              
-            </label>
           
         
 
@@ -2147,7 +2120,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Cluster Ressources</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Storage</span><meta itemprop='position' content='5' /></li>
   
 
   
@@ -2162,7 +2135,7 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
       <span class="editpage">
         <svg class="gdoc-icon gdoc_code"><use xlink:href="#gdoc_code"></use></svg>
         <a
-          href="https://github.com/thegeeklab/hugo/edit/main/exampleSite/content/documentation/how-to-use/ressources.md"
+          href="https://github.com/thegeeklab/hugo/edit/main/exampleSite/content/documentation/how-to-use/storage%20copy.md"
         >
           Edit page
         </a>
@@ -2176,53 +2149,115 @@ requests: Basic requirement and guaranteed by the worker node limits: maximum av
   <article
     class="gdoc-markdown gdoc-markdown__align--left"
   >
-    <h1>Cluster Ressources</h1>
-    <p>Kubernetes workloads are often deployed without a direct resource definition. This means that, apart from the limits specified by the administrators, the workloads can use the required resources of the worker node very dynamically.</p>
-<p>The cluster manifest is used to define the Postgres pod resources via the typical resources objects.</p>
-<p>There are basically two different definitions:</p>
-<ul>
-<li><code>requests</code>: Basic requirement and guaranteed by the worker node</li>
-<li><code>limits</code>: maximum availability, allocation is increased dynamically if the worker node can provide the resources.</li>
-</ul>
-<p>For the planning of the cluster, a proper definition should be carried out in terms of the required hardware, which is then defined as <code>requests</code>. These resources are thus guaranteed to the cluster and are taken into account when deploying the pod. Accordingly, a pod can only be deployed on a worker if it can provide these resources. Any limits beyond this are not taken into account when deploying.</p>
-<p>The unit of measurement should be taken into account when planning the necessary CPUs:
-cpu specifications are based on millicores</p>
-<ul>
-<li><code>1 cpu</code> corresponds to <code>1 core</code></li>
-<li><code>1 core </code>corresponds to <code>1000 millicores (m)</code></li>
-<li><code>1/2 core</code> corresponds to <code>500 m</code></li>
-</ul>
-<pre tabindex="0"><code>  resources:
-    limits:
-      cpu: 500m
-      memory: 1Gi
-    requests:
-      cpu: 1000m
-      memory: 1Gi
-</code></pre><p>This example corresponds to a guaranteed availability of half a core and 1 Gibibyte. However, if necessary and available, the container can use up to one core. The allocation takes place dynamically and for the required time.</p>
-<p>Pods can be categorised into three Quality of Services (QoS) based on the defined information on the resources.</p>
-<ul>
-<li><code>Best-Effort</code>: The containers of a pod have no resource information</li>
-<li><code>Burstable</code>: A container of the pod has a memory or CPU <code>requests</code> or <code>limits</code>.</li>
-<li><code>Guaranteed</code>: Each container of a pod has both cpu and memory <code>requests</code> and <code>limits</code>. In addition, the details of the respective <code>limits</code> correspond to the <code>requests</code> details</li>
-</ul>
-<p>If you would like more information and explanations, you can take a look at the <a
-  class="gdoc-markdown__link"
-  href="https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/#qos-classes"
->Kubernetes documentation on QoS</a>.</p>
-<p>We generally recommend using the Guaranteed Status for PostgreSQL workloads. However, many users very successfully use the deviation of the CPU limit by factors such as 2.
-For example:</p>
-<pre tabindex="0"><code>  resources:
-    limits:
-      cpu: 1000m
-      memory: 1Gi
-    requests:
-      cpu: 2000m
-      memory: 1Gi
-</code></pre><p>This is intended to create the possibility of additional CPU resources for sudden load peaks.</p>
+    <h1>Storage</h1>
+    <p>Storage is crucial for the performance of a database and is therefore a central element. As with systems based on bare metal or virtual machines, the same requirements apply to Kubernetes workloads, such as constant availability, good performance, consistency and durability.</p>
+<p>A basic distinction is made between local storage, which is directly connected to the worker node, and network storage, which is mounted on the worker node and thus made available to the pod.</p>
+<p>In probably the vast majority of Kubernetes systems, network storage is used, for example from systems from hyperscalers or other cloud providers or own systems such as CEPH.</p>
+<p>With network storage in particular, attention must be paid to performance in terms of throughput (speed and guaranteed IOPS) and, above all, latency. It is also important to ensure that the different volumes do not compete with each other in terms of load.</p>
 <blockquote>
-<p><strong><em>HINT:</em></strong>  The use of burstable definitions does not release you from a correct resource calculation, as <code>limits</code> resources are not guaranteed and therefore an undersupply can occur if the requests are not properly defined.</p>
+<p><strong><em>PAY ATTENTION:</em></strong>  Before using a CPO cluster, make sure that the storage is suitable for the intended use and provides the necessary performance. In addition, check the storage with benchmarks before use. We recommend the use of <a
+  class="gdoc-markdown__link"
+  href="https://www.postgresql.org/docs/current/pgbench.html"
+>pgbench</a> for this purpose.</p>
 </blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="define-storage-volume">
+        Define Storage-Volume
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage-copy/#define-storage-volume" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Define Storage-Volume" aria-label="Anchor to: Define Storage-Volume" href="#define-storage-volume">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>The storage is defined via the volume object and enables the size and storage class for the storage to be defined, among other things.</p>
+<pre tabindex="0"><code>spec:
+  volume:
+    size: 5Gi
+    storageClass: default-provisioner
+  ...
+</code></pre><p>The volume is currently used for both PG and WAL data. In future, there will be an optional option to create a separate WAL volume.
+Please check our <a
+  class="gdoc-markdown__link"
+  href="roadmap"
+>roadmap</a></p>
+<blockquote>
+<p><strong><em>PAY ATTENTION:</em></strong>  Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.</p>
+</blockquote>
+<p>The volume is currently used for both PG and WAL data. In future, there will be an optional option to create a separate WAL volume.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="expanding-volume">
+        Expanding Volume
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage-copy/#expanding-volume" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Expanding Volume" aria-label="Anchor to: Expanding Volume" href="#expanding-volume">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<blockquote>
+<p><strong><em>HINT:</em></strong>  Kubernetes is able to forward requests to expand the storage to the storage system and enable the expand without the need to restart the container. However, this also requires the associated storage system and the driver used to support this. This information can be found in the storage class under the object: allowVolumeExpansion. A distinction must also be made between online and offline expand. The latter requires a restart of the pod. To do this, the pod must be deleted manually.</p>
+</blockquote>
+<p>To Expand the Volume, the value of the object volume.size must be increased</p>
+<pre tabindex="0"><code>spec:
+  volume:
+    size: 10Gi
+    storageClass: default-provisioner
+  ...
+</code></pre><p>This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.</p>
+<pre tabindex="0"><code>kubectl get pvc pgdata-cluster-1-0 -o yaml
+-------------------------------------------------------
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: crc-csi-hostpath-provisioner
+  volumeMode: Filesystem
+  volumeName: pvc-800d7ecc-2d5f-4ef4-af83-1cd94c766d37
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  phase: Bound
+</code></pre><div class="gdoc-page__anchorwrap">
+    <h2 id="creating-additonal-volumes">
+        Creating additonal Volumes
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage-copy/#creating-additonal-volumes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating additonal Volumes" aria-label="Anchor to: Creating additonal Volumes" href="#creating-additonal-volumes">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>The Operator allows you to modify your cluster with additonal Volumes.</p>
+<pre tabindex="0"><code>spec:
+  ...
+  additionalVolumes:
+    - name: empty
+      mountPath: /opt/empty
+      targetContainers:
+        - all
+      volumeSource:
+        emptyDir: {}
+</code></pre><p>This example will create an emptyDir and mount it to all Containers inside the Database-Pod.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="specific-settings-for-aws-gp3-storage">
+        Specific Settings for aws gp3 Storage
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/storage-copy/#specific-settings-for-aws-gp3-storage" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Specific Settings for aws gp3 Storage" aria-label="Anchor to: Specific Settings for aws gp3 Storage" href="#specific-settings-for-aws-gp3-storage">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>For the gp3 Storage aws you can define more informations</p>
+<pre tabindex="0"><code>  volume:
+    size: 1Gi
+    storageClass: gp3
+    iops: 1000  # for EBS gp3
+    throughput: 250  # in MB/s for EBS gp3
+</code></pre><p>The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
+Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours.
+Please also ensure to check the default and allowed values for IOPS and Throughput <a
+  class="gdoc-markdown__link"
+  href="https://aws.amazon.com/ebs/general-purpose/"
+>AWS docs</a>.</p>
+<p>To ensure that the settings are updates properly please define the Operator-Configuration &lsquo;storage_resize_mode&rsquo; from default to &lsquo;mixed&rsquo;</p>
 
   </article>
 
@@ -2405,9 +2440,6 @@ For example:</p>
       
 
       
-        
-        
-      
 
       
     
@@ -2429,9 +2461,6 @@ For example:</p>
       
       
 
-      
-        
-        
       
 
       
@@ -3118,27 +3147,9 @@ For example:</p>
 
 
   <span class="gdoc-page__nav">
-    
-      <a
-        class="gdoc-page__nav--prev flex align-center"
-        href="/CYBERTEC-pg-operator/documentation/how-to-use/single-cluster/"
-        title="Create a Cluster"
-      >
-        <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-        Create a Cluster
-      </a>
     
   </span>
   <span class="gdoc-page__nav">
-    
-      <a
-        class="gdoc-page__nav--next flex align-center"
-        href="/CYBERTEC-pg-operator/documentation/how-to-use/storage/"
-        title="Storage"
-      >
-        Storage
-        <i class="gdoc-icon">gdoc_arrow_right_alt</i>
-      </a>
     
   </span>
 
