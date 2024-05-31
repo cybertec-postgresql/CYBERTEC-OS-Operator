@@ -34,26 +34,24 @@ main:
             ref: "/documentation/how-to-use/backup"
           - name: Restore
             ref: "/documentation/how-to-use/restore"
-          - name: Standby-Cluster
-            ref:  "/documentation/how-to-use/standby"
-          - name: Clone a Cluster
-            ref: "/documentation/how-to-use/clone"
-          - name: Slots
-            ref: "/documentation/how-to-use/slots"
+          # - name: Standby-Cluster
+          #   ref:  "/documentation/how-to-use/standby"
+          # - name: Clone a Cluster
+          #   ref: "/documentation/how-to-use/clone"
           - name: Monitoring
             ref: /documentation/how-to-use/monitoring
-          - name: Sidecars
-            ref: "/documentation/how-to-use/sidecars"
-          - name: ConnectionPooler
-            ref: "/documentation/how-to-use/connectionpooler"
+          # - name: Sidecars
+          #   ref: "/documentation/how-to-use/sidecars"
+          # - name: ConnectionPooler
+          #   ref: "/documentation/how-to-use/connectionpooler"
           - name: Major-Upgrade
             ref: "/documentation/how-to-use/major-upgrades"
-      - name: irgendwas 
-        sub:  
-          - name: Migrate to new API
-            ref: /documentation/operator/migrateToNewApi
-      - name: Examples
-        ref: "/documentation/examples"
+      # - name: irgendwas 
+      #   sub:  
+      #     - name: Migrate to new API
+      #       ref: /documentation/operator/migrateToNewApi
+      # - name: Examples
+      #   ref: "/documentation/examples"
       - name: References
         #ref: "/documentation/level-2-4"
         sub:

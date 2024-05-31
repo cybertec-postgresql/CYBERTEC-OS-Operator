@@ -3,7 +3,9 @@ title: "CPO (CYBERTEC-PG-Operator)"
 date: 2024-03-11T14:26:51+01:00
 draft: false
 ---
-Current Release: 0.7.0 - Rc2 (xx.xx.xxxx) [Release Notes](/documentation/release_notes)
+Current Release: 0.7.0 - RC2 (31.05.2024) [Release Notes](/documentation/release_notes)
+
+<img src="https://raw.githubusercontent.com/cybertec-postgresql/CYBERTEC-pg-operator/fac724618ea1395ed49cb1db7f3429f5b4324337/docs/diagrams/cpo_logo.svg" alt="drawing" width="350" />
 
 CPO (CYBERTEC PG Operator) allows you to create and run PostgreSQL clusters on Kubernetes. 
 

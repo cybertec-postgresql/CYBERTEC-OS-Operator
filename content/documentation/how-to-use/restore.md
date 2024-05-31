@@ -28,7 +28,7 @@ restore:
   options:
     type: 'immediate'
     set: '20240515-164100F'
-  repo: '1'
+  repo: 'repo1'
 ```
 
 > **_HINT:_** Without the specification `--type=immediate`, pgBackRest would then consume the entire WAL that is available and thus restore the last available consistent data point. 
