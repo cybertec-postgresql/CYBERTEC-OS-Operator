@@ -12,10 +12,10 @@
 <meta name="generator" content="Hugo 0.126.1">
 
 
-  <meta name="description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta name="description" content="A connection pooler is a tool that acts as a proxy between the application and the database and enables the performance of the application to be improved and the load on the database to be reduced. The reason for this lies in the connection handling of PostgreSQL.
+How PostgreSQL handles connection PostgreSQL use a new Process for every database-connection created by the postmaster. This process is handling the connection. On the positive side, this enables a stable connection and isolation, but it is not particularly efficient for short-lived connections due to the effort required to create them." />
 
-    <title>Single Cluster | CYBERTEC-PG-Operator</title>
+    <title>ConnectionPooler | CYBERTEC-PG-Operator</title>
 
     <link rel="icon" type="image/svg+xml" href="/CYBERTEC-pg-operator/favicon/favicon.svg" />
 <link
@@ -36,29 +36,29 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     
   <meta
     property="og:title"
-    content="Single Cluster"
+    content="ConnectionPooler"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
-  <meta property="og:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+  <meta property="og:description" content="A connection pooler is a tool that acts as a proxy between the application and the database and enables the performance of the application to be improved and the load on the database to be reduced. The reason for this lies in the connection handling of PostgreSQL.
+How PostgreSQL handles connection PostgreSQL use a new Process for every database-connection created by the postmaster. This process is handling the connection. On the positive side, this enables a stable connection and isolation, but it is not particularly efficient for short-lived connections due to the effort required to create them." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/" />
 
 <meta property="article:section" content="Documentation" />
     <meta
       property="article:published_time"
-      content="2023-12-28T14:26:51+01:00"
+      content="2024-05-31T14:26:51+01:00"
     />
     <meta
       property="article:modified_time"
-      content="2023-12-28T14:26:51+01:00"
+      content="2024-05-31T14:26:51+01:00"
     />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Single Cluster" />
-  <meta name="twitter:description" content="Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.
-minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34; numberOfInstances: 1 postgresql: version: &#34;16&#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server." />
+<meta name="twitter:title" content="ConnectionPooler" />
+  <meta name="twitter:description" content="A connection pooler is a tool that acts as a proxy between the application and the database and enables the performance of the application to be improved and the load on the database to be reduced. The reason for this lies in the connection handling of PostgreSQL.
+How PostgreSQL handles connection PostgreSQL use a new Process for every database-connection created by the postmaster. This process is handling the connection. On the positive side, this enables a stable connection and isolation, but it is not particularly efficient for short-lived connections due to the effort required to create them." />
 
 
   <script type="application/ld+json">
@@ -66,11 +66,11 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
       "@context": "http://schema.org",
       "@type": "TechArticle",
       "articleSection": "Documentation",
-      "name": "Single Cluster",
+      "name": "ConnectionPooler",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/",
-      "headline": "Single Cluster",
-      "description": "Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.\nminimal Single Cluster apiVersion: cpo.opensource.cybertec.at\/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: \u0022docker.io\/cybertecpostgresql\/cybertec-pg-container:postgres-16.1-6-dev\u0022 numberOfInstances: 1 postgresql: version: \u002216\u0022 resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.",
-      "wordCount" : "452",
+      "headline": "ConnectionPooler",
+      "description": "A connection pooler is a tool that acts as a proxy between the application and the database and enables the performance of the application to be improved and the load on the database to be reduced. The reason for this lies in the connection handling of PostgreSQL.\nHow PostgreSQL handles connection PostgreSQL use a new Process for every database-connection created by the postmaster. This process is handling the connection. On the positive side, this enables a stable connection and isolation, but it is not particularly efficient for short-lived connections due to the effort required to create them.",
+      "wordCount" : "501",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -79,10 +79,10 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
           "@id": "http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/"
       },
       "copyrightHolder" : "CYBERTEC-PG-Operator",
-      "copyrightYear" : "2023",
-      "dateCreated": "2023-12-28T14:26:51.00Z",
-      "datePublished": "2023-12-28T14:26:51.00Z",
-      "dateModified": "2023-12-28T14:26:51.00Z",
+      "copyrightYear" : "2024",
+      "dateCreated": "2024-05-31T14:26:51.00Z",
+      "datePublished": "2024-05-31T14:26:51.00Z",
+      "dateModified": "2024-05-31T14:26:51.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "CYBERTEC-PG-Operator",
@@ -1037,6 +1037,51 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
               <span class="flex">
                 
                 <a
+                  href="/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler"
+                  class="gdoc-nav__entry is-active"
+                >
+                  ConnectionPooler
+                </a>
+              </span>
+              
+            </label>
+          
+        
+
+        
+      </li>
+    
+      
+      
+
+
+      <li>
+        
+        
+          
+          
+          
+          
+          
+          
+          
+
+          
+          
+
+          
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              <span class="flex">
+                
+                <a
                   href="/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades"
                   class="gdoc-nav__entry"
                 >
@@ -1824,7 +1869,7 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Single Cluster</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/' href='/CYBERTEC-pg-operator/'><span itemprop='name'>CPO (CYBERTEC-PG-Operator)</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/CYBERTEC-pg-operator/documentation/' href='/CYBERTEC-pg-operator/documentation/'><span itemprop='name'>Documentation</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>ConnectionPooler</span><meta itemprop='position' content='5' /></li>
   
 
   
@@ -1853,132 +1898,71 @@ minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresq
   <article
     class="gdoc-markdown gdoc-markdown__align--left"
   >
-    <h1>Single Cluster</h1>
-    <p>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.</p>
+    <h1>ConnectionPooler</h1>
+    <p>A connection pooler is a tool that acts as a proxy between the application and the database and enables the performance of the application to be improved and the load on the database to be reduced. The reason for this lies in the connection handling of PostgreSQL.</p>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="minimal-single-cluster">
-        minimal Single Cluster
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#minimal-single-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: minimal Single Cluster" aria-label="Anchor to: minimal Single Cluster" href="#minimal-single-cluster">
+    <h2 id="how-postgresql-handles-connection">
+        How PostgreSQL handles connection
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#how-postgresql-handles-connection" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How PostgreSQL handles connection" aria-label="Anchor to: How PostgreSQL handles connection" href="#how-postgresql-handles-connection">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
 </div>
-<pre tabindex="0"><code>apiVersion: cpo.opensource.cybertec.at/v1
-kind: postgresql
-metadata:
-  name: cluster-1
-spec:
-  dockerImage: &#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&#34;
-  numberOfInstances: 1
-  postgresql:
-    version: &#34;16&#34;
-  resources:
-    limits:
-      cpu: 500m
-      memory: 500Mi
-    requests:
-      cpu: 500m
-      memory: 500Mi
-  volume:
-    size: 5Gi 
-</code></pre><p>Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.
-Also created is a volume based on your default-storage Class. The Ressource-Definiton means, that we reserve a half cpu and a half GB Memory for this Cluster with the same Definition as limit.</p>
-<p>After some seconds we should see, that the operator creates our cluster based on the declared definitions.</p>
-<pre tabindex="0"><code>kubectl get pods
------------------------------------------------------------------------------
-NAME                             | READY  | STATUS           | RESTARTS | AGE
-cluster-1-0                      | 1/1    | Running          | 0        | 50s
-</code></pre><p>We can now starting to modify our cluster with some more Definitons.</p>
+<p>PostgreSQL use a new Process for every database-connection created by the postmaster. This process is handling the connection. On the positive side, this enables a stable connection and isolation, but it is not particularly efficient for short-lived connections due to the effort required to create them.</p>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="use-a-specific-storageclass">
-        Use a specific Storageclass
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#use-a-specific-storageclass" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Use a specific Storageclass" aria-label="Anchor to: Use a specific Storageclass" href="#use-a-specific-storageclass">
+    <h2 id="how-connection-pooling-solves-this-problem">
+        How Connection Pooling solves this problem
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#how-connection-pooling-solves-this-problem" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How Connection Pooling solves this problem" aria-label="Anchor to: How Connection Pooling solves this problem" href="#how-connection-pooling-solves-this-problem">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
-    </h3>
+    </h2>
 </div>
-<pre tabindex="0"><code>spec:
-  ...
-  volume:
-    size: 5Gi
-    storageClass: default-provisioner
-  ...
-</code></pre><p>Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.</p>
+<p>With connection pooling, the application connects to the pooler, which in turn maintains a number of connections to the PostgreSQL database.
+This makes it possible to use the connections from the pooler to the database for a long time instead of short-lived connections and to recycle them accordingly.</p>
+<p>In addition to utilising long-term connections, a ConnectionPooler also makes it possible to reduce the number of connections required to the database. For example, if you have 3 application nodes, each of which maintains 100 connections to the database at the same time, that would be 300 connections in total. The application usually does not even begin to utilise this number of connections. With the pgBouncer, this can be optimised so that the applications open the 300 connections to the pgBouncer, but the pgBouncer only generates 100 connections to PostgreSQL, for example, thus reducing the load by 2/3.</p>
+<blockquote>
+<p><strong><em>HINT:</em></strong> It is important to correctly configure the bouncer and thus the connections to be created between pgBouncer and PostgreSQL so that enough connections are available for the workload.</p>
+</blockquote>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="expanding-volume">
-        Expanding Volume
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#expanding-volume" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Expanding Volume" aria-label="Anchor to: Expanding Volume" href="#expanding-volume">
+    <h2 id="how-does-this-work-with-cpo">
+        How does this work with CPO
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#how-does-this-work-with-cpo" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How does this work with CPO" aria-label="Anchor to: How does this work with CPO" href="#how-does-this-work-with-cpo">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
-    </h3>
+    </h2>
 </div>
-<p>The Operator allows to you expand your volume if the storage-System is able to do this.</p>
-<pre tabindex="0"><code>spec:
-  ...
-  volume:
-    size: 10Gi
-    storageClass: default-provisioner
-  ...
-</code></pre><p>This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.</p>
-<pre tabindex="0"><code>kubectl get pvc pgdata-cluster-1-0 -o yaml
--------------------------------------------------------
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: crc-csi-hostpath-provisioner
-  volumeMode: Filesystem
-  volumeName: pvc-800d7ecc-2d5f-4ef4-af83-1cd94c766d37
-status:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 5Gi
-  phase: Bound
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h3 id="creating-additonal-volumes">
-        Creating additonal Volumes
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#creating-additonal-volumes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating additonal Volumes" aria-label="Anchor to: Creating additonal Volumes" href="#creating-additonal-volumes">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>The Operator allows you to modify your cluster with additonal Volumes.</p>
-<pre tabindex="0"><code>spec:
-  ...
-  additionalVolumes:
-    - name: empty
-      mountPath: /opt/empty
-      targetContainers:
-        - all
-      volumeSource:
-        emptyDir: {}
-</code></pre><p>This example will create an emptyDir and mount it to all Containers inside the Database-Pod.</p>
+<p>CPO relies on pgBouncer, a popular and above all lightweight open source tool. pgBouncer manages individual user-database connections for each user used, which can be used immediately for incoming client connections.</p>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="specific-settings-for-aws-gp3-storage">
-        Specific Settings for aws gp3 Storage
-        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#specific-settings-for-aws-gp3-storage" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Specific Settings for aws gp3 Storage" aria-label="Anchor to: Specific Settings for aws gp3 Storage" href="#specific-settings-for-aws-gp3-storage">
+    <h2 id="how-do-i-create-a-pooler-for-a-cluster">
+        How do I create a pooler for a cluster?
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/#how-do-i-create-a-pooler-for-a-cluster" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How do I create a pooler for a cluster?" aria-label="Anchor to: How do I create a pooler for a cluster?" href="#how-do-i-create-a-pooler-for-a-cluster">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
-    </h3>
+    </h2>
 </div>
-<p>For the gp3 Storage aws you can define more informations</p>
-<pre tabindex="0"><code>  volume:
-    size: 1Gi
-    storageClass: gp3
-    iops: 1000  # for EBS gp3
-    throughput: 250  # in MB/s for EBS gp3
-</code></pre><p>The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
-Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours.
-Please also ensure to check the default and allowed values for IOPS and Throughput <a
-  class="gdoc-markdown__link"
-  href="https://aws.amazon.com/ebs/general-purpose/"
->AWS docs</a>.</p>
-<p>To ensure that the settings are updates properly please define the Operator-Configuration &lsquo;storage_resize_mode&rsquo; from default to &lsquo;mixed&rsquo;</p>
-
+<ul>
+<li>connection_pooler_number_of_instances How many instances of connection pooler to create. Default is 2 which is also the required minimum.</li>
+<li>connection_pooler_schema Database schema to create for credentials lookup function to be used by the connection pooler. Is is created in every database of the Postgres cluster. You can also choose an existing schema. Default schema is pooler.</li>
+<li>connection_pooler_user User to create for connection pooler to be able to connect to a database. You can also choose an existing role, but make sure it has the LOGIN privilege. Default role is pooler.</li>
+<li>connection_pooler_image Docker image to use for connection pooler deployment. Default: “registry.opensource.zalan.do/acid/pgbouncer”</li>
+<li>connection_pooler_max_db_connections How many connections the pooler can max hold. This value is divided among the pooler pods. Default is 60 which will make up 30 connections per pod for the default setup with two instances.</li>
+<li>connection_pooler_mode Default pooler mode, session or transaction. Default is transaction.</li>
+<li>connection_pooler_default_cpu_request connection_pooler_default_memory_reques connection_pooler_default_cpu_limit connection_pooler_default_memory_limit Default resource configuration for connection pooler deployment.</li>
+</ul>
+<pre tabindex="0"><code>spec:
+  connectionPooler:
+    mode: transaction
+    numberOfInstances: 2
+    resources:
+      limits:
+        cpu: &#39;1&#39;
+        memory: 100Mi
+      requests:
+        cpu: 500m
+        memory: 100Mi
+    schema: pooler
+    user: pooler
+</code></pre>
   </article>
 
 
@@ -2376,6 +2360,36 @@ Please also ensure to check the default and allowed values for IOPS and Throughp
       
 
       
+        
+        
+      
+
+      
+    
+
+    
+    
+  
+    
+    
+
+    
+    
+      
+      
+      
+
+      
+        
+      
+      
+
+      
+        
+        
+      
+
+      
 
       
     
@@ -2683,9 +2697,27 @@ Please also ensure to check the default and allowed values for IOPS and Throughp
 
 
   <span class="gdoc-page__nav">
+    
+      <a
+        class="gdoc-page__nav--prev flex align-center"
+        href="/CYBERTEC-pg-operator/documentation/how-to-use/monitoring/"
+        title="Monitoring"
+      >
+        <i class="gdoc-icon">gdoc_arrow_left_alt</i>
+        Monitoring
+      </a>
     
   </span>
   <span class="gdoc-page__nav">
+    
+      <a
+        class="gdoc-page__nav--next flex align-center"
+        href="/CYBERTEC-pg-operator/documentation/how-to-use/major-upgrades/"
+        title="Major-Upgrade"
+      >
+        Major-Upgrade
+        <i class="gdoc-icon">gdoc_arrow_right_alt</i>
+      </a>
     
   </span>
 

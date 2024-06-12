@@ -1,116 +1,50 @@
 ---
-title: "Single Cluster"
-date: 2023-12-28T14:26:51+01:00
+title: "ConnectionPooler"
+date: 2024-05-31T14:26:51+01:00
 draft: false
 ---
 
-Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github.
-We need the following Definitions for the basic cluster.
-## minimal Single Cluster
-```
-apiVersion: cpo.opensource.cybertec.at/v1
-kind: postgresql
-metadata:
-  name: cluster-1
-spec:
-  dockerImage: "docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev"
-  numberOfInstances: 1
-  postgresql:
-    version: "16"
-  resources:
-    limits:
-      cpu: 500m
-      memory: 500Mi
-    requests:
-      cpu: 500m
-      memory: 500Mi
-  volume:
-    size: 5Gi 
-```
-Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server. 
-Also created is a volume based on your default-storage Class. The Ressource-Definiton means, that we reserve a half cpu and a half GB Memory for this Cluster with the same Definition as limit.
+A connection pooler is a tool that acts as a proxy between the application and the database and enables the performance of the application to be improved and the load on the database to be reduced. The reason for this lies in the connection handling of PostgreSQL. 
 
-After some seconds we should see, that the operator creates our cluster based on the declared definitions.
-```
-kubectl get pods
------------------------------------------------------------------------------
-NAME                             | READY  | STATUS           | RESTARTS | AGE
-cluster-1-0                      | 1/1    | Running          | 0        | 50s
+## How PostgreSQL handles connection
+PostgreSQL use a new Process for every database-connection created by the postmaster. This process is handling the connection. On the positive side, this enables a stable connection and isolation, but it is not particularly efficient for short-lived connections due to the effort required to create them.
 
-```
+## How Connection Pooling solves this problem
 
-We can now starting to modify our cluster with some more Definitons. 
-### Use a specific Storageclass
+With connection pooling, the application connects to the pooler, which in turn maintains a number of connections to the PostgreSQL database. 
+This makes it possible to use the connections from the pooler to the database for a long time instead of short-lived connections and to recycle them accordingly.
+
+In addition to utilising long-term connections, a ConnectionPooler also makes it possible to reduce the number of connections required to the database. For example, if you have 3 application nodes, each of which maintains 100 connections to the database at the same time, that would be 300 connections in total. The application usually does not even begin to utilise this number of connections. With the pgBouncer, this can be optimised so that the applications open the 300 connections to the pgBouncer, but the pgBouncer only generates 100 connections to PostgreSQL, for example, thus reducing the load by 2/3. 
+
+> **_HINT:_** It is important to correctly configure the bouncer and thus the connections to be created between pgBouncer and PostgreSQL so that enough connections are available for the workload. 
+
+## How does this work with CPO
+CPO relies on pgBouncer, a popular and above all lightweight open source tool. pgBouncer manages individual user-database connections for each user used, which can be used immediately for incoming client connections. 
+
+## How do I create a pooler for a cluster?
+
+- connection_pooler_number_of_instances How many instances of connection pooler to create. Default is 2 which is also the required minimum.
+- connection_pooler_schema Database schema to create for credentials lookup function to be used by the connection pooler. Is is created in every database of the Postgres cluster. You can also choose an existing schema. Default schema is pooler.
+- connection_pooler_user User to create for connection pooler to be able to connect to a database. You can also choose an existing role, but make sure it has the LOGIN privilege. Default role is pooler.
+- connection_pooler_image Docker image to use for connection pooler deployment. Default: “registry.opensource.zalan.do/acid/pgbouncer”
+- connection_pooler_max_db_connections How many connections the pooler can max hold. This value is divided among the pooler pods. Default is 60 which will make up 30 connections per pod for the default setup with two instances.
+- connection_pooler_mode Default pooler mode, session or transaction. Default is transaction.
+- connection_pooler_default_cpu_request connection_pooler_default_memory_reques connection_pooler_default_cpu_limit connection_pooler_default_memory_limit Default resource configuration for connection pooler deployment.
+
 ```
 spec:
-  ...
-  volume:
-    size: 5Gi
-    storageClass: default-provisioner
-  ...
-```
-Using the storageClass-Definiton allows us to define a specific storageClass for this Cluster. Please ensure, that the storageClass exists and is usable. If a Volume cannot provide the Volume will stand in the pending-State as like the Database-Pod.
-
-### Expanding Volume
-The Operator allows to you expand your volume if the storage-System is able to do this. 
-```
-spec:
-  ...
-  volume:
-    size: 10Gi
-    storageClass: default-provisioner
-  ...
-```
-This will trigger the expand of your Cluster-Volumes. It will need some time and you can check the current state inside the pvc.
-```
-kubectl get pvc pgdata-cluster-1-0 -o yaml
--------------------------------------------------------
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: crc-csi-hostpath-provisioner
-  volumeMode: Filesystem
-  volumeName: pvc-800d7ecc-2d5f-4ef4-af83-1cd94c766d37
-status:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 5Gi
-  phase: Bound
-
+  connectionPooler:
+    mode: transaction
+    numberOfInstances: 2
+    resources:
+      limits:
+        cpu: '1'
+        memory: 100Mi
+      requests:
+        cpu: 500m
+        memory: 100Mi
+    schema: pooler
+    user: pooler
 ```
 
-### Creating additonal Volumes
-The Operator allows you to modify your cluster with additonal Volumes.
-```
-spec:
-  ...
-  additionalVolumes:
-    - name: empty
-      mountPath: /opt/empty
-      targetContainers:
-        - all
-      volumeSource:
-        emptyDir: {}
-```
-This example will create an emptyDir and mount it to all Containers inside the Database-Pod.
 
-
-### Specific Settings for aws gp3 Storage
-For the gp3 Storage aws you can define more informations 
-```
-  volume:
-    size: 1Gi
-    storageClass: gp3
-    iops: 1000  # for EBS gp3
-    throughput: 250  # in MB/s for EBS gp3
-
-```
-The defined IOPS and Throughput will include in the PersistentVolumeClaim and send to the storage-Provisioner.
-Please keep in Mind, that on aws there is a CoolDown-Time as a limitation defined. For new Changes you need to wait 6 hours. 
-Please also ensure to check the default and allowed values for IOPS and Throughput [AWS docs](https://aws.amazon.com/ebs/general-purpose/).
-
-To ensure that the settings are updates properly please define the Operator-Configuration 'storage_resize_mode' from default to 'mixed'

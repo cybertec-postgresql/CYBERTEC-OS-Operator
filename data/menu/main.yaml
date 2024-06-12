@@ -42,8 +42,8 @@ main:
             ref: /documentation/how-to-use/monitoring
           # - name: Sidecars
           #   ref: "/documentation/how-to-use/sidecars"
-          # - name: ConnectionPooler
-          #   ref: "/documentation/how-to-use/connectionpooler"
+          - name: ConnectionPooler
+            ref: "/documentation/how-to-use/connectionpooler"
           - name: Major-Upgrade
             ref: "/documentation/how-to-use/major-upgrades"
       # - name: irgendwas 

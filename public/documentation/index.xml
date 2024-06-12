@@ -6,8 +6,15 @@
     <description>Recent content in Documentation on CYBERTEC-PG-Operator</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Apr 2024 14:26:51 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2024 14:26:51 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/CYBERTEC-pg-operator/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ConnectionPooler</title>
+      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/</link>
+      <pubDate>Fri, 31 May 2024 14:26:51 +0100</pubDate>
+      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/</guid>
+      <description>A connection pooler is a tool that acts as a proxy between the application and the database and enables the performance of the application to be improved and the load on the database to be reduced. The reason for this lies in the connection handling of PostgreSQL.&#xA;How PostgreSQL handles connection PostgreSQL use a new Process for every database-connection created by the postmaster. This process is handling the connection. On the positive side, this enables a stable connection and isolation, but it is not particularly efficient for short-lived connections due to the effort required to create them.</description>
+    </item>
     <item>
       <title>Cluster Ressources</title>
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ressources/</link>
@@ -69,13 +76,6 @@
       <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/clone/</link>
       <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
       <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/clone/</guid>
-      <description>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.&#xA;minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &amp;#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&amp;#34; numberOfInstances: 1 postgresql: version: &amp;#34;16&amp;#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.</description>
-    </item>
-    <item>
-      <title>Single Cluster</title>
-      <link>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/</link>
-      <pubDate>Thu, 28 Dec 2023 14:26:51 +0100</pubDate>
-      <guid>http://localhost:1313/CYBERTEC-pg-operator/documentation/how-to-use/ConnectionPooler/</guid>
       <description>Setting up a basic Cluster is pretty easy, we just need the minimum Definiton of a cluster-manifest which can also be find in the operator-tutorials repo on github. We need the following Definitions for the basic cluster.&#xA;minimal Single Cluster apiVersion: cpo.opensource.cybertec.at/v1 kind: postgresql metadata: name: cluster-1 spec: dockerImage: &amp;#34;docker.io/cybertecpostgresql/cybertec-pg-container:postgres-16.1-6-dev&amp;#34; numberOfInstances: 1 postgresql: version: &amp;#34;16&amp;#34; resources: limits: cpu: 500m memory: 500Mi requests: cpu: 500m memory: 500Mi volume: size: 5Gi Based on this Manifest the Operator will deploy a single-Node-Cluster based on the defined dockerImage and start the included Postgres-16-Server.</description>
     </item>
     <item>
