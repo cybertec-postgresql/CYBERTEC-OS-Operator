@@ -12,6 +12,9 @@
 <meta name="generator" content="Hugo 0.127.0">
 
 
+  <meta name="description" content="This chapter covers all important aspects relating to the architecture of CPO and the associated components. In addition to the underlying Kubertnetes, the various components and their interaction for the operation of a PostgreSQL cluster are analysed.
+Brief overview of the components Network-Traffic PG-Cluster-intern Traffic With internal PG cluster-internal traffic, we are talking about all traffic that is necessary for the operation of the cluster itself. This includes
+Communication for the sync of the replicas: pg_basebackup &amp; streaming replication Communication with pgBackRest (if configured) Backups WAL archiving replica-create for new replicas The figure below shows the internal traffic flows with pgBackRest based on block storage (left) or cloud storage (right)" />
 
     <title>Architecture | CYBERTEC-PG-Operator</title>
 
@@ -37,6 +40,9 @@
     content="Architecture"
   />
   <meta property="og:site_name" content="CYBERTEC-PG-Operator" />
+  <meta property="og:description" content="This chapter covers all important aspects relating to the architecture of CPO and the associated components. In addition to the underlying Kubertnetes, the various components and their interaction for the operation of a PostgreSQL cluster are analysed.
+Brief overview of the components Network-Traffic PG-Cluster-intern Traffic With internal PG cluster-internal traffic, we are talking about all traffic that is necessary for the operation of the cluster itself. This includes
+Communication for the sync of the replicas: pg_basebackup &amp; streaming replication Communication with pgBackRest (if configured) Backups WAL archiving replica-create for new replicas The figure below shows the internal traffic flows with pgBackRest based on block storage (left) or cloud storage (right)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/CYBERTEC-pg-operator/architecture/" />
 
@@ -53,6 +59,9 @@
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Architecture" />
+  <meta name="twitter:description" content="This chapter covers all important aspects relating to the architecture of CPO and the associated components. In addition to the underlying Kubertnetes, the various components and their interaction for the operation of a PostgreSQL cluster are analysed.
+Brief overview of the components Network-Traffic PG-Cluster-intern Traffic With internal PG cluster-internal traffic, we are talking about all traffic that is necessary for the operation of the cluster itself. This includes
+Communication for the sync of the replicas: pg_basebackup &amp; streaming replication Communication with pgBackRest (if configured) Backups WAL archiving replica-create for new replicas The figure below shows the internal traffic flows with pgBackRest based on block storage (left) or cloud storage (right)" />
 
 
   <script type="application/ld+json">
@@ -63,7 +72,8 @@
       "name": "Architecture",
       "url" : "http://localhost:1313/CYBERTEC-pg-operator/architecture/",
       "headline": "Architecture",
-      "wordCount" : "0",
+      "description": "This chapter covers all important aspects relating to the architecture of CPO and the associated components. In addition to the underlying Kubertnetes, the various components and their interaction for the operation of a PostgreSQL cluster are analysed.\nBrief overview of the components Network-Traffic PG-Cluster-intern Traffic With internal PG cluster-internal traffic, we are talking about all traffic that is necessary for the operation of the cluster itself. This includes\nCommunication for the sync of the replicas: pg_basebackup \u0026 streaming replication Communication with pgBackRest (if configured) Backups WAL archiving replica-create for new replicas The figure below shows the internal traffic flows with pgBackRest based on block storage (left) or cloud storage (right)",
+      "wordCount" : "146",
       "license": "CC BY-SA 4.0",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -1654,29 +1664,6 @@
           
 
           
-            <input
-              type="checkbox"
-              
-                class="hidden"
-              
-            />
-            <label
-              
-            >
-              <span class="flex">
-                
-                  <svg class="gdoc-icon gdoc_path"><use xlink:href="#gdoc_path"></use></svg>
-                
-                <a
-                  href="/CYBERTEC-pg-operator/level-4"
-                  class="gdoc-nav__entry"
-                >
-                  Roadmap
-                </a>
-              </span>
-              
-            </label>
-          
         
 
         
@@ -1929,7 +1916,80 @@
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <h1>Architecture</h1>
-    
+    <p>This chapter covers all important aspects relating to the architecture of CPO and the associated components. In addition to the underlying Kubertnetes, the various components and their interaction for the operation of a PostgreSQL cluster are analysed.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="brief-overview-of-the-components">
+        Brief overview of the components
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/architecture/#brief-overview-of-the-components" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Brief overview of the components" aria-label="Anchor to: Brief overview of the components" href="#brief-overview-of-the-components">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<div style="text-align:center">
+    <img src="images/architecture_overview.png" alt="drawing" align="center" width="60%" />
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="network-traffic">
+        Network-Traffic
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/architecture/#network-traffic" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Network-Traffic" aria-label="Anchor to: Network-Traffic" href="#network-traffic">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="pg-cluster-intern-traffic">
+        PG-Cluster-intern Traffic
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/architecture/#pg-cluster-intern-traffic" class="gdoc-page__anchor clip flex align-center" title="Anchor to: PG-Cluster-intern Traffic" aria-label="Anchor to: PG-Cluster-intern Traffic" href="#pg-cluster-intern-traffic">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>With internal PG cluster-internal traffic, we are talking about all traffic that is necessary for the operation of the cluster itself. This includes</p>
+<ul>
+<li>Communication for the sync of the replicas:
+<ul>
+<li>pg_basebackup &amp; streaming replication</li>
+</ul>
+</li>
+<li>Communication with pgBackRest (if configured)
+<ul>
+<li>Backups</li>
+<li>WAL archiving</li>
+<li>replica-create for new replicas</li>
+</ul>
+</li>
+</ul>
+<p>The figure below shows the internal traffic flows with pgBackRest based on block storage (left) or cloud storage (right)</p>
+ <div style="text-align:center">
+    <img src="images/architecture_cluster_backup_pvc.png" alt="drawing" width="45%" />
+    <img src="images/architecture_cluster_backup_cloud_storage.png" alt="drawing" width="45%" />
+</div>   
+<div class="gdoc-page__anchorwrap">
+    <h4 id="external-traffic">
+        External Traffic
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/architecture/#external-traffic" class="gdoc-page__anchor clip flex align-center" title="Anchor to: External Traffic" aria-label="Anchor to: External Traffic" href="#external-traffic">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>External traffic, i.e. the connection to the database for the user or the application, takes place via defined Kubernetes services. A distinction must be made here between read/write and read only traffic.</p>
+<div class="gdoc-page__anchorwrap">
+    <h5 id="readwrite">
+        read/write
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/architecture/#readwrite" class="gdoc-page__anchor clip flex align-center" title="Anchor to: read/write" aria-label="Anchor to: read/write" href="#readwrite">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h5>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h5 id="read-only">
+        read-only
+        <a data-clipboard-text="http://localhost:1313/CYBERTEC-pg-operator/architecture/#read-only" class="gdoc-page__anchor clip flex align-center" title="Anchor to: read-only" aria-label="Anchor to: read-only" href="#read-only">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h5>
+</div>
+
   </article>
 
 
