@@ -23,13 +23,16 @@ CPO relies on pgBouncer, a popular and above all lightweight open source tool. p
 
 ## How do I create a pooler for a cluster?
 
-- connection_pooler_number_of_instances How many instances of connection pooler to create. Default is 2 which is also the required minimum.
-- connection_pooler_schema Database schema to create for credentials lookup function to be used by the connection pooler. Is is created in every database of the Postgres cluster. You can also choose an existing schema. Default schema is pooler.
-- connection_pooler_user User to create for connection pooler to be able to connect to a database. You can also choose an existing role, but make sure it has the LOGIN privilege. Default role is pooler.
-- connection_pooler_image Docker image to use for connection pooler deployment. Default: “registry.opensource.zalan.do/acid/pgbouncer”
-- connection_pooler_max_db_connections How many connections the pooler can max hold. This value is divided among the pooler pods. Default is 60 which will make up 30 connections per pod for the default setup with two instances.
-- connection_pooler_mode Default pooler mode, session or transaction. Default is transaction.
-- connection_pooler_default_cpu_request connection_pooler_default_memory_reques connection_pooler_default_cpu_limit connection_pooler_default_memory_limit Default resource configuration for connection pooler deployment.
+- connection_pooler.number_of_instances - How many instances of connection pooler to create. Default is 2 which is also the required minimum.
+- connection_pooler.schema - Database schema to create for credentials lookup function to be used by the connection pooler. Is is created in every database of the Postgres cluster. You can also choose an existing schema. Default schema is pooler.
+- connection_pooler.user - User to create for connection pooler to be able to connect to a database. You can also choose an existing role, but make sure it has the LOGIN privilege. Default role is pooler.
+- connection_pooler.image - Docker image to use for connection pooler deployment. Default: “registry.opensource.zalan.do/acid/pgbouncer”
+- connection_poole.max_db_connections - How many connections the pooler can max hold. This value is divided among the pooler pods. Default is 60 which will make up 30 connections per pod for the default setup with two instances.
+- connection_pooler.mode - Defines pooler mode. Available Value:  `session`,  `transaction` or `statement`. Default is `transaction`.
+- connection_pooler.resources - Hardware definition for the pooler pods
+
+- enableConnectionPooler - Defines whether poolers for read/write access should be created based on the spec.connectionPooler definition. 
+- enableReplicaConnectionPooler- Defines whether poolers for read-only access should be created based on the spec.connectionPooler definition. 
 
 ```
 spec:
@@ -45,6 +48,8 @@ spec:
         memory: 100Mi
     schema: pooler
     user: pooler
+  enableConnectionPooler: true
+  enableReplicaConnectionPooler: true
 ```
 
 
