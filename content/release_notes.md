@@ -11,15 +11,16 @@ draft: false
 - Password-Hash per default set to scram-sha-256
 - pgBackRest with blockstorage using RepoHost
 - Internal Certification-Management for RepoHost-Certificates
+- Compatible with PG17Beta2
 
 #### Changes
 - API Change acid.zalan.do is replaced by cpo.opensource.cybertec.at - If you're updating your Operator from previous Versions, please check this  [HowTo Migrate to new API](documentation/operator/migrateToNewApi/)
-- Patroni-Compatibility has increased to Version 3.3.0
-- pgBackRest-Compatbility has increased to Version 2.51
+- Patroni-Compatibility has increased to Version 3.3.2
+- pgBackRest-Compatbility has increased to Version 2.52.1
 - Revision of the restore process
 - Revision of the backup jobs
 - Operator now using Rocky9 as Baseimage
-- Updates Go-Package to 1.22.1 
+- Updates Go-Package to 1.22.5 
 
 #### Fixes
 - PDB Bug fixed - Single-Node Clusters are not creating PDBs anymore which can break Kubernetes-Update
@@ -27,9 +28,9 @@ draft: false
 
 #### Supported Versions
 
-- PG: 13 - 16 
-- Patroni: 3.3.0
-- pgBackRest: 2.51
+- PG: 13 - 16 & 17Beta2
+- Patroni: 3.3.2
+- pgBackRest: 2.52.1
 - Kubernetes: 1.21 - 1.28
 - Openshift: 4.8 - 4.13
 

@@ -3,8 +3,8 @@ main:
   - name: Home
     ref: "/"
     icon: "gdoc_home"
-  - name: Architecture
-    ref: "architecture"
+  # - name: Architecture
+  #   ref: "architecture"
   - name: Documentation
 #    ref: "/documentation"
     icon: "gdoc_bookmark"
