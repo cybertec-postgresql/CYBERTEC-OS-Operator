@@ -4,6 +4,7 @@ date: 2023-03-07T14:26:51+01:00
 draft: false
 ---
 
+
 We can tell and document so much about our project but it seems you just want to get started. Let us show you the fastest way to use CPO.
 
 ## Preconditions
@@ -15,12 +16,11 @@ We can tell and document so much about our project but it seems you just want to
 ## Let's start
 
 ### Step 1 - Preparations
-To get started, you can fork our tutorial repository on Github and then download it.
+To get started, you can fork or clone our tutorial repository on Github and then download it.
 [CYBERTEC-operator-tutorials](https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials/fork)
 
 ```
-GITHUB_USER='[YOUR_USERNAME]'
-git clone https://github.com/$GITHUB_USER/CYBERTEC-operator-tutorials.git
+git clone https://github.com/cybertec-postgresql/CYBERTEC-operator-tutorials.git
 cd CYBERTEC-operator-tutorials
 ```
 
@@ -56,15 +56,15 @@ The operator is ready and the setup is complete. The next step is the creation o
 ### Step 3 - Create a Cluster
 To create a simple cluster, the following command is sufficient
 ```
-kubectl apply -k cluster-tutorials/single-cluster
+kubectl apply -f cluster-tutorials/single-cluster
 ```
 
 ```
-watch kubectl get pods --selector cluster-name=cluster-1,application=spilo
+watch kubectl get pods --selector cluster-name=cluster-1
 ```
 The result should look like this:
 ```
-Alle 2.0s: kubectl get pods --selector cluster-name=cluster-1,application=spilo                                                                                                               
+Alle 2.0s: kubectl get pods --selector cluster-name=cluster-1                                                                                                            
 
 NAME          READY   STATUS            RESTARTS   AGE
 cluster-1-0   2/2     Running           0          28s
@@ -74,7 +74,7 @@ cluster-1-1   0/2     PodInitializing   0          9s
 ### Step 4 - Connect to the Database
 Get your login information from the secret.
 ```
-kubectl get secret postgres.acid-cluster-1.credentials.postgresql.acid.zalan.do -o jsonpath='{.data}' | jq '.|map_values(@base64d)'
+kubectl get secret postgres.cluster-1.credentials.postgresql.cpo.opensource.cybertec.at -o jsonpath='{.data}' | jq '.|map_values(@base64d)'
 ```
 The result should look like this:
 ```
@@ -86,7 +86,7 @@ The result should look like this:
 #### Connection via port-forward
 
 ```
-port-forward acid-cluster-1-1 5432:5432
+kubectl port-forward cluster-1-0 5432:5432
 ```
 
 ```
