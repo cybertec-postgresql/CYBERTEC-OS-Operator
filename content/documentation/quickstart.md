@@ -49,7 +49,16 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 postgres-operator-599688d948-fw8pw   1/1     Running   0          41s
 ```
 
+Hint: If you want, you can get rid of the need to define -n cpo every time. 
+To do this, you can set your current default namespace in kubectl or oc to cpo
+
 The operator is ready and the setup is complete. The next step is the creation of a Postgres cluster
+```
+# kubectl
+kubectl config set-context --current --namespace=cpo
+# oc
+oc project cpo 
+```
 
 ### Step 3 - Create a Cluster
 To create a simple cluster, the following command is sufficient
